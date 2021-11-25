@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 char zad1(char *tablicaLiter);
 void zad2();
@@ -9,9 +10,10 @@ void zad3();
 void gotox(int x);
 void zad4();
 int zad5();
-int zad6();
-int zad7();
-int zad8();
+void zad6();
+double zad7();
+double zad8();
+double wynik(double x, double y);
 int zad9();
 int zad10();
 int zad11();
@@ -284,17 +286,66 @@ int zad5(){
     }
 }
 
-int zad6(){
-    printf("6!!!\n");
+/*
+
+zad6 -
+slowo: tajnik
+odwrotnosc: kinjat
+
+*/
+
+void zad6(){
+    char slowo[50], odwSlowo[50];
+    printf("Slowo: ");
+    scanf("%s", &slowo);
+    int dlSlowa = strlen(slowo);
+    for(int i = 0; i < dlSlowa; i++){
+        odwSlowo[i] = slowo[dlSlowa-i-1];
+    }
+    printf("Odwrotnosc: %s\n", odwSlowo);
 }
 
-int zad7(){
-    printf("7!!!\n");
+/*
+
+zad7,8 -
+wejscie: 
+liczba1 - 2.5
+liczba2 - 5.0
+
+obliczenie:
+wynik = (liczba1 - liczba2)/(liczba1*liczba2)
+
+*/
+
+
+double zad7(){
+    double x, y, wyliczenie;
+    printf("podaj dwie liczby (q konczy): ");
+    while(scanf("%lf%lf", &x, &y) == 2){
+        wyliczenie = (x-y) / (x*y);
+        printf("wynik: %.3g\n", wyliczenie);
+        printf("podaj dwie liczby (q konczy): ");
+    }
+    printf("koniec\n");
+    return 0;
 }
 
-int zad8(){
-    printf("8!!!\n");
+double zad8(){
+    double x, y, wyliczenie;
+    printf("podaj dwie liczby (q konczy): \n");
+    while(scanf("%lf%lf", &x, &y) ==2 ){
+        wyliczenie = wynik(x,y);
+        printf("wynik: %.3g\n", wyliczenie);
+        printf("podaj dwie liczby (q konczy): \n");
+    }
+    printf("koniec\n");
+    return 0;
 }
+
+double wynik(double a, double b){
+    return (a - b)/(a*b);
+}
+
 
 int zad9(){
     printf("9!!!\n");
