@@ -147,6 +147,13 @@ void gotox(int x){
         putchar(' ');
 }
 
+/* 
+
+zad 1 -
+abcdefghijklmnopqrstuvwxyz
+
+*/
+
 char zad1(char tablicaLiter[]){
     // wpisanie danych
     /*printf("Wpisz 26 liter: ");
@@ -162,6 +169,18 @@ char zad1(char tablicaLiter[]){
     
 }
 
+/* 
+
+zad 2 -
+
+$
+$$
+$$$
+$$$$
+$$$$$
+
+*/
+
 void zad2(){
     char ch = '$';
     for(int i = 0; i < 5; i++)
@@ -173,6 +192,17 @@ void zad2(){
     }
     printf("\n");
 }
+
+/*
+
+zad 3 - 
+A
+AB
+ABC
+ABCD
+ABCDE
+
+*/
 
 void zad3(){
     char ch = 'A';
@@ -186,6 +216,20 @@ void zad3(){
     printf("\n");
 }
 
+
+/*
+
+zad 4 -
+
+chcę otrzymać:
+
+    A
+   BAB
+  CBABC
+ DCBABCD 
+
+*/
+
 void zad4(){
 
     /* choinka - uproszczona wersja, 
@@ -198,9 +242,10 @@ void zad4(){
 
     dla liczba = 5;
 
-     */
+    */
 
     /*
+    
     int liczba;
     printf("Podaj liczbe wierszy: ");
     scanf("%d", &liczba);
@@ -209,9 +254,22 @@ void zad4(){
         for (int j = 0; j < i; j++) printf("**");
         putchar('\n');
     }
+    
     */    
 }
 
+/* 
+
+zad 5 -
+n n*n n*n*n
+
+1  1  1
+2  4  8
+3  9  27
+
+wyświetla liczby w zakresie granicy dolnej i górej
+
+*/
 int zad5(){
     int minimum, maksimum;
     printf("Podaj minimum: "); scanf("%d", &minimum);
