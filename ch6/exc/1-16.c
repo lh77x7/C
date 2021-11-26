@@ -3,144 +3,51 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 char zad1(char *tablicaLiter);
 void zad2();
 void zad3();
 void gotox(int x);
 void zad4();
-int zad5();
+void zad5();
 void zad6();
-double zad7();
-double zad8();
+void zad7();
+void zad8();
 double wynik(double x, double y);
-int zad9();
-int zad10();
-int zad11();
-int zad12();
-int zad13();
-int zad14();
-int zad15();
-int zad16();
+void zad9();
+void zad10();
+void zad11();
+void zad12();
+void zad13();
+void zad14();
+void zad15();
+void zad16();
 
 // dane do zadan
 // 6.1
 char tablicaLiter[]="abcdefghijklmnopqrstuvwxyz";
 
-// 6.2 - 6.3
+// 6.2/6.3/6.4
 char ch;
 
-// 6.4
-
-
-// 6.5
-
-
-// 6.6
-
-
 // 6.7 
+double liczba;
 
 
-// 6.8
-
-
-// 6.9
-
-
-// 6.10
+// 6.10/6.13
 #define rozmiar 8
-
-// 6.11
-
-
-// 6.12
-
-
-// 6.13
-
-
-// 6.14
-
-
-// 6.15
-
-
-// 6.16
 
 
 int main(void){
     int choice;
 
-    while (1)
-    {
-        printf("1 - 1  4 - 4  7 - 7  10 - 10  13 - 13  16 - 16\n");
-        printf("2 - 2  5 - 5  8 - 8  11 - 11  14 - 14  17 - koniec\n");
-        printf("3 - 3  6 - 6  9 - 9  12 - 12  15 - 15\n");
-        printf("Wybierz numer zadania z listy: ");
-        scanf("%d", &choice);
-         
-        switch (choice)
-        {
-        
-        case 1:
-            zad1(tablicaLiter);
-            break;
-        case 2:
-            zad2();
-            break;
-        case 3:
-            zad3();
-            break;
-        case 4:
-            zad4();
-            break;
-        case 5:
-            zad5();
-            break;
-        case 6:
-            zad6();
-            break;
-        case 7:
-            zad7();
-            break;
-        case 8:
-            zad8();
-            break;
-        case 9:
-            zad9();
-            break;
-        case 10:
-            zad10();
-            break;
-        case 11:
-            zad11();
-            break;
-        case 12: 
-            zad12();
-            break;
-        case 13:
-            zad13();
-            break;
-        case 14:
-            zad14();
-            break;
-        case 15:
-            zad15();
-            break;
-        case 16:
-            zad16();
-            break;
-        case 17:
-            printf("Koniec!");
-            exit(0);
-        default:
-            printf("Wybierz numer od 1 - 17.\n");
-            break;
-        }
-        
-    }
-    
+    //choice !='q';
+    //opcje, wybor za pomoca switch i break;
+    //wykonanie wybranej funkcji;
+    //powrot do opcji, jesli nie 'q';
+    //jeśli q to koniec;
+
     return 0;
 }
 
@@ -272,7 +179,7 @@ n n*n n*n*n
 wyświetla liczby w zakresie granicy dolnej i górej
 
 */
-int zad5(){
+void zad5(){
     int minimum, maksimum;
     printf("Podaj minimum: "); scanf("%d", &minimum);
     printf("Podaj maksimum: "); scanf("%d", &maksimum);
@@ -318,7 +225,7 @@ wynik = (liczba1 - liczba2)/(liczba1*liczba2)
 */
 
 
-double zad7(){
+void zad7(){
     double x, y, wyliczenie;
     printf("podaj dwie liczby (q konczy): ");
     while(scanf("%lf%lf", &x, &y) == 2){
@@ -336,7 +243,7 @@ to samo co 7
 
 */
 
-double zad8(){
+void zad8(){
     double x, y, wyliczenie;
     printf("podaj dwie liczby (q konczy): \n");
     while(scanf("%lf%lf", &x, &y) ==2 ){
@@ -361,7 +268,7 @@ suma = 5*5 + 6*6 + 7*7 + 8*8;
 
 */
 
-int zad9(){
+void zad9(){
     int min, maks, tab[100];
     printf("Podaj dolny zakres: "); scanf("%d", &min);
     printf("Podaj gorny zakres: "); scanf("%d", &maks);
@@ -379,7 +286,6 @@ int zad9(){
         printf("Minium musi byc wieksze od maks.\n");
     }
     
-    
 }
 
 /*
@@ -392,7 +298,7 @@ wyjscie:
 
 */
 
-int zad10(){
+void zad10(){
     int tablica[rozmiar];
     printf("Podaj 8 liczb calkowitych: ");
     for(int i = 0; i < rozmiar ; i++)
@@ -416,7 +322,7 @@ ciąg 2:
 
 */
 
-int zad11(){
+void zad11(){
     printf("11!!!\n");
 }
 
@@ -428,7 +334,7 @@ wyswietlanie pierwszych 8 poteg w tablicy int.
 
 */
 
-int zad12(){
+void zad12(){
     int tablica[rozmiar];
     // przypisanie wartości do tablicy
     for(int i = 0; i < rozmiar; i++){
@@ -445,18 +351,51 @@ int zad12(){
     printf("\n");
 }
 
-int zad13(){
-    printf("13!!!\n");
+
+/*
+
+zad13-
+przykład.
+wejscie: 
+tab1[8] = [1,2,4,8,10,20,20,40];
+tab2[8] = [3,8,16,26,46,66,106];
+
+*/
+
+
+void zad13(){
+    double tablica1[rozmiar], tablica2[rozmiar], suma;
+    printf("podaj wartosci pierwszej tablicy: ");
+    // wpisanie wartosci
+    for(int i = 0; i < rozmiar; i++) {
+        scanf("%lf", &tablica1[i]);
+    }
+    // przypisanie wartosci do drugiej tablicy
+    for(int i = 0; i < rozmiar; i++) {
+        for (int j = 0; j < rozmiar-1; j++) {
+            tablica2[j] = tablica1[i];
+        }
+    }
+    // wartości tablicy1
+    for(int i = 0; i < rozmiar; i++){
+        printf("%.2lf ", tablica1[i]);
+    }
+    printf("\n");
+    // wyswietlenie tablicy 2
+    for(int j = 0; j < rozmiar-1; j++){
+        printf("%.2lf ", tablica2[j]);
+    }
+    printf("\n");
 }
 
-int zad14(){
+void zad14(){
     printf("14!!!\n");
 }
 
-int zad15(){
+void zad15(){
     printf("15!!!\n");
 }
 
-int zad16(){
+void zad16(){
     printf("16!!!\n");
 }
