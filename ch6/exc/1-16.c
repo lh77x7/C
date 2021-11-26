@@ -42,11 +42,64 @@ double liczba;
 int main(void){
     int choice;
 
-    //choice !='q';
-    //opcje, wybor za pomoca switch i break;
-    //wykonanie wybranej funkcji;
-    //powrot do opcji, jesli nie 'q';
-    //jeśli q to koniec;
+    printf("Podaj liczbe od 1-16(q konczy): ");
+    while(scanf("%d", &choice) == 1)
+    {
+        switch (choice)
+        {
+        case 1:
+            zad1(tablicaLiter);
+            break;
+        case 2:
+            zad2();
+            break;
+        case 3:
+            zad3();
+            break;
+        case 4:
+            zad4();
+            break;
+        case 5:
+            zad5();
+            break;
+        case 6:
+            zad6();
+            break;
+        case 7:
+            zad7();
+            break;
+        case 8:
+            zad8();
+            break;
+        case 9:
+            zad9();
+            break;
+        case 10:
+            zad10();
+            break;
+        case 11:
+            zad11();
+            break;
+        case 12:
+            zad12();
+            break;
+        case 13:
+            zad13();
+            break;
+        case 14:
+            zad14();
+        case 15:
+            zad15();
+            break;
+        case 16:
+            zad16();
+            break;        
+        default:
+            break;
+        }
+        printf("Podaj liczbe od 1-16 (q konczy): ");
+    }
+    printf("Koniec programu.\n");
 
     return 0;
 }
@@ -246,7 +299,7 @@ to samo co 7
 void zad8(){
     double x, y, wyliczenie;
     printf("podaj dwie liczby (q konczy): \n");
-    while(scanf("%lf%lf", &x, &y) ==2 ){
+    while(scanf("%lf%lf", &x, &y) == 2 ){
         wyliczenie = wynik(x,y);
         printf("wynik: %.3g\n", wyliczenie);
         printf("podaj dwie liczby (q konczy): \n");
