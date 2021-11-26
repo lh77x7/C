@@ -49,7 +49,7 @@ char ch;
 
 
 // 6.10
-
+#define rozmiar 8
 
 // 6.11
 
@@ -327,8 +327,14 @@ double zad7(){
         printf("podaj dwie liczby (q konczy): ");
     }
     printf("koniec\n");
-    return 0;
 }
+
+/*
+
+zad 8-
+to samo co 7
+
+*/
 
 double zad8(){
     double x, y, wyliczenie;
@@ -339,28 +345,104 @@ double zad8(){
         printf("podaj dwie liczby (q konczy): \n");
     }
     printf("koniec\n");
-    return 0;
 }
 
 double wynik(double a, double b){
     return (a - b)/(a*b);
 }
 
+/*
+
+zad 9-
+suma kwadratów z przedziału liczb
+wejscie:
+5, 8
+suma = 5*5 + 6*6 + 7*7 + 8*8;
+
+*/
 
 int zad9(){
-    printf("9!!!\n");
+    int min, maks, tab[100];
+    printf("Podaj dolny zakres: "); scanf("%d", &min);
+    printf("Podaj gorny zakres: "); scanf("%d", &maks);
+    if(min < maks) {
+        int zakres = maks - min;
+        tab[0] = min;
+        tab[zakres] = maks;
+        printf("%d %d\n", tab[0], tab[zakres]);
+        printf("zakres: %d\n", zakres);
+        int suma = 0;
+        for (int i = 0; i < tab[zakres]; i++)
+            suma += tab[i];
+            printf("Suma: %d\n", suma);
+    } else {
+        printf("Minium musi byc wieksze od maks.\n");
+    }
+    
+    
 }
 
+/*
+
+zad10-
+wejscie:
+10 9 8 7 6 5 4 3 2 1
+wyjscie:
+1 2 3 4 5 6 7 8 9 10
+
+*/
+
 int zad10(){
-    printf("10!!!\n");
+    int tablica[rozmiar];
+    printf("Podaj 8 liczb calkowitych: ");
+    for(int i = 0; i < rozmiar ; i++)
+    {
+        scanf("%d", &tablica[i]);
+    }
+    for (int i = rozmiar; i > 0 ; i--) {
+        printf("%d ", tablica[i-1]);
+    }
+    printf("\n");
 }
+
+/*
+
+obliczanie granicy ciągów
+ciąg 1:
++ 1.0/2.0 + 1.0/3.0 + 1.0/4.0 + ...
+
+ciąg 2:
+- 1.0/2.0 + 1.0/3.0 - 1.0/4.0 + ...
+
+*/
 
 int zad11(){
     printf("11!!!\n");
 }
 
+/*
+
+zad12-
+wyswietlanie pierwszych 8 poteg w tablicy int.
+1 2 4 8 16 32 64 128
+
+*/
+
 int zad12(){
-    printf("12!!!\n");
+    int tablica[rozmiar];
+    // przypisanie wartości do tablicy
+    for(int i = 0; i < rozmiar; i++){
+        tablica[i] = 1;     // przypisanie początkowej wartości do tablicy 
+        for(int j = 0; j <= i-1; j++){
+            // przypisanie potęgi 2 do tablicy za pomocą pętli wewnętrznej
+            tablica[i] = tablica[i]*2;
+        }
+    }
+    // wyswietlanie zapisanych wartości
+    for(int i = 0; i < rozmiar; i++){
+        printf("%d\n", tablica[i]);
+    }
+    printf("\n");
 }
 
 int zad13(){
