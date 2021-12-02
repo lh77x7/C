@@ -104,6 +104,27 @@ int main(void){
     return 0;
 }
 
+/*
+
+1 - DONE
+2 - DONE 
+3 - DONE
+4 - NOT DONE!
+5 - DONE
+6 - DONE
+7 - DONE
+8 - DONE
+9 - DONE
+10 - DONE
+11 - NOT DONE!
+12 - DONE
+13 - NOT DONE!
+14 - NOT DONE!
+15 - NOT DONE!
+16 - NOT DONE!
+
+*/
+
 void gotox(int x){
     for(x; x > 0; --x)
         putchar(' ');
@@ -299,12 +320,13 @@ to samo co 7
 void zad8(){
     double x, y, wyliczenie;
     printf("podaj dwie liczby (q konczy): \n");
-    while(scanf("%lf%lf", &x, &y) == 2 ){
+    while(scanf("%lf %lf", &x, &y) == 2 ){
         wyliczenie = wynik(x,y);
         printf("wynik: %.3g\n", wyliczenie);
         printf("podaj dwie liczby (q konczy): \n");
     }
     printf("koniec\n");
+    return;
 }
 
 double wynik(double a, double b){
@@ -326,7 +348,7 @@ void zad9(){
     printf("Podaj dolny zakres: "); scanf("%d", &min);
     printf("Podaj gorny zakres: "); scanf("%d", &maks);
     if(min < maks) {
-        for(int i = min; i < maks; i++)
+        for(int i = min; i <= maks; i++)
         {
             suma = suma + (i*i);
             printf("Suma: %d dla i = %d\n", suma, i);
@@ -417,27 +439,15 @@ tab2[8] = [3,8,16,26,46,66,106];
 
 void zad13(){
     double tablica1[rozmiar], tablica2[rozmiar], suma;
-    printf("podaj wartosci pierwszej tablicy: ");
-    // wpisanie wartosci
-    for(int i = 0; i < rozmiar; i++) {
-        scanf("%lf", &tablica1[i]);
-    }
-    // przypisanie wartosci do drugiej tablicy
-    for(int i = 0; i < rozmiar; i++) {
-        for (int j = 0; j < rozmiar-1; j++) {
-            tablica2[j] = tablica1[i];
-        }
-    }
-    // wartości tablicy1
-    for(int i = 0; i < rozmiar; i++){
-        printf("%.2lf ", tablica1[i]);
-    }
-    printf("\n");
-    // wyswietlenie tablicy 2
-    for(int j = 0; j < rozmiar-1; j++){
-        printf("%.2lf ", tablica2[j]);
-    }
-    printf("\n");
+    // wpisz wartosci tablicy1
+    // przypisz wartości tablicy2
+    // wyświetl wartości tablicy1 oraz tablicy2
+    // tab2 [j] = tab1 [i(sum(x, x-1))];
+    // wartosc indeksu tablicy 2 = suma indeksów tablicy 1 poprzednich elementów
+    /* ex.  tab1 [3] = [1, 2, 4];
+            tab2 [3] = [3, 7];
+    */
+
 }
 
 void zad14(){
