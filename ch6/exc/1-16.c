@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <math.h>
 
 char zad1(char *tablicaLiter);
 void zad2();
@@ -120,7 +121,7 @@ int main(void){
 12 - DONE
 13 - NOT DONE!
 14 - NOT DONE!
-15 - NOT DONE!
+15 - DONE
 16 - NOT DONE!
 
 */
@@ -450,13 +451,54 @@ void zad13(){
 
 }
 
+/*
+
+zad14 -
+
+
+*/
+
 void zad14(){
     printf("14!!!\n");
 }
 
+
+/*
+
+zad15 -
+inwestycja Ewy - 100 zł i 10% procent prosty (rocznie)
+inwestycja Kasi - 100 zł i 5% procent składany (rocznie)
+
+Po ilu latach inwestycja Kasi większa od inwestycji Ewy?
+
+*/
+
 void zad15(){
-    printf("15!!!\n");
+
+    float kwota = 100;
+    float inwestycjaEwy, inwestycjaKasi;
+    for(int i = 0; i < 40; i++)     // licznik na 40 lat inwestycji
+    {
+        inwestycjaEwy = kwota * (1 + 0.1*i);         // obliczenie procentu prostego dla inw. Ewy            
+        printf("(Ewa) %f dla roku = %d\n", inwestycjaEwy, i);  // wyświetlenie wyników dla Ewy
+
+        inwestycjaKasi = kwota * pow(1.05, i);      // obliczenie procentu składanego dla inw. Kasi
+        printf("(Kasia) %f dla roku = %d\n", inwestycjaKasi, i); // wyświetlenie wyników dla Kasi      
+        
+        if(inwestycjaKasi > inwestycjaEwy){
+            printf("------------\n");
+            printf("Po ile latach? Po %d latach.\n", i);
+            printf("------------\n");
+            break;  
+        }
+    } 
 }
+
+/*
+
+zad16 -
+
+*/
 
 void zad16(){
     printf("16!!!\n");
