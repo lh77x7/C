@@ -322,22 +322,21 @@ suma = 5*5 + 6*6 + 7*7 + 8*8;
 */
 
 void zad9(){
-    int min, maks, tab[100];
+    int min, maks, suma=0;
     printf("Podaj dolny zakres: "); scanf("%d", &min);
     printf("Podaj gorny zakres: "); scanf("%d", &maks);
     if(min < maks) {
-        int zakres = maks - min;
-        tab[0] = min;
-        tab[zakres] = maks;
-        printf("%d %d\n", tab[0], tab[zakres]);
-        printf("zakres: %d\n", zakres);
-        int suma = 0;
-        for (int i = 0; i < tab[zakres]; i++)
-            suma += tab[i];
-            printf("Suma: %d\n", suma);
+        for(int i = min; i < maks; i++)
+        {
+            suma = suma + (i*i);
+            printf("Suma: %d dla i = %d\n", suma, i);
+        }
     } else {
         printf("Minium musi byc wieksze od maks.\n");
     }
+    printf("------------------------------\n");
+    printf("Suma koncowa: %d\n", suma);
+    printf("------------------------------\n");
     
 }
 
