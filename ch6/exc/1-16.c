@@ -89,6 +89,7 @@ int main(void){
             break;
         case 14:
             zad14();
+            break;
         case 15:
             zad15();
             break;
@@ -122,7 +123,7 @@ int main(void){
 13 - NOT DONE!
 14 - NOT DONE!
 15 - DONE
-16 - NOT DONE!
+16 - DONE
 
 */
 
@@ -449,17 +450,21 @@ void zad13(){
             tab2 [3] = [3, 7];
     */
 
+
 }
+
 
 /*
 
 zad14 -
-
+wczytywanie znaków do char tab[255], zanim znak nowej lini
+wejście: abcedeefdet
+wyjście: tedfeedecba
 
 */
 
 void zad14(){
-    printf("14!!!\n");
+    
 }
 
 
@@ -497,9 +502,22 @@ void zad15(){
 /*
 
 zad16 -
+1 000 000 $ z 8% rocznie (procent prosty)
+Co 1 rok wyciągane jest 100 000 $
+Ile lat zanim stan konta wyniesie 0 $?
 
 */
 
 void zad16(){
-    printf("16!!!\n");
+
+    float reszta, kwota = 1000000;
+    for(int i = 1; i < 100; i++)
+    {
+        reszta = kwota * (1 + 0.08 * i);    // procent prosty 8% rocznie
+        kwota -= 100000;                  // wypłata roczna 100 000 $
+        printf("%.2f w roku = %d\n", reszta, i);
+        if(kwota < 0) {
+            break;
+        }
+    }
 }
