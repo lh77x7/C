@@ -108,22 +108,22 @@ int main(void){
 
 /*
 
-1 - DONE
-2 - DONE 
-3 - DONE
-4 - NOT DONE!
-5 - DONE
-6 - DONE
-7 - DONE
-8 - DONE
-9 - DONE
-10 - DONE
-11 - NOT DONE!
-12 - DONE
-13 - NOT DONE!
-14 - NOT DONE!
-15 - DONE
-16 - DONE
+1 -     DONE
+2 -     DONE 
+3 -     DONE
+4 -     NOT DONE!
+5 -     DONE
+6 -     DONE
+7 -     DONE
+8 -     DONE
+9 -     DONE
+10 -    DONE
+11 -    DONE
+12 -    DONE
+13 -    NOT DONE!
+14 -    NOT DONE!
+15 -    DONE
+16 -    DONE
 
 */
 
@@ -399,7 +399,23 @@ ciąg 2:
 */
 
 void zad11(){
-    printf("11!!!\n");
+    float suma1=0, suma2=0;
+    int zakres;
+    printf("Podaj ilosc elementow ciagu: ");
+    scanf("%d", &zakres);
+    // obliczenie sumy ciągu sum1 = + 1.0/2.0 + 1.0/3.0 + 1.0/4.0 + ...
+    for(int i = 0; i < zakres; i++){
+        suma1 += 1.0 / (i + 2.0);
+        printf("(ciag1) %.4f przy i = %d\n", suma1, i);
+    }
+
+    printf("\n");
+    // obliczenie sumy ciągu sum2 = - 1.0/2.0 + 1.0/3.0 - 1.0/4.0 + ...
+    for (int i = 0; i < zakres; i++){
+        if(i%2) suma2 = suma2 + 1.0 / (i + 2.0);
+        else    suma2 = suma2 - 1.0 / (i + 2.0);
+        printf("(ciag2) %.4f przy i = %d\n", suma2, i);
+    }
 }
 
 /*
