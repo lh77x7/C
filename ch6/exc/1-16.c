@@ -111,7 +111,7 @@ int main(void){
 1 -     DONE
 2 -     DONE 
 3 -     DONE
-4 -     NOT DONE!
+4 -     DONE
 5 -     DONE
 6 -     DONE
 7 -     DONE
@@ -240,7 +240,23 @@ void zad4(){
         putchar('\n');
     }
     
-    */    
+    */
+
+    int i,j;
+    char znak;
+    printf("Podaj znak: ");
+    scanf("%s", &znak);
+    int stopnie = znak - (char) 'A';
+    // stopnie
+    printf("\n");
+    for(i = 0; i < stopnie + 1; i++)
+    {
+        for(j = 0; j <= stopnie - i - 1; j++) printf(" ");      // spacje ' '
+        //for (j = 0; j <= i * 2; j++)    printf("%c", znak - stopnie);     // znak
+        for (znak = 'A'; znak < ('A' + i*2 + 1); znak++) printf("%c", znak);
+        printf("\n");
+    }
+    printf("\n");
 }
 
 /* 
@@ -490,7 +506,6 @@ wyjście: tedfeedecba
 */
 
 void zad14(){
-    // 
     
 }
 
