@@ -127,11 +127,6 @@ int main(void){
 
 */
 
-void gotox(int x){
-    for(x; x > 0; --x)
-        putchar(' ');
-}
-
 /* 
 
 zad 1 -
@@ -140,11 +135,6 @@ abcdefghijklmnopqrstuvwxyz
 */
 
 char zad1(char tablicaLiter[]){
-    // wpisanie danych
-    /*printf("Wpisz 26 liter: ");
-    for (int i = 0; i < 26; i++){
-        scanf("%c", &tablicaLiter[i]);
-    }*/
     // wypisanie danych
     for(int i = 0; i < 26; i++){
         printf("%c", tablicaLiter[i]);
@@ -216,31 +206,6 @@ chcę otrzymać:
 */
 
 void zad4(){
-
-    /* choinka - uproszczona wersja, 
-    
-        **
-       ****
-      ******
-     ********
-    **********
-
-    dla liczba = 5;
-
-    */
-
-    /*
-    
-    int liczba;
-    printf("Podaj liczbe wierszy: ");
-    scanf("%d", &liczba);
-    for(int i = 1; i < liczba; i++){
-        gotox(liczba - i);
-        for (int j = 0; j < i; j++) printf("**");
-        putchar('\n');
-    }
-    
-    */
 
     int i,j;
     char znak;
