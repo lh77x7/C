@@ -437,7 +437,7 @@ tab2[8] = [3,8,16,26,46,66,106];
 
 
 void zad13(){
-    float tablica1[rozmiar], tablica2[rozmiar], suma=0;
+    float tablica1[rozmiar], tablica2[rozmiar], tablica3[rozmiar], suma;
     // wpisz wartosci tablicy1
     // przypisz wartości tablicy2
     // wyświetl wartości tablicy1 oraz tablicy2
@@ -448,16 +448,48 @@ void zad13(){
     */
 
    // wpisz wartosci tablicy1
-   for( int i = 0; i < rozmiar; i++)
+   printf("Tablica1. Wpisz wartosci: ");
+   for(int i = 0; i < rozmiar; i++)
    {
-       scanf("%d", &tablica1[i]);
+       scanf("%f", &tablica1[i]);
    }
 
-   // licz sumę elementów w indeksie
-   for(int i = 0; i < rozmiar; i++){
-       printf("%d ", tablica1[i]);
-   }
 
+    // wpisz wartosci tablicy2
+    printf("Tablica2. Wpisz wartosci: ");
+    for(int i = 0; i < rozmiar; i++)
+    {
+        scanf("%f", &tablica2[i]);
+    }
+
+    // sprawdz zawartosc tablicy1
+
+    printf("Tablica1: ");
+    for (int i = 0; i < rozmiar; i++){
+        printf("%.2f ", tablica1[i]);
+    }
+    printf("\n");
+
+    // sprawdz zawartosc tablicy2
+    printf("Tablica2: ");
+    for (int i = 0; i < rozmiar; i++){
+        printf("%.2f ", tablica2[i]);
+    }
+
+    printf("\n");
+
+    // licz sumę elementów w indeksie
+    suma = 0;
+    printf("Sumy tablic: ");
+    for(int i = 0; i < rozmiar; i++){
+        suma = tablica1[i] + tablica2[i];
+        printf("%.2f ", suma);
+    }
+    printf("\n");
+
+    //przypisz do tablicy2 wartości tablicy1 jako sumy jej poprzednich elementów
+    printf("Tablica3: ");
+    
 }
 
 
