@@ -9,7 +9,6 @@
 char zad1(char *tablicaLiter);
 void zad2();
 void zad3();
-void gotox(int x);
 void zad4();
 void zad5();
 void zad6();
