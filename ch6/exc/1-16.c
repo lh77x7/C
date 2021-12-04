@@ -456,7 +456,7 @@ tab2[8] = [3,8,16,26,46,66,106];
 
 
 void zad13(){
-    double tablica1[rozmiar], tablica2[rozmiar], suma;
+    float tablica1[rozmiar], tablica2[rozmiar], suma=0;
     // wpisz wartosci tablicy1
     // przypisz wartości tablicy2
     // wyświetl wartości tablicy1 oraz tablicy2
@@ -466,6 +466,16 @@ void zad13(){
             tab2 [3] = [3, 7];
     */
 
+   // wpisz wartosci tablicy1
+   for( int i = 0; i < rozmiar; i++)
+   {
+       scanf("%d", &tablica1[i]);
+   }
+
+   // licz sumę elementów w indeksie
+   for(int i = 0; i < rozmiar; i++){
+       printf("%d ", tablica1[i]);
+   }
 
 }
 
@@ -480,6 +490,7 @@ wyjście: tedfeedecba
 */
 
 void zad14(){
+    // 
     
 }
 
