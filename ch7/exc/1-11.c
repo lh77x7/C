@@ -67,6 +67,22 @@ int main(void){
     return 0;
 }
 
+/*
+
+1 -     NOT DONE!
+2 -     NOT DONE!
+3 -     NOT DONE!
+4 -     NOT DONE!
+5 -     NOT DONE!
+6 -     NOT DONE!
+7 -     NOT DONE!
+8 -     NOT DONE!
+9 -     NOT DONE!
+10 -    NOT DONE!
+11 -    NOT DONE!
+
+*/
+
 // definicje funkcji
 
 void zad1(){

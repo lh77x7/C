@@ -53,6 +53,19 @@ int main(void){
     return 0;
 }
 
+/*
+
+1 -     NOT DONE!
+2 -     NOT DONE!
+3 -     NOT DONE!
+4 -     NOT DONE!
+5 -     NOT DONE!
+6 -     NOT DONE!
+7 -     NOT DONE!
+8 -     NOT DONE!
+
+*/
+
 void zad1(){
     printf("1\n");
 }
