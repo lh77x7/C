@@ -17,6 +17,8 @@ void zad10();
 void zad11();
 void zad12();
 void zad13();
+void kopiuj_tab(double zrodlo[5], double cel1[5], int size);
+void kopiuj_wsk(double zrodlo[5], double cel2[5], int size);
 
 int main(void){
     int choice;
@@ -78,7 +80,7 @@ int main(void){
 /*
 
 1 -     DONE
-2 -     NOT DONE!
+2 -     DONE
 3 -     NOT DONE!
 4 -     NOT DONE!
 5 -     NOT DONE!
@@ -129,7 +131,11 @@ void zad1(){
 }
 
 void zad2(){
-    printf("2\n");
+    double zrodlo[5] = {1.1, 2.2, 3.3, 4.4, 5.5};
+    double cel1[5];
+    double cel2[5];
+    kopiuj_tab(zrodlo, cel1, 5);
+    kopiuj_wsk(zrodlo, cel2, 5);
 }
 
 void zad3(){
@@ -176,10 +182,24 @@ void zad13(){
     printf("13\n");
 }
 
-
 // dodatkowe funkcje pomocnicze do rozwiązania zadań 
-/*
 
+void kopiuj_tab(double zrodlo[5], double cel1[5], int size){
+    printf("cel1: ");
+    for(int i = 0; i < size; i++) {
+        cel1[i] = zrodlo[i];
+        // potwierdzenie kopiowania poprzez wyświetlenie
+        printf("%.2f ", cel1[i]);
+    }
+    printf("\n");
+}
 
-
-*/
+void kopiuj_wsk(double zrodlo[5], double cel2[5], int size){
+    printf("cel2: ");
+    for(int i = 0; i < size; i++){
+        *(cel2 + i) = *(zrodlo + i);
+        // wyświetl skopiowana zawartosc do *(cel2 + i)
+        printf("%.2f ", *(cel2+i));
+    }
+    printf("\n");
+}
