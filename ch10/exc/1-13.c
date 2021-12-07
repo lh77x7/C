@@ -17,8 +17,8 @@ void zad10();
 void zad11();
 void zad12();
 void zad13();
-void kopiuj_tab(double zrodlo[5], double cel1[5], int size);
-void kopiuj_wsk(double zrodlo[5], double cel2[5], int size);
+void kopiuj_tab(double zrodlo[], double cel1[], int size);
+void kopiuj_wsk(double zrodlo[], double cel2[], int size);
 
 int main(void){
     int choice;
@@ -171,7 +171,8 @@ void zad5(){
 }
 
 void zad6(){
-    printf("6\n");
+    double tablica1[2][3] = {{1, 2, 3}, {3, 4, 5}};
+    double tablica2[2][3];
 }
 
 void zad7(){
@@ -204,22 +205,22 @@ void zad13(){
 
 // dodatkowe funkcje pomocnicze do rozwiązania zadań 
 
-void kopiuj_tab(double zrodlo[5], double cel1[5], int size){
-    printf("cel1: ");
+void kopiuj_tab(double zrodlo[], double cel1[], int size){
+    //printf("cel1: ");
     for(int i = 0; i < size; i++) {
         cel1[i] = zrodlo[i];
         // potwierdzenie kopiowania poprzez wyświetlenie
-        printf("%.2f ", cel1[i]);
+        //printf("%.2f ", cel1[i]);  // użyj tylko, aby sprawdzić
     }
     printf("\n");
 }
 
-void kopiuj_wsk(double zrodlo[5], double cel2[5], int size){
-    printf("cel2: ");
+void kopiuj_wsk(double zrodlo[], double cel2[], int size){
+    //printf("cel2: "); // 
     for(int i = 0; i < size; i++){
         *(cel2 + i) = *(zrodlo + i);
         // wyświetl skopiowana zawartosc do *(cel2 + i)
-        printf("%.2f ", *(cel2+i));
+        //printf("%.2f ", *(cel2+i)); // użyj tylko, aby sprawdzić
     }
     printf("\n");
 }
