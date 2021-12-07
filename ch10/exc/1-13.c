@@ -81,9 +81,9 @@ int main(void){
 
 1 -     DONE
 2 -     DONE
-3 -     NOT DONE!
-4 -     NOT DONE!
-5 -     NOT DONE!
+3 -     DONE
+4 -     DONE
+5 -     DONE
 6 -     NOT DONE!
 7 -     NOT DONE!
 8 -     NOT DONE!
@@ -139,15 +139,35 @@ void zad2(){
 }
 
 void zad3(){
-    printf("3\n");
+    int tab[10] = {1, 2, 5, 4, 4, 4, 4, 10, 11, 8};
+    int poz;
+    int najwiekszy = tab[0];
+    int najmniejszy = tab[0];
+    
+    for(int i = 0; i < 10; i++)
+    {
+        if(tab[i] > najwiekszy)     // znajdź największy element tablicy
+            najwiekszy = tab[i];
+
+        if(tab[i] < najmniejszy)    // znajdź najmniejszy element tablicy
+            najmniejszy = tab[i];
+    }
+    printf("najwiekszy: %d, najmniejszy: %d, roznica: %d\n", najwiekszy, najmniejszy, najwiekszy-najmniejszy);
 }
 
 void zad4(){
-    printf("4\n");
+    int tab[10] = {1, 2, 5, 4, 4, 4, 4, 10, 9, 8};
+    int index = 0;
+    for(int i = 0; i < 10; i++)
+    {
+        if(tab[i] > tab[index])
+            index = i;
+    }
+    printf("Indeks najwiekszego: %d\n", index+1);
 }
 
 void zad5(){
-    printf("5\n");
+    printf("Patrz rozwiazanie zadania 3!\n");
 }
 
 void zad6(){
