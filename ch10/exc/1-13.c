@@ -139,9 +139,9 @@ void zad2(){
 }
 
 void zad3(){
-    int tab[10] = {1, 2, 5, 4, 4, 4, 4, 10, 11, 8};
+    int tab[10] = {1, 2, 5, 4, 4, 4, 4, 10, 11, 8};     // testowa tablica
     int poz;
-    int najwiekszy = tab[0];
+    int najwiekszy = tab[0];        // największy i najmniejszy przypisany do pierwszego elementu tablicy
     int najmniejszy = tab[0];
     
     for(int i = 0; i < 10; i++)
@@ -156,14 +156,14 @@ void zad3(){
 }
 
 void zad4(){
-    int tab[10] = {1, 2, 5, 4, 4, 4, 4, 10, 9, 8};
-    int index = 0;
+    int tab[10] = {1, 2, 5, 4, 4, 4, 4, 10, 9, 8};      // testowa tablica
+    int index = 0;      // przypisz 0 do tablicy
     for(int i = 0; i < 10; i++)
     {
-        if(tab[i] > tab[index])
-            index = i;
+        if(tab[i] > tab[index])     // sprawdź czy wartości w tablicy są większe od wartości indeksu
+            index = i;              // jeśli tak przypisz wartość i do indeksu
     }
-    printf("Indeks najwiekszego: %d\n", index+1);
+    printf("Indeks najwiekszego: %d\n", index+1);   // tablica zaczyna się od i = 0
 }
 
 void zad5(){
