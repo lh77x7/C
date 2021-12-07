@@ -98,7 +98,7 @@ int main(void){
 // funkcje do zadań
 
 void zad1(){
-    const float deszcz[LATA][MIESIACE] =
+    const float deszcz[LATA][MIESIACE] =            // przypisz wartości tablicy dwuwymiarowej
     {
         {4.3, 4.3, 4.3, 3.0, 2.0, 1.2, 0.2, 0.2, 0.4, 2.4, 3.5, 6.6},
         {8.5, 8.2, 1.2, 1.6, 2.4, 0.0, 5.2, 0.9, 0.3, 0.9, 1.4, 7.3},
@@ -113,7 +113,7 @@ void zad1(){
     for(rok = 0, suma = 0; rok < LATA; rok++)
     {   // dla kazdego roku sumuj opady dla kazdego miesiaca
         for(miesiac = 0, podsuma = 0; miesiac < MIESIACE; miesiac++)
-            podsuma += *(*(deszcz+rok)+miesiac);
+            podsuma += *(*(deszcz+rok)+miesiac);    // działam na wskaźnikach
         printf("%5d %12.1f\n", 2000 + rok, podsuma);
         suma += podsuma;        // suma dla wszystkich lat
     }
@@ -124,7 +124,7 @@ void zad1(){
     for(miesiac = 0; miesiac < MIESIACE; miesiac++)
     {   // dla każdego miesiaca, sumuj opady w ciagu lat
         for(rok = 0, podsuma = 0; rok < LATA; rok++)
-            podsuma += *(*(deszcz+rok)+miesiac);
+            podsuma += *(*(deszcz+rok)+miesiac);        // operuj na wskaźnikach
         printf("%4.1f ", podsuma/LATA);
     }
     printf("\n");
