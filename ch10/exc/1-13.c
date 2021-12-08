@@ -86,7 +86,7 @@ int main(void){
 4 -     DONE
 5 -     DONE
 6 -     NOT DONE!
-7 -     NOT DONE!
+7 -     DONE
 8 -     NOT DONE!
 9 -     DONE
 10 -    NOT DONE!
@@ -177,16 +177,10 @@ void zad6(){
 }
 
 void zad7(){
-    int rozmiar = 7;
+    int rozmiar = 7, i;
     double tab[7] = {1, 3, 6, 8, 9, 10, 11};
-    double kopia[3];
-    for (int i = 0; i < rozmiar; i++)
-    {
-        if(i > 3) {
-            kopiuj_tab(tab, kopia, 3);
-            printf("%.2f ", kopia[i]);
-        }
-    }
+    double kopia[7];
+    kopiuj_tab(tab+4, kopia, 3);
     printf("\n");
 }
 
@@ -224,7 +218,7 @@ void kopiuj_tab(double zrodlo[], double cel1[], int size){
     for(int i = 0; i < size; i++) {
         cel1[i] = zrodlo[i];
         // potwierdzenie kopiowania poprzez wyświetlenie
-        //printf("%.2f ", cel1[i]);  // użyj tylko, aby sprawdzić
+        printf("%.2f ", cel1[i]);  // użyj tylko, aby sprawdzić
     }
     //printf("\n");
 }
