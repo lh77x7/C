@@ -19,6 +19,7 @@ void zad12();
 void zad13();
 void kopiuj_tab(double zrodlo[], double cel1[], int size);
 void kopiuj_wsk(double zrodlo[], double cel2[], int size);
+void sumujetablice(int tablica1[], int tablica2[], int sumatablic[], int rozmiar);
 
 int main(void){
     int choice;
@@ -87,7 +88,7 @@ int main(void){
 6 -     NOT DONE!
 7 -     NOT DONE!
 8 -     NOT DONE!
-9 -     NOT DONE!
+9 -     DONE
 10 -    NOT DONE!
 11 -    NOT DONE!
 12 -    NOT DONE!
@@ -176,7 +177,17 @@ void zad6(){
 }
 
 void zad7(){
-    printf("7\n");
+    int rozmiar = 7;
+    double tab[7] = {1, 3, 6, 8, 9, 10, 11};
+    double kopia[3];
+    for (int i = 0; i < rozmiar; i++)
+    {
+        if(i > 3) {
+            kopiuj_tab(tab, kopia, 3);
+            printf("%.2f ", kopia[i]);
+        }
+    }
+    printf("\n");
 }
 
 void zad8(){
@@ -184,7 +195,10 @@ void zad8(){
 }
 
 void zad9(){
-    printf("9\n");
+    int tablica1[4] = {2, 4, 5, 8};
+    int tablica2[4] = {1, 0, 4, 6};
+    int sumatablic[4];
+    sumujetablice(tablica1, tablica2, sumatablic, 4);
 }
 
 void zad10(){
@@ -212,7 +226,7 @@ void kopiuj_tab(double zrodlo[], double cel1[], int size){
         // potwierdzenie kopiowania poprzez wyświetlenie
         //printf("%.2f ", cel1[i]);  // użyj tylko, aby sprawdzić
     }
-    printf("\n");
+    //printf("\n");
 }
 
 void kopiuj_wsk(double zrodlo[], double cel2[], int size){
@@ -222,5 +236,15 @@ void kopiuj_wsk(double zrodlo[], double cel2[], int size){
         // wyświetl skopiowana zawartosc do *(cel2 + i)
         //printf("%.2f ", *(cel2+i)); // użyj tylko, aby sprawdzić
     }
-    printf("\n");
+    //printf("\n");
+}
+
+void sumujetablice(int tablica1[], int tablica2[], int sumatablic[], int rozmiar){
+    sumatablic[3] = 0;
+    for(int i = 0; i < rozmiar; i++)
+    {
+        sumatablic[i] = tablica1[i] + tablica2[i];
+        printf("%d ", sumatablic[i]);
+    }
+    printf("\n");    
 }
