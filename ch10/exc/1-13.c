@@ -19,11 +19,14 @@ void zad10();
 void zad11();
 void zad12();
 void zad13();
-void kopiuj_tab(double zrodlo[], double cel1[], int size);
-void kopiuj_wsk(double zrodlo[], double cel2[], int size);
-void sumujetablice(int tablica1[], int tablica2[], int sumatablic[], int rozmiar);
-void wyswietltablice(int tablica[][KOLUMNY], int wiersze);
-void podwojtablice(int tablica[][KOLUMNY], int wiersze);
+void kopiujTablice(double zrodlo[], double cel1[], int size);
+void kopiujWskaznik(double zrodlo[], double cel2[], int size);
+void sumujeTablice(int tablica1[], int tablica2[], int sumatablic[], int rozmiar);
+void wyswietlTablice(int tablica[][KOLUMNY], int wiersze);
+void podwojTablice(int tablica[][KOLUMNY], int wiersze);
+void opadyMiesieczne();
+void sredniaMiesieczna();
+void srednieMiesieczne();
 
 int main(void){
     int choice;
@@ -139,8 +142,8 @@ void zad2(){
     double zrodlo[5] = {1.1, 2.2, 3.3, 4.4, 5.5};
     double cel1[5];
     double cel2[5];
-    kopiuj_tab(zrodlo, cel1, 5);
-    kopiuj_wsk(zrodlo, cel2, 5);
+    kopiujTablice(zrodlo, cel1, 5);
+    kopiujWskaznik(zrodlo, cel2, 5);
 }
 
 void zad3(){
@@ -183,7 +186,7 @@ void zad6(){
 void zad7(){
     double tab[7] = {1, 3, 6, 8, 9, 10, 11};
     double kopia[3];
-    kopiuj_tab(tab+4, kopia, 3);
+    kopiujTablice(tab+4, kopia, 3);
     printf("\n");
 }
 
@@ -195,7 +198,7 @@ void zad9(){
     int tablica1[4] = {2, 4, 5, 8};
     int tablica2[4] = {1, 0, 4, 6};
     int sumatablic[4];
-    sumujetablice(tablica1, tablica2, sumatablic, 4);
+    sumujeTablice(tablica1, tablica2, sumatablic, 4);
 }
 
 void zad10(){
@@ -204,13 +207,23 @@ void zad10(){
         {4, 5, 6}
     };
 
-    wyswietltablice(tablica, WIERSZE);
-    podwojtablice(tablica, WIERSZE);
-    wyswietltablice(tablica, WIERSZE);
+    wyswietlTablice(tablica, WIERSZE);
+    podwojTablice(tablica, WIERSZE);
+    wyswietlTablice(tablica, WIERSZE);
 }
 
 void zad11(){
-    printf("11\n");
+    const float deszcz[LATA][MIESIACE] = {
+        
+        {4.3, 4.3, 4.3, 3.0, 2.0, 1.2, 0.2, 0.2, 0.4, 2.4, 3.5, 6.6},
+        {8.5, 8.2, 1.2, 1.6, 2.4, 0.0, 5.2, 0.9, 0.3, 0.9, 1.4, 7.3},
+        {9.1, 8.5, 6.7, 4.3, 2.1, 0.8, 0.2, 0.2, 1.1, 2.3, 6.1, 8.4},
+        {7.2, 9.9, 8.4, 3.3, 1.2, 0.8, 0.4, 0.0, 0.6, 1.7, 4.3, 6.2},
+        {7.6, 5.6, 3.8, 2.8, 3.8, 0.2, 0.0, 0.0, 0.0, 1.3, 2.6, 5.2}
+    };
+    opadyMiesieczne();
+    sredniaMiesieczna();
+    srednieMiesieczne();
 }
 
 void zad12(){
@@ -223,7 +236,7 @@ void zad13(){
 
 // dodatkowe funkcje pomocnicze do rozwiązania zadań 
 
-void kopiuj_tab(double zrodlo[], double cel1[], int size){
+void kopiujTablice(double zrodlo[], double cel1[], int size){
     //printf("cel1: ");
     for(int i = 0; i < size; i++) {
         cel1[i] = zrodlo[i];
@@ -233,7 +246,7 @@ void kopiuj_tab(double zrodlo[], double cel1[], int size){
     //printf("\n");
 }
 
-void kopiuj_wsk(double zrodlo[], double cel2[], int size){
+void kopiujWskaznik(double zrodlo[], double cel2[], int size){
     //printf("cel2: "); // 
     for(int i = 0; i < size; i++){
         *(cel2 + i) = *(zrodlo + i);
@@ -243,7 +256,7 @@ void kopiuj_wsk(double zrodlo[], double cel2[], int size){
     //printf("\n");
 }
 
-void sumujetablice(int tablica1[], int tablica2[], int sumatablic[], int rozmiar){
+void sumujeTablice(int tablica1[], int tablica2[], int sumatablic[], int rozmiar){
     sumatablic[3] = 0;
     for(int i = 0; i < rozmiar; i++)
     {
@@ -253,7 +266,7 @@ void sumujetablice(int tablica1[], int tablica2[], int sumatablic[], int rozmiar
     printf("\n");    
 }
 
-void wyswietltablice(int tablica[][KOLUMNY], int wiersze){
+void wyswietlTablice(int tablica[][KOLUMNY], int wiersze){
     int w, k;
     for(w = 0; w < wiersze; w++)
     {
@@ -264,11 +277,22 @@ void wyswietltablice(int tablica[][KOLUMNY], int wiersze){
     printf("--------\n");
 }
 
-void podwojtablice(int tablica[][KOLUMNY], int wiersze){
+void podwojTablice(int tablica[][KOLUMNY], int wiersze){
     int w, k;
     for(w = 0; w < wiersze; w++)
     {
         for(k = 0; k < KOLUMNY; k++)
             tablica[w][k] *=2;
     }
+}
+
+void opadyMiesieczne(){
+
+}
+
+void sredniaMiesieczna(){
+
+}
+void srednieMiesieczne(){
+
 }
