@@ -3,6 +3,8 @@
 #include <stdio.h>
 #define MIESIACE 12 // liczba miesiecy w roku
 #define LATA 5      // liczba lat danych
+#define WIERSZE 2
+#define KOLUMNY 3
 
 void zad1();
 void zad2();
@@ -20,6 +22,8 @@ void zad13();
 void kopiuj_tab(double zrodlo[], double cel1[], int size);
 void kopiuj_wsk(double zrodlo[], double cel2[], int size);
 void sumujetablice(int tablica1[], int tablica2[], int sumatablic[], int rozmiar);
+void wyswietltablice(int tablica[][KOLUMNY], int wiersze);
+void podwojtablice(int tablica[][KOLUMNY], int wiersze);
 
 int main(void){
     int choice;
@@ -89,7 +93,7 @@ int main(void){
 7 -     DONE
 8 -     NOT DONE!
 9 -     DONE
-10 -    NOT DONE!
+10 -    DONE
 11 -    NOT DONE!
 12 -    NOT DONE!
 13 -    NOT DONE!
@@ -177,9 +181,8 @@ void zad6(){
 }
 
 void zad7(){
-    int rozmiar = 7, i;
     double tab[7] = {1, 3, 6, 8, 9, 10, 11};
-    double kopia[7];
+    double kopia[3];
     kopiuj_tab(tab+4, kopia, 3);
     printf("\n");
 }
@@ -196,7 +199,14 @@ void zad9(){
 }
 
 void zad10(){
-    printf("10\n");
+    int tablica [WIERSZE][KOLUMNY] = {
+        {1, 2, 3},
+        {4, 5, 6}
+    };
+
+    wyswietltablice(tablica, WIERSZE);
+    podwojtablice(tablica, WIERSZE);
+    wyswietltablice(tablica, WIERSZE);
 }
 
 void zad11(){
@@ -241,4 +251,24 @@ void sumujetablice(int tablica1[], int tablica2[], int sumatablic[], int rozmiar
         printf("%d ", sumatablic[i]);
     }
     printf("\n");    
+}
+
+void wyswietltablice(int tablica[][KOLUMNY], int wiersze){
+    int w, k;
+    for(w = 0; w < wiersze; w++)
+    {
+        for(k = 0; k < KOLUMNY; k++)
+            printf("%d ", tablica[w][k]);
+        printf("\n");
+    }
+    printf("--------\n");
+}
+
+void podwojtablice(int tablica[][KOLUMNY], int wiersze){
+    int w, k;
+    for(w = 0; w < wiersze; w++)
+    {
+        for(k = 0; k < KOLUMNY; k++)
+            tablica[w][k] *=2;
+    }
 }
