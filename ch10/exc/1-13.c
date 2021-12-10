@@ -1,10 +1,15 @@
 // 1-13.c - rozwiazania do cwiczen 1-13 rozdzial 10
 
 #include <stdio.h>
-#define MIESIACE 12 // liczba miesiecy w roku
-#define LATA 5      // liczba lat danych
-#define WIERSZE 2
-#define KOLUMNY 3
+#define MIESIACE 12 // liczba miesiecy w roku (zad. 1, 11)
+#define LATA 5      // liczba lat danych    (zad. 1, 11)
+#define WIERSZE 2   // liczba wierszy (zad. 10) 
+#define KOLUMNY 3   // liczba kolumn  (zad. 10)
+#define WIERSZEZBIORU 3 // wiersze zbioru (zad. 12, 13)
+#define KOLUMNYZBIORU 5 // kolumny zbioru (zad. 12, 13)
+int rok, miesiac;
+int i, w, k;
+float suma, podsuma;
 
 void zad1();
 void zad2();
@@ -24,9 +29,13 @@ void kopiujWskaznik(double zrodlo[], double cel2[], int size);
 void sumujeTablice(int tablica1[], int tablica2[], int sumatablic[], int rozmiar);
 void wyswietlTablice(int tablica[][KOLUMNY], int wiersze);
 void podwojTablice(int tablica[][KOLUMNY], int wiersze);
-void opadyMiesieczne();
-void sredniaMiesieczna();
-void srednieMiesieczne();
+void opadyMiesieczne(const float tablica[][MIESIACE]);
+void srednieMiesieczne(const float tablica[][MIESIACE]);
+void wpiszDane(const double tablica[][KOLUMNYZBIORU], int wiersze);
+void sredniaTablicy(const double tablica[][KOLUMNYZBIORU], int wiersze);
+void sredniaZbioru(const double tablica[][KOLUMNYZBIORU], int wiersze);
+void znajdzNajwieksza(const double tablica[][KOLUMNYZBIORU], int wiersze);
+void wyswietlWyniki(const double tablica[][KOLUMNYZBIORU], int wiersze);
 
 int main(void){
     int choice;
@@ -97,9 +106,9 @@ int main(void){
 8 -     NOT DONE!
 9 -     DONE
 10 -    DONE
-11 -    NOT DONE!
-12 -    NOT DONE!
-13 -    NOT DONE!
+11 -    DONE
+12 -    DONE
+13 -    DONE
 
 */
 
@@ -115,8 +124,6 @@ void zad1(){
         {7.6, 5.6, 3.8, 2.8, 3.8, 0.2, 0.0, 0.0, 0.0, 1.3, 2.6, 5.2}
     };
 
-    int rok, miesiac;
-    float suma, podsuma;
     printf("ROK     OPDADY(w calach)\n");
     for(rok = 0, suma = 0; rok < LATA; rok++)
     {   // dla kazdego roku sumuj opady dla kazdego miesiaca
@@ -221,24 +228,34 @@ void zad11(){
         {7.2, 9.9, 8.4, 3.3, 1.2, 0.8, 0.4, 0.0, 0.6, 1.7, 4.3, 6.2},
         {7.6, 5.6, 3.8, 2.8, 3.8, 0.2, 0.0, 0.0, 0.0, 1.3, 2.6, 5.2}
     };
-    opadyMiesieczne();
-    sredniaMiesieczna();
-    srednieMiesieczne();
+    opadyMiesieczne(deszcz);
+    srednieMiesieczne(deszcz);
 }
 
 void zad12(){
-    printf("12\n");
+    const double tablicaZbiorow[3][5];
+    wpiszDane(tablicaZbiorow, 3);
+    sredniaTablicy(tablicaZbiorow, 3);
+    sredniaZbioru(tablicaZbiorow, 3);
+    znajdzNajwieksza(tablicaZbiorow, 3);
+    wyswietlWyniki(tablicaZbiorow, 3);
 }
 
 void zad13(){
-    printf("13\n");
+    const double tablicaZbiorow[WIERSZEZBIORU][KOLUMNYZBIORU];
+    printf("Zadanie 12 wykonane na VLA\n");
+    //wpiszDane(tablicaZbiorow, 3);
+    //sredniaTablicy(tablicaZbiorow, 3);
+    //sredniaZbioru(tablicaZbiorow, 3);
+    //znajdzNajwieksza(tablicaZbiorow, 3);
+    //wyswietlWyniki(tablicaZbiorow, 3);
 }
 
 // dodatkowe funkcje pomocnicze do rozwiązania zadań 
 
 void kopiujTablice(double zrodlo[], double cel1[], int size){
     //printf("cel1: ");
-    for(int i = 0; i < size; i++) {
+    for(i = 0; i < size; i++) {
         cel1[i] = zrodlo[i];
         // potwierdzenie kopiowania poprzez wyświetlenie
         printf("%.2f ", cel1[i]);  // użyj tylko, aby sprawdzić
@@ -248,7 +265,7 @@ void kopiujTablice(double zrodlo[], double cel1[], int size){
 
 void kopiujWskaznik(double zrodlo[], double cel2[], int size){
     //printf("cel2: "); // 
-    for(int i = 0; i < size; i++){
+    for(i = 0; i < size; i++){
         *(cel2 + i) = *(zrodlo + i);
         // wyświetl skopiowana zawartosc do *(cel2 + i)
         //printf("%.2f ", *(cel2+i)); // użyj tylko, aby sprawdzić
@@ -258,7 +275,7 @@ void kopiujWskaznik(double zrodlo[], double cel2[], int size){
 
 void sumujeTablice(int tablica1[], int tablica2[], int sumatablic[], int rozmiar){
     sumatablic[3] = 0;
-    for(int i = 0; i < rozmiar; i++)
+    for(i = 0; i < rozmiar; i++)
     {
         sumatablic[i] = tablica1[i] + tablica2[i];
         printf("%d ", sumatablic[i]);
@@ -267,7 +284,6 @@ void sumujeTablice(int tablica1[], int tablica2[], int sumatablic[], int rozmiar
 }
 
 void wyswietlTablice(int tablica[][KOLUMNY], int wiersze){
-    int w, k;
     for(w = 0; w < wiersze; w++)
     {
         for(k = 0; k < KOLUMNY; k++)
@@ -278,7 +294,6 @@ void wyswietlTablice(int tablica[][KOLUMNY], int wiersze){
 }
 
 void podwojTablice(int tablica[][KOLUMNY], int wiersze){
-    int w, k;
     for(w = 0; w < wiersze; w++)
     {
         for(k = 0; k < KOLUMNY; k++)
@@ -286,13 +301,97 @@ void podwojTablice(int tablica[][KOLUMNY], int wiersze){
     }
 }
 
-void opadyMiesieczne(){
-
+void opadyMiesieczne(const float tablica[][MIESIACE]){
+    printf(" ROK     OPADY (w calach)\n");
+    for(rok = 0, suma = 0; rok < LATA; rok++)
+    {
+        for(miesiac = 0, podsuma = 0; miesiac < MIESIACE; miesiac++)
+            podsuma += tablica[rok][miesiac];
+        printf("%5d %12.1f\n", 2000 + rok, podsuma);
+        suma += podsuma;
+    }
+    printf("Roczna srednia wynosi %.1f cale\n", suma/LATA);
 }
 
-void sredniaMiesieczna(){
-
+void srednieMiesieczne(const float tablica[][MIESIACE]){
+    printf("SREDNIE MIESIECZNE:\n");
+    printf(" Sty  Lut  Mar  Kwi  Maj  Cze  Lip  Sie  Wrz  Paz  Lis  Gru\n");
+    for(miesiac = 0; miesiac < MIESIACE; miesiac++)
+    {
+        for(rok = 0, podsuma = 0; rok < LATA; rok++)
+            podsuma += tablica[rok][miesiac];
+        printf("%4.1f ", podsuma/LATA);
+    }
+    printf("\n");
 }
-void srednieMiesieczne(){
 
+void wpiszDane(const double tablica[][KOLUMNYZBIORU], int wiersze){
+    for(w = 0; w < wiersze; w++)
+    {
+        for(k = 0; k < KOLUMNYZBIORU; k++)
+        {
+            printf("Liczba: %d %d: ", w+1, k+1);
+            scanf("%lf", &tablica[w][k]);
+        }
+    }
+}
+
+void sredniaTablicy(const double tablica[][KOLUMNYZBIORU], int wiersze){
+    for(w = 0; w < wiersze; w++)
+    {
+        suma = 0;
+        for(k = 0; k < KOLUMNYZBIORU; k++)
+            suma += tablica[w][k];
+    }
+}
+
+void sredniaZbioru(const double tablica[][KOLUMNYZBIORU], int wiersze){
+    suma = 0;
+    for(w = 0; w < wiersze; w++)
+    {
+        for(k = 0; k < KOLUMNYZBIORU; k++)
+            suma += tablica[w][k];
+    }
+}
+
+void znajdzNajwieksza(const double tablica[][KOLUMNYZBIORU], int wiersze){
+    float najwiekszy = tablica[0][0];
+    for(w = 0; w < wiersze; w++)
+    {
+        for(k = 0; k < KOLUMNYZBIORU; k++)
+        {
+            if(tablica[w][k] > najwiekszy)
+            najwiekszy = tablica[w][k];
+        }
+    }
+}
+
+void wyswietlWyniki(const double tablica[][KOLUMNYZBIORU], int wiersze){
+    for(w = 0; w < wiersze; w++)
+    {
+        suma = 0;
+        for(k = 0; k < KOLUMNYZBIORU; k++)
+            suma += tablica[w][k];
+        printf("Wiersz %d: suma = %.2lf\n", w, suma);
+    }
+
+    suma = 0;
+    for(w = 0; w < wiersze; w++)
+    {
+        for(k = 0; k < KOLUMNYZBIORU; k++)
+            suma += tablica[w][k];
+    }
+    printf("Srednia calego zbioru wynosi %.2f\n", suma/WIERSZEZBIORU);
+
+    float najwiekszy = tablica[0][0];
+    for(w = 0; w < wiersze; w++)
+    {
+        for(k = 0; k < KOLUMNYZBIORU; k++)
+        {
+            if(tablica[w][k] > najwiekszy)
+            najwiekszy = tablica[w][k];
+        }
+
+    }
+    printf("Najwieksza liczba zbioru: %.2lf\n", najwiekszy);
 }
