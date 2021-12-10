@@ -3,8 +3,8 @@
 #include <stdio.h>
 #define MIESIACE 12 // liczba miesiecy w roku (zad. 1, 11)
 #define LATA 5      // liczba lat danych    (zad. 1, 11)
-#define WIERSZE 2   // liczba wierszy (zad. 10) 
-#define KOLUMNY 3   // liczba kolumn  (zad. 10)
+#define WIERSZE 2   // liczba wierszy (zad. 6, 10) 
+#define KOLUMNY 3   // liczba kolumn  (zad. 6, 10)
 #define WIERSZEZBIORU 3 // wiersze zbioru (zad. 8, 12, 13)
 #define KOLUMNYZBIORU 5 // kolumny zbioru (zad. 8, 12, 13)
 int rok, miesiac;
@@ -25,6 +25,7 @@ void zad11();
 void zad12();
 void zad13();
 void kopiujTablice(double zrodlo[], double cel1[], int size);
+void kopiujTabliceDwu(double zrodlo[][KOLUMNY], double cel[][KOLUMNY], int wiersze, int kolumny);
 void kopiujWskaznik(double zrodlo[], double cel2[], int size);
 void sumujeTablice(int tablica1[], int tablica2[], int sumatablic[], int rozmiar);
 void wyswietlTablice(int tablica[][KOLUMNY], int wiersze);
@@ -101,7 +102,7 @@ int main(void){
 3 -     DONE
 4 -     DONE
 5 -     DONE
-6 -     NOT DONE!
+6 -     DONE
 7 -     DONE
 8 -     DONE
 9 -     DONE
@@ -186,8 +187,9 @@ void zad5(){
 }
 
 void zad6(){
-    double tablica1[2][3] = {{1, 2, 3}, {3, 4, 5}};
-    double tablica2[2][3];
+    double tablica1[WIERSZE][KOLUMNY] = {{1, 2, 3}, {3, 4, 5}};
+    double tablica2[WIERSZE][KOLUMNY];
+    kopiujTabliceDwu(tablica1, tablica2, 2, 3);
 }
 
 void zad7(){
@@ -280,7 +282,20 @@ void kopiujTablice(double zrodlo[], double cel1[], int size){
         // potwierdzenie kopiowania poprzez wyświetlenie
         printf("%.2f ", cel1[i]);  // użyj tylko, aby sprawdzić
     }
-    //printf("\n");
+    printf("\n");
+}
+
+void kopiujTabliceDwu(double zrodlo[][KOLUMNY], double cel[][KOLUMNY], int wiersze, int kolumny){
+    for(w = 0; w < wiersze; w++)
+    {
+        for(k = 0; k < kolumny; k++)
+        {
+            cel[w][k] = zrodlo[w][k];
+            printf("%.2lf ", cel[w][k]);
+        }
+        printf("\n");
+    }
+        
 }
 
 void kopiujWskaznik(double zrodlo[], double cel2[], int size){
