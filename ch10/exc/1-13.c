@@ -5,8 +5,8 @@
 #define LATA 5      // liczba lat danych    (zad. 1, 11)
 #define WIERSZE 2   // liczba wierszy (zad. 10) 
 #define KOLUMNY 3   // liczba kolumn  (zad. 10)
-#define WIERSZEZBIORU 3 // wiersze zbioru (zad. 12, 13)
-#define KOLUMNYZBIORU 5 // kolumny zbioru (zad. 12, 13)
+#define WIERSZEZBIORU 3 // wiersze zbioru (zad. 8, 12, 13)
+#define KOLUMNYZBIORU 5 // kolumny zbioru (zad. 8, 12, 13)
 int rok, miesiac;
 int i, w, k;
 float suma, podsuma;
@@ -103,7 +103,7 @@ int main(void){
 5 -     DONE
 6 -     NOT DONE!
 7 -     DONE
-8 -     NOT DONE!
+8 -     DONE
 9 -     DONE
 10 -    DONE
 11 -    DONE
@@ -198,7 +198,27 @@ void zad7(){
 }
 
 void zad8(){
-    printf("8\n");
+    double tablica[3][5] = {
+        {1, 3, 5, 6, 8},
+        {2, 5, 6, 7, 9},
+        {3, 6, 9, 10, 12}
+    };
+    double kopiaTablicy[3][5];
+    for(w = 0; w < WIERSZEZBIORU; w++)
+    {
+        for(k = 0; k < KOLUMNYZBIORU; k++)
+        {
+            kopiaTablicy[w][k] = tablica[w][k];
+        }
+    }
+    // wyswietl kopie
+    for (w = 0; w < WIERSZEZBIORU; w++){
+        for(k = 0; k < KOLUMNYZBIORU; k++)
+        {
+            printf("%.2lf ", kopiaTablicy[w][k]);
+        }
+        printf("\n");
+    }
 }
 
 void zad9(){
