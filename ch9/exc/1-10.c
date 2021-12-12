@@ -13,6 +13,12 @@ void zad8();
 void zad9();
 void zad10();
 double imin(double*, double*);
+char znak(char, int, int);
+char znak2(char, int, int);
+
+double x,y;
+char ch;
+int i,j;
 
 int main(void){
     int choice;
@@ -65,8 +71,8 @@ int main(void){
 /*
 
 1 -     DONE
-2 -     NOT DONE!
-3 -     NOT DONE!
+2 -     DONE
+3 -     DONE
 4 -     NOT DONE!
 5 -     NOT DONE!
 6 -     NOT DONE!
@@ -80,18 +86,26 @@ int main(void){
 // definicje funkcji
 
 void zad1(){
-    double x, y;
     printf("Podaj dwie liczby zmiennoprzecinkowe: ");
     scanf("%lf %lf", &x, &y);
     printf("Najmniejsza z %.2lf i %.2lf jest %.2lf\n", x, y, imin(&x, &y));  
 }
 
 void zad2(){
-    printf("2\n");
+    getchar();
+    printf("Podaj znak: ");  scanf("%c", &ch);
+    printf("Podaj liczbe 1: "); scanf("%lf", &x);
+    printf("Podaj liczbe 2: "); scanf("%lf", &y);
+    znak(ch, x, y);
 }
 
 void zad3(){
-    printf("3\n");
+    int ileznakow, ilewierszy;
+    getchar();
+    printf("Podaj znak: "); scanf("%c", &ch);
+    printf("Ile znakow wyswietlic?: "); scanf("%d", &ileznakow);
+    printf("Ile wierszy?: "); scanf("%d", &ilewierszy);
+    znak2(ch, ileznakow, ilewierszy);
 }
 
 void zad4(){
@@ -131,4 +145,20 @@ double imin(double *x, double *y){
     else
         min = *y;
     return min;
+}
+
+char znak(char ch, int poczatek, int koniec){
+    for(i = poczatek; i < koniec; i++){
+        printf("%c", ch);
+    }
+    printf("\n");
+}
+
+char znak2(char ch, int liczbaznakow, int liczbawierszy){
+    while(liczbawierszy-- > 0) {
+        for(i = 0; i < liczbaznakow; i++) {
+            printf("%c", ch);
+        }
+        printf("\n");
+    }    
 }
