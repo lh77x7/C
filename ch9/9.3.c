@@ -6,7 +6,7 @@ int main(void){
     printf("Podaj dwie liczby calkowiete (q konczy program):\n");
     while(scanf("%d %d", &zlo1, &zlo2) == 2)
     {
-        printf("Mniejsza liczba spodrod %d i %d jest %d.\n",
+        printf("Mniejsza liczba sposrod %d i %d jest %d.\n",
         zlo1, zlo2, imin(zlo1, zlo2));
         printf("Podaj liczby calkowite (q konczy program): ");
     }

@@ -12,6 +12,7 @@ void zad7();
 void zad8();
 void zad9();
 void zad10();
+double imin(double*, double*);
 
 int main(void){
     int choice;
@@ -61,8 +62,28 @@ int main(void){
     return 0;
 }
 
+/*
+
+1 -     DONE
+2 -     NOT DONE!
+3 -     NOT DONE!
+4 -     NOT DONE!
+5 -     NOT DONE!
+6 -     NOT DONE!
+7 -     NOT DONE!
+8 -     NOT DONE!
+9 -     NOT DONE!
+10-     NOT DONE!
+
+*/
+
+// definicje funkcji
+
 void zad1(){
-    printf("1\n");
+    double x, y;
+    printf("Podaj dwie liczby zmiennoprzecinkowe: ");
+    scanf("%lf %lf", &x, &y);
+    printf("Najmniejsza z %.2lf i %.2lf jest %.2lf\n", x, y, imin(&x, &y));  
 }
 
 void zad2(){
@@ -101,3 +122,13 @@ void zad10(){
     printf("10\n");
 }
 
+// dodatkowe definicje funkcji
+
+double imin(double *x, double *y){
+    double min;
+    if( min < *x)
+        min = *x;
+    else
+        min = *y;
+    return min;
+}
