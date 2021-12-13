@@ -17,6 +17,7 @@ char znak(char, int, int);
 char znak2(char, int, int);
 double sredniaHarmoniczna(double, double);
 double wieksze_od(double*, double*);
+int fibonacci(int);
 
 double x,y;
 char ch;
@@ -142,7 +143,10 @@ void zad9(){
 }
 
 void zad10(){
-    printf("10\n");
+    int zmienna, wyrazCiagu;
+    printf("Ktory wyraz ciagu Fibonacciego obliczyc? "); scanf("%d", &zmienna);
+    wyrazCiagu = fibonacci(zmienna);
+    printf("Dla %d ciag Fibonacciego: %d\n", zmienna, wyrazCiagu);
 }
 
 // dodatkowe definicje funkcji
@@ -184,3 +188,29 @@ double wieksze_od(double *x, double *y){
         max = *y;
     return max;    
 }
+
+
+int fibonacci(int n){
+    int a, b, t = 1;
+    for(int i = 0; i < n; i++){
+        t = a;
+        a = a + b;
+        b = t;
+    }
+    return a;
+}
+
+/*
+
+int fibonacci(int n){
+    int a, b = 1, t = 1;
+    for(int i = 0; i < n; i++){
+        *t = *a;
+        *a = *a + *b;
+        *b = *t;
+    }
+    return a;
+}
+
+
+*/
