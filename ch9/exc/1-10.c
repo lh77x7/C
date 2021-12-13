@@ -15,6 +15,8 @@ void zad10();
 double imin(double*, double*);
 char znak(char, int, int);
 char znak2(char, int, int);
+double sredniaHarmoniczna(double, double);
+double wieksze_od(double*, double*);
 
 double x,y;
 char ch;
@@ -73,8 +75,8 @@ int main(void){
 1 -     DONE
 2 -     DONE
 3 -     DONE
-4 -     NOT DONE!
-5 -     NOT DONE!
+4 -     DONE
+5 -     DONE
 6 -     NOT DONE!
 7 -     NOT DONE!
 8 -     NOT DONE!
@@ -109,11 +111,18 @@ void zad3(){
 }
 
 void zad4(){
-    printf("4\n");
+    double wynik;
+    printf("Podaj pierwsza liczbe: "); scanf("%lf", &x);
+    printf("Podaj druga liczbe: "); scanf("%lf", &y);
+    wynik = sredniaHarmoniczna(x, y);
+    printf("Srednia harmoniczna: %.2lf\n", wynik);
 }
 
 void zad5(){
-    printf("5\n");
+    printf("Podaj liczbe 1: "); scanf("%lf", &x);
+    printf("Podaj liczbe 2: "); scanf("%lf", &y);
+    printf("Przed funkcja. x = %.2lf, y = %.2lf\n", x, y);
+    printf("Po funkcji. x = %.2lf, y = %.2lf\n", wieksze_od(&x, &y), wieksze_od(&x, &y));
 }
 
 void zad6(){
@@ -161,4 +170,17 @@ char znak2(char ch, int liczbaznakow, int liczbawierszy){
         }
         printf("\n");
     }    
+}
+
+double sredniaHarmoniczna(double x, double y){
+    return 2/(1/x + 1/y);
+}
+
+double wieksze_od(double *x, double *y){
+    double max;
+    if(*x > *y)
+        max = *x;
+    else 
+        max = *y;
+    return max;    
 }
