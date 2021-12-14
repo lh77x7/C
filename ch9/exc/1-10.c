@@ -17,6 +17,7 @@ char znak(char, int, int);
 char znak2(char, int, int);
 double sredniaHarmoniczna(double, double);
 double wieksze_od(double*, double*);
+double potega(double, int);
 int fibonacci(int);
 
 double x,y;
@@ -79,7 +80,7 @@ int main(void){
 4 -     DONE
 5 -     DONE
 6 -     NOT DONE!
-7 -     NOT DONE!
+7 -     DONE
 8 -     NOT DONE!
 9 -     NOT DONE!
 10-     NOT DONE!
@@ -131,7 +132,13 @@ void zad6(){
 }
 
 void zad7(){
-    printf("7\n");
+    double x, xpot;
+    int n;
+    printf("Podaj liczbe oraz potege.\n");
+    printf("liczba: "); scanf("%lf", &x);
+    printf("potega: "); scanf("%d", &n);
+    xpot = potega(x, n);
+    printf("%.3g do potegi %d to %.5g\n", x, n, xpot);
 }
 
 void zad8(){
@@ -189,6 +196,26 @@ double wieksze_od(double *x, double *y){
     return max;    
 }
 
+
+
+double potega(double a, int b){
+    double pot = 1;
+    int i;
+
+    
+    if(a == 0) return 0;    // podstawa == 0 zawsze daje wynik 0        
+    if(b == 0) return 1;    // potega == 0
+    if(b > 0){              // potega > 0
+        while(b--)
+            pot  *= a;
+        return pot;
+    }
+    else {                  // potega < 0
+        while(b++)
+            pot *= a;
+        return 1/pot;
+    }
+}
 
 int fibonacci(int n){
     int a, b, t = 1;
