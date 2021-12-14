@@ -17,6 +17,7 @@ char znak(char, int, int);
 char znak2(char, int, int);
 double sredniaHarmoniczna(double, double);
 double wieksze_od(double*, double*);
+int jestLitera(char);
 double potega(double, int);
 
 double x,y;
@@ -127,7 +128,9 @@ void zad5(){
 }
 
 void zad6(){
-    printf("6\n");
+    while((ch = getchar()) != EOF){
+        jestLitera(ch);
+    }  
 }
 
 void zad7(){
@@ -190,6 +193,15 @@ double wieksze_od(double *x, double *y){
     else 
         max = *y;
     return max;    
+}
+
+int jestLitera(char znak){
+    if((znak >= 'a' && znak <= 'z') || (znak >= 'A' && znak <= 'Z')){
+      
+    }
+    else {
+        
+    }
 }
 
 double potega(double a, int b){
