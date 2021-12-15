@@ -42,7 +42,7 @@ int main(void){
 
     // rozwiazania ćwiczeń
     // 5.1
-    /*printf("---cwicz 1---\n");
+    printf("---cwicz 1---\n");
     printf("Podaj liczbe minut (podanie 0 konczy program): ");
     scanf("%d", &iloscMinut);
     while(iloscMinut!=0 && iloscMinut>0) {
@@ -91,7 +91,6 @@ int main(void){
     }
     printf("-------------\n");
     
-
     // 5.5
     printf("---cwicz 5 ---");
     licznik=0;
@@ -124,9 +123,7 @@ int main(void){
         printf("Wprowadz liczbę zmiennoprzecinkowa (0 lub liczba ujemna konczy): ");
         scanf("%f", &wartosc);
     }
-        
     printf("-------------\n");
-    */
 
     // 5.8
     printf("---cwicz 8---\n");

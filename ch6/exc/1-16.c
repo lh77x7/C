@@ -120,7 +120,7 @@ int main(void){
 11 -    DONE
 12 -    DONE
 13 -    NOT DONE!
-14 -    NOT DONE!
+14 -    DONE
 15 -    DONE
 16 -    DONE
 
@@ -502,9 +502,13 @@ wyjście: tedfeedecba
 */
 
 void zad14(){
-    
+    char tab[255];
+    for(int i = 0; i < 255; i++){
+        scanf("%c", &tab[i]);
+        if(tab[i] != '\n')
+            printf("%c", tab[i]);
+    }    
 }
-
 
 /*
 
