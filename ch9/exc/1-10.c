@@ -19,6 +19,7 @@ double sredniaHarmoniczna(double, double);
 double wieksze_od(double*, double*);
 int jestLitera(char);
 double potega(double, int);
+void dziesietnyDowolny(int, int);
 
 double x,y;
 char ch;
@@ -79,10 +80,10 @@ int main(void){
 3 -     DONE
 4 -     DONE
 5 -     DONE
-6 -     NOT DONE!
+6 -     DONE
 7 -     DONE
 8 -     NOT DONE!
-9 -     NOT DONE!
+9 -     DONE
 10-     NOT DONE!
 
 */
@@ -128,8 +129,16 @@ void zad5(){
 }
 
 void zad6(){
+    int ch;
     while((ch = getchar()) != EOF){
-        jestLitera(ch);
+        printf("\nZnak: ");
+        ch = getchar();
+        if((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')){ // jestem litera
+            ch = jestLitera(ch);
+            printf("%d", ch);
+        }
+        else
+            printf("-1");
     }  
 }
 
@@ -148,7 +157,12 @@ void zad8(){
 }
 
 void zad9(){
-    printf("9\n");
+    int liczbaDziesietna, systemLiczenia;
+    printf("Podaj liczbe dziesietna: ");  scanf("%d", &liczbaDziesietna);
+    printf("Jaki system liczenia (1-16): "); scanf("%d", &systemLiczenia);
+    dziesietnyDowolny(liczbaDziesietna, systemLiczenia);
+    putchar('\n');
+
 }
 
 void zad10(){
@@ -196,12 +210,10 @@ double wieksze_od(double *x, double *y){
 }
 
 int jestLitera(char znak){
-    if((znak >= 'a' && znak <= 'z') || (znak >= 'A' && znak <= 'Z')){
-      
-    }
-    else {
-        
-    }
+    if(znak >= 'A' && znak <= 'Z')
+        return (int) znak - 64;
+    else 
+        return (int) znak - 96;
 }
 
 double potega(double a, int b){
@@ -221,4 +233,13 @@ double potega(double a, int b){
             pot *= a;
         return 1/pot;
     }
+}
+
+void dziesietnyDowolny(int liczba, int podstawa){
+  int r;
+  r = liczba % podstawa;
+  if (liczba >= podstawa)
+    dziesietnyDowolny(liczba/podstawa, podstawa);
+  putchar('0' + r);
+  return;
 }
