@@ -1,6 +1,7 @@
 // 1-8.c - rozwiazania do cwiczen 1-8 rozdzial 8
 
 #include <stdio.h>
+#include <stdlib.h>
 
 void zad1();
 void zad2();
@@ -55,7 +56,7 @@ int main(void){
 
 /*
 
-1 -     NOT DONE!
+1 -     DONE
 2 -     NOT DONE!
 3 -     NOT DONE!
 4 -     NOT DONE!
@@ -67,11 +68,44 @@ int main(void){
 */
 
 void zad1(){
-    printf("1\n");
+    // zlicza liczbe znakow w pliku
+    int ch;
+    FILE*fp;
+    char nazwapliku[50];    // przechowuje nazwe pliku
+
+    printf("Podaj nazwe pliku: "); scanf("%s", nazwapliku);
+    fp = fopen(nazwapliku, "r"); // otwiera plik do odczytu
+    if(fp == NULL)
+    {
+        printf("Blad przy probie otwarcia pliku");
+        exit(1);    // wyjscie z programu
+    }
+    // getc(fp) pobiera znak z otwartego pliku
+    int licznik = 0;
+    while ((ch = getc(fp)) != EOF)
+        licznik++;
+        printf("Liczba znakow: %d\n", licznik);
+    fclose(fp); // zamyka plik
 }
 
 void zad2(){
-    printf("2\n");
+    // zlicza liczbe znakow w pliku
+    int ch;
+    FILE*fp;
+    char nazwapliku[50];    // przechowuje nazwe pliku
+
+    printf("Podaj nazwe pliku: "); scanf("%s", nazwapliku);
+    fp = fopen(nazwapliku, "r"); // otwiera plik do odczytu
+    if(fp == NULL)
+    {
+        printf("Blad przy probie otwarcia pliku");
+        exit(1);    // wyjscie z programu
+    }
+    // getc(fp) pobiera znak z otwartego pliku
+    int licznik = 0;
+    while ((ch = getc(fp)) != EOF)
+        
+    fclose(fp); // zamyka plik
 }
 
 void zad3(){
