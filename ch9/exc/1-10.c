@@ -18,8 +18,10 @@ char znak2(char, int, int);
 double sredniaHarmoniczna(double, double);
 double wieksze_od(double*, double*);
 int jestLitera(char);
+int jestLiterarekur(char);
 double potega(double, int);
 void dziesietnyDowolny(int, int);
+void fibonacci(int);
 
 double x,y;
 char ch;
@@ -84,7 +86,7 @@ int main(void){
 7 -     DONE
 8 -     NOT DONE!
 9 -     DONE
-10-     NOT DONE!
+10-     DONE
 
 */
 
@@ -153,7 +155,17 @@ void zad7(){
 }
 
 void zad8(){
-    printf("8\n");
+    int ch;
+    while((ch = getchar()) != EOF){
+        printf("\nZnak: ");
+        ch = getchar();
+        if((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')){ // jestem litera
+                ch = jestLiterarekur(ch);
+            printf("%d", ch);
+        }
+        else
+            printf("-1");
+    }  
 }
 
 void zad9(){
@@ -166,7 +178,8 @@ void zad9(){
 }
 
 void zad10(){
-    printf("10\n");
+    printf("Ile wyrazow obliczyc? "); scanf("%d", &i);
+    fibonacci(i);
 }
 
 // dodatkowe definicje funkcji
@@ -216,6 +229,10 @@ int jestLitera(char znak){
         return (int) znak - 96;
 }
 
+int jestLiterarekur(char znak){
+       
+}
+
 double potega(double a, int b){
     double pot = 1;
     int i;
@@ -242,4 +259,22 @@ void dziesietnyDowolny(int liczba, int podstawa){
     dziesietnyDowolny(liczba/podstawa, podstawa);
   putchar('0' + r);
   return;
+}
+
+void fibonacci(int n){
+    int a1 = 1, a2 = 1, temp;
+    if( n <= 1) printf("%d", a1);
+    else if(n <= 2)
+        printf("%d, %d", a1, a2);
+        else{
+            printf("%d, %d", a1, a2);
+            for(i = 3; i <= n; i++)
+            {
+                temp = a1 + a2;
+                a1 = a2;
+                a2 = temp;
+                printf(", %d", a2);
+            }            
+        }
+    printf("\n");
 }
