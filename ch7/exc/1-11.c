@@ -1,5 +1,6 @@
 // 1-11.c - rozwiązania zadań z rozdziału 7
 #include <stdio.h>
+#define KONIEC '#'
 #define PODSTAWA 40
 #define NADGODZINY 1.5 * PODSTAWA
 #define PODATEK1 0.15 * 1200
@@ -74,10 +75,10 @@ int main(void){
 
 /*
 
-1 -     NOT DONE!
-2 -     NOT DONE!
-3 -     NOT DONE!
-4 -     NOT DONE!
+1 -     DONE
+2 -     DONE
+3 -     DONE
+4 -     DONE
 5 -     NOT DONE!
 6 -     NOT DONE!
 7 -     DONE
@@ -91,19 +92,65 @@ int main(void){
 // definicje funkcji
 
 void zad1(){
-    printf("1!\n");
+    int ch;
+    int licznikodstepow = 0, liczniknowejlini = 0, licznikinne = 0;
+    while((ch = getchar()) != KONIEC){
+        if (ch == ' ') licznikodstepow++;
+        if (ch == '\n') liczniknowejlini++;
+        else 
+            licznikinne++;
+    }
+    printf("W zdaniu jest %d odstepow, %d znakow nowej lini i %d innych znakow.\n",
+    licznikodstepow, liczniknowejlini, licznikinne);
 }
 
 void zad2(){
-    printf("2!\n");
+    int ch, licznik = 0;
+    while((ch = getchar()) != KONIEC){
+        if(licznik++%8){
+            printf("%c:%d ", ch, ch);
+        }
+        else
+            printf("\n");
+    }
 }
 
 void zad3(){
-    printf("3!\n");
+    int liczbyparzyste = 0, liczbynieparzyste = 0, liczba = 0;
+    float sumaparzystych = 0, sumanieparzystych = 0;
+    scanf("%d", &liczba);
+    while(liczba != 0){
+        if(liczba%2){
+            liczbynieparzyste++;
+            sumanieparzystych += liczba;
+        } 
+        else{
+            liczbyparzyste++;
+            sumaparzystych += liczba;
+        } 
+        scanf("%d", &liczba);
+    }
+    printf("parzyste: %d, nieparzyste: %d\n", liczbyparzyste, liczbynieparzyste);
+    printf("sred. parzystych: %.2f, sred. nieparzystych: %.2f\n", sumaparzystych/liczbyparzyste, sumanieparzystych/liczbynieparzyste);
 }
 
 void zad4(){
-    printf("4!\n");
+    int ch, licznik = 0;
+    while((ch = getchar()) != KONIEC){
+        if(ch == '.'){
+            putchar('!'); 
+            licznik++;
+        } 
+        if(ch == '!'){
+            putchar('!');
+            putchar('!');
+            licznik++;
+        }
+        else {
+            putchar(ch);
+        }        
+    }
+    printf("\nLiczba zmian: %d\n", licznik);
 }
 
 void zad5(){
