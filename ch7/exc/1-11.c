@@ -1,5 +1,10 @@
 // 1-11.c - rozwiązania zadań z rozdziału 7
 #include <stdio.h>
+#define PODSTAWA 40
+#define NADGODZINY 1.5 * PODSTAWA
+#define PODATEK1 0.15 * 1200
+#define PODATEK2 0.20 * 600
+#define PODATEK3 0.25 
 
 // deklaracje funkcji
 void zad1();
@@ -75,7 +80,7 @@ int main(void){
 4 -     NOT DONE!
 5 -     NOT DONE!
 6 -     NOT DONE!
-7 -     NOT DONE!
+7 -     DONE
 8 -     NOT DONE!
 9 -     NOT DONE!
 10 -    NOT DONE!
@@ -110,7 +115,22 @@ void zad6(){
 }
 
 void zad7(){
-    printf("7!\n");
+    float godziny, wynagrodzenie, podatek;
+    printf("Podaj liczbe przepracowanych godzin w miesiacu: ");
+    scanf("%f", &godziny);
+    if (godziny > 200) {
+        printf("Podaj realna wartosc. Nikt nie jest robotem.\n");
+    } else {
+        if(godziny < 160){
+        wynagrodzenie = godziny * PODSTAWA;
+        podatek = PODATEK1 + PODATEK2 + (wynagrodzenie - 1800) * PODATEK3;
+        } 
+        else {
+        wynagrodzenie = godziny * PODSTAWA + (godziny - 160) * NADGODZINY;
+        podatek = PODATEK1 + PODATEK2 + (wynagrodzenie - 1800) * PODATEK3;
+        }
+        printf("Wynagrodzenie wynosi: %.2f $, a podatek: %.2f $\n", wynagrodzenie, podatek);
+    }
 }
 
 void zad8(){
