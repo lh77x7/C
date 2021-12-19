@@ -16,7 +16,7 @@ int main(void){
         else
         {
             strncpy(vslowa[i], temp, ROZMIAR_CELU - 1);
-            vslowa[i][ROZMIAR_CELU - 1] = '\0';
+            vslowa[i][ROZMIAR_CELU - 1] = '0';
             i++;
         }
     }
