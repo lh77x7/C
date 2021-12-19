@@ -1,5 +1,7 @@
 // 1-11.c - rozwiązania zadań z rozdziału 7
 #include <stdio.h>
+#include <stdlib.h>  // potrzebuje malloc(), free()
+#include <stdbool.h> // potrzebuje bool
 #define KONIEC '#'
 #define PODSTAWA 40
 #define NADGODZINY 1.5 * PODSTAWA
@@ -19,6 +21,7 @@ void zad8();
 void zad9();
 void zad10();
 void zad11();
+void sito(bool *, unsigned int n);
 
 // program główny
 int main(void){
@@ -79,11 +82,11 @@ int main(void){
 2 -     DONE
 3 -     DONE
 4 -     DONE
-5 -     NOT DONE!
+5 -     DONE
 6 -     NOT DONE!
 7 -     DONE
 8 -     NOT DONE!
-9 -     NOT DONE!
+9 -     DONE
 10 -    NOT DONE!
 11 -    NOT DONE!
 
@@ -154,11 +157,39 @@ void zad4(){
 }
 
 void zad5(){
-    printf("5!\n");
+    int liczbyparzyste = 0, liczbynieparzyste = 0, liczba = 0;
+    float sumaparzystych = 0, sumanieparzystych = 0;
+    scanf("%d", &liczba);
+    while(liczba != 0){
+        int a = liczba%2;
+        switch (a)
+        {
+        case 1:
+            liczbynieparzyste++;
+            sumanieparzystych += liczba;
+            break;
+
+        default:
+            liczbyparzyste++;
+            sumaparzystych += liczba;
+            break;
+        }
+
+    scanf("%d", &liczba);
+    }
+
+    printf("parzyste: %d, nieparzyste: %d\n", liczbyparzyste, liczbynieparzyste);
+    printf("sred. parzystych: %.2f, sred. nieparzystych: %.2f\n", sumaparzystych/liczbyparzyste, sumanieparzystych/liczbynieparzyste);
 }
 
 void zad6(){
-    printf("6!\n");
+    int licznik = 0;
+    char ch, poprz;
+
+    while((ch = getchar()) != KONIEC){
+
+    }
+    printf("\nCiag \"ot\" wystapil: %d razy\n", licznik);
 }
 
 void zad7(){
@@ -185,7 +216,23 @@ void zad8(){
 }
 
 void zad9(){
-    printf("9!\n");
+    int n;
+    bool *tab;
+
+    printf("Podaj liczba: "); scanf("%d", &n);
+    tab = (bool *) malloc((n+1) *sizeof(bool));
+
+    for(int i = 2; i <= n; i++) // zerowanie tablicy
+        tab[i] = 0;
+    sito(tab, n);   // przeslanie liczb
+
+    printf("Liczby z przedzialu od [2..%d]: ", n);
+
+    for(int i = 2; i <= n; i++)
+        if(!tab[i])
+            printf("%d ",i);
+    printf("\n");
+    free(tab); 
 }
 
 void zad10(){
@@ -194,4 +241,13 @@ void zad10(){
 
 void zad11(){
     printf("11!\n");
+}
+
+void sito(bool *tab, unsigned int n){
+    for(int i = 2; i*i <= n; i++) // sprawszam liczby do pierwiastka z n
+    {
+        if(!tab[i]) // jesli jest pierwsza
+                for(int j = i*i; j <= n; j += i) // okreslenie wielokrotnosci liczby pierwszej
+            tab[j] = 1; // ustawienie wartosci na 1
+    }
 }
