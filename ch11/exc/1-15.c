@@ -27,7 +27,7 @@ int main(void){
         switch (choice)
         {
         case 1:
-            zad1(tablicaLiter);
+            zad1();
             break;
         case 2:
             zad2();
@@ -107,8 +107,6 @@ int main(void){
 void zad1(){
 
 }    
-
-
 
 void zad2(){
 
