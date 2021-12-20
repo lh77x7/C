@@ -1,4 +1,4 @@
-// 1-16.c - rozwiazania do cwiczen 1-16 rozdzial 6
+// 1-15.c - rozwiazania do cwiczen 1-15 rozdzial 11
 
 #include <stdio.h>
 

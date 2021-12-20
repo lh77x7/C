@@ -84,7 +84,7 @@ int main(void){
 5 -     DONE
 6 -     DONE
 7 -     DONE
-8 -     NOT DONE!
+8 -     DONE
 9 -     DONE
 10-     DONE
 
@@ -230,7 +230,10 @@ int jestLitera(char znak){
 }
 
 int jestLiterarekur(char znak){
-       
+    if(znak >= 'A' && znak <='Z')
+       return (int) znak - 64;
+    else 
+        return (int) znak - 96;
 }
 
 double potega(double a, int b){
