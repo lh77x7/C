@@ -11,7 +11,16 @@
 #define NADGODZINY 1.5 * PODSTAWA
 #define PODATEK1 0.15 * 1200
 #define PODATEK2 0.20 * 600
-#define PODATEK3 0.25 
+#define PODATEK3 0.2
+#define STALAPODATKOWA 0.15 
+#define STALAPODATKOWA2 0.28
+#define ARBUZ 1.25
+#define BURAK 0.65
+#define CEBULA 0.89
+#define RABAT 0.05
+#define KOSZTPRZESYLKI1 3.50
+#define KOSZTPRZESYLKI2 10
+#define KOSZTPRZESYLKI3 8 
 
 // deklaracje funkcji
 void zad1();
@@ -91,7 +100,7 @@ int main(void){
 7 -     DONE
 8 -     DONE
 9 -     DONE
-10 -    NOT DONE!
+10 -    DONE
 11 -    NOT DONE!
 
 */
@@ -323,11 +332,88 @@ void zad9(){
 }
 
 void zad10(){
-    printf("10!\n");
+    char ch;
+    float wynagrodzenie, podatek;
+    while((ch = getchar()) != '5'){
+        switch (ch)
+        {
+            case '1':
+                printf("Podaj wynagrodzenie: "); scanf("%f", &wynagrodzenie);
+                if(wynagrodzenie > 17850){
+                    podatek = STALAPODATKOWA * 17850 + (wynagrodzenie - 17850) * STALAPODATKOWA2;
+                }
+                else {
+                    podatek = STALAPODATKOWA * wynagrodzenie;
+                }
+                printf("Podatek: %.2f $\n", podatek);
+                break;
+            case '2': 
+                printf("Podaj wynagrodzenie: "); scanf("%f", &wynagrodzenie);
+                if(wynagrodzenie > 23900){
+                    podatek = STALAPODATKOWA * 23900 + (wynagrodzenie - 23900) * STALAPODATKOWA2;
+                }
+                else {
+                    podatek = STALAPODATKOWA * wynagrodzenie;
+                }
+                printf("Podatek: %.2f $\n", podatek);
+                break;
+            case '3':
+                printf("Podaj wynagrodzenie: "); scanf("%f", &wynagrodzenie);
+                if(wynagrodzenie > 29750){
+                    podatek = STALAPODATKOWA * 29750 + (wynagrodzenie - 29750) * STALAPODATKOWA2;
+                }
+                else {
+                    podatek = STALAPODATKOWA * wynagrodzenie;
+                }
+                printf("Podatek: %.2f $\n", podatek);
+                break;
+            case '4':
+                printf("Podaj wynagrodzenie: "); scanf("%f", &wynagrodzenie);
+                if(wynagrodzenie > 14875){
+                    podatek = STALAPODATKOWA * 14875 + (wynagrodzenie - 14875) * STALAPODATKOWA2;
+                }
+                else {
+                    podatek = STALAPODATKOWA * wynagrodzenie;
+                }
+                printf("Podatek: %.2f $\n", podatek);
+                break;
+            default:
+                printf("**************************************************\n");
+                printf("Wybierz kategorie\n");
+                printf("1) stan wolny               2) glowa rodziny\n");
+                printf("3) malozenstwo, wspolnie    4) malozenstwo, osobno\n");
+                printf("5) wyjscie\n");
+                printf("**************************************************\n");
+                break;
+        }
+    }    
 }
 
 void zad11(){
-    printf("11!\n");
+    char ch;
+    float oplata, rabat, kosztPrzesylki;
+    while((ch = getchar()) != 'K'){
+        switch (ch)
+        {
+            case 'A':
+                printf("przyjecie zamowienia dla arbuza\n");
+                break;
+            case 'B': 
+                printf("przyjecie zamowienia dla burakow\n");
+                break;
+            case 'C':
+                printf("przyjecie zamowienia dla cebuli\n");
+                break;
+            default:
+                printf("********************************************\n");
+                printf("Wybierz kategorie\n");
+                printf("A) arbuzy               B) buraki\n");
+                printf("C) cebula               K) koniec zamowienia\n");
+                printf("********************************************\n");
+                break;
+        }
+    }
+    // podsumowanie zamowienia    
 }
 
 void sito(bool *tab, unsigned int n){
