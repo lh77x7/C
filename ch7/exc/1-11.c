@@ -4,6 +4,10 @@
 #include <stdbool.h> // potrzebuje bool
 #define KONIEC '#'
 #define PODSTAWA 40
+#define STAWKA1 35
+#define STAWKA2 37
+#define STAWKA3 40
+#define STAWKA4 45
 #define NADGODZINY 1.5 * PODSTAWA
 #define PODATEK1 0.15 * 1200
 #define PODATEK2 0.20 * 600
@@ -83,9 +87,9 @@ int main(void){
 3 -     DONE
 4 -     DONE
 5 -     DONE
-6 -     NOT DONE!
+6 -     DONE
 7 -     DONE
-8 -     NOT DONE!
+8 -     DONE
 9 -     DONE
 10 -    NOT DONE!
 11 -    NOT DONE!
@@ -184,10 +188,14 @@ void zad5(){
 
 void zad6(){
     int licznik = 0;
-    char ch, poprz;
+    char ch;
 
     while((ch = getchar()) != KONIEC){
-
+        if(ch == 'o'){
+            ch = getchar();
+            if(ch == 't')
+                licznik++;
+        }   
     }
     printf("\nCiag \"ot\" wystapil: %d razy\n", licznik);
 }
@@ -212,7 +220,86 @@ void zad7(){
 }
 
 void zad8(){
-    printf("8!\n");
+    char ch;
+    int godziny;
+    float wynagrodzenie, podatek;
+    while((ch = getchar()) != '5'){
+        switch (ch)
+        {
+            case '1':
+                printf("Podaj liczbe przepracowanych godzin: "); scanf("%d", &godziny);
+                if (godziny > 200) {
+                    printf("Podaj realna wartosc. Nikt nie jest robotem.\n");
+                } else {
+                    if(godziny < 160){
+                    wynagrodzenie = godziny * STAWKA1;
+                    podatek = PODATEK1 + PODATEK2 + (wynagrodzenie - 1800) * PODATEK3;
+                    } 
+                else {
+                    wynagrodzenie = godziny * STAWKA1 + (godziny - 160) * NADGODZINY;
+                    podatek = PODATEK1 + PODATEK2 + (wynagrodzenie - 1800) * PODATEK3;
+                    }
+                    printf("Wynagrodzenie wynosi: %.2f $, a podatek: %.2f $\n", wynagrodzenie, podatek);
+                }
+                break;
+            case '2': 
+                printf("Podaj liczbe przepracowanych godzin: "); scanf("%d", &godziny);
+                if (godziny > 200) {
+                    printf("Podaj realna wartosc. Nikt nie jest robotem.\n");
+                } else {
+                    if(godziny < 160){
+                    wynagrodzenie = godziny * STAWKA2;
+                    podatek = PODATEK1 + PODATEK2 + (wynagrodzenie - 1800) * PODATEK3;
+                    } 
+                else {
+                    wynagrodzenie = godziny * STAWKA2 + (godziny - 160) * NADGODZINY;
+                    podatek = PODATEK1 + PODATEK2 + (wynagrodzenie - 1800) * PODATEK3;
+                    }
+                    printf("Wynagrodzenie wynosi: %.2f $, a podatek: %.2f $\n", wynagrodzenie, podatek);
+                }
+                break;
+            case '3':
+                printf("Podaj liczbe przepracowanych godzin: "); scanf("%d", &godziny);
+                if (godziny > 200) {
+                    printf("Podaj realna wartosc. Nikt nie jest robotem.\n");
+                } else {
+                    if(godziny < 160){
+                    wynagrodzenie = godziny * STAWKA3;
+                    podatek = PODATEK1 + PODATEK2 + (wynagrodzenie - 1800) * PODATEK3;
+                    } 
+                else {
+                    wynagrodzenie = godziny * STAWKA3 + (godziny - 160) * NADGODZINY;
+                    podatek = PODATEK1 + PODATEK2 + (wynagrodzenie - 1800) * PODATEK3;
+                    }
+                    printf("Wynagrodzenie wynosi: %.2f $, a podatek: %.2f $\n", wynagrodzenie, podatek);
+                }
+                break;
+            case '4':
+                printf("Podaj liczbe przepracowanych godzin: "); scanf("%d", &godziny);
+                if (godziny > 200) {
+                    printf("Podaj realna wartosc. Nikt nie jest robotem.\n");
+                } else {
+                    if(godziny < 160){
+                    wynagrodzenie = godziny * STAWKA4;
+                    podatek = PODATEK1 + PODATEK2 + (wynagrodzenie - 1800) * PODATEK3;
+                    } 
+                else {
+                    wynagrodzenie = godziny * STAWKA4 + (godziny - 160) * NADGODZINY;
+                    podatek = PODATEK1 + PODATEK2 + (wynagrodzenie - 1800) * PODATEK3;
+                    }
+                    printf("Wynagrodzenie wynosi: %.2f $, a podatek: %.2f $\n", wynagrodzenie, podatek);
+                }
+                break;
+            default:
+                printf("********************************************\n");
+                printf("Podaj liczbe Twojego wynagrodzenia lub opcji\n");
+                printf("1) 35 zl/godz.      2) 37 zl/godz.\n");
+                printf("3) 40 zl/godz.      4) 45 zl/godz.\n");
+                printf("5) wyjscie\n");
+                printf("********************************************\n");
+                break;
+        }
+    }    
 }
 
 void zad9(){
