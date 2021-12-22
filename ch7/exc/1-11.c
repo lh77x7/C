@@ -34,13 +34,26 @@ void zad8();
 void zad9();
 void zad10();
 void zad11();
+void zad12();
+void menu();
+void obliczArbuz();
+void obliczBurak();
+void obliczCebula();
+void podsumowanie();
+void wyswietlanie();
 void sito(bool *, unsigned int n);
+
+// zmienne globalne dla zad. 12
+char ch;
+float oplata, oplataArbuz, oplataBurak, oplataCebula;
+float wagaArbuz, wagaBurak, wagaCebula;
+float rabat, kosztPrzesylki, waga;
 
 // program główny
 int main(void){
     int choice;
 
-    printf("Podaj liczbe od 1-11 (znak nieliczbowy konczy): ");
+    printf("Podaj liczbe od 1-12 (znak nieliczbowy konczy): ");
     while(scanf("%d", &choice) == 1)
     {
         switch (choice)
@@ -77,12 +90,15 @@ int main(void){
             break;
         case 11:
             zad11();
+            break;
+        case 12:
+            zad12();
             break;        
         default:
-            printf("Wybierz liczbe z zakresu 1-11.\n");
+            printf("Wybierz liczbe z zakresu 1-12.\n");
             break;
         }
-        printf("Podaj liczbe od 1-11 (znak nieliczbowy konczy): ");
+        printf("Podaj liczbe od 1-12 (znak nieliczbowy konczy): ");
     }
     printf("Koniec programu.\n");
 
@@ -101,7 +117,7 @@ int main(void){
 8 -     DONE
 9 -     DONE
 10 -    DONE
-11 -    NOT DONE!
+11 -    DONE
 
 */
 
@@ -391,18 +407,33 @@ void zad10(){
 
 void zad11(){
     char ch;
-    float oplata, rabat, kosztPrzesylki;
+    float oplata, oplataArbuz, oplataBurak, oplataCebula;
+    float wagaArbuz, wagaBurak, wagaCebula;
+    float rabat, kosztPrzesylki, waga;
+    
     while((ch = getchar()) != 'K'){
         switch (ch)
         {
             case 'A':
-                printf("przyjecie zamowienia dla arbuza\n");
+            case 'a':
+                printf("Ile kilogramow arbuza zamowic? \n"); scanf("%f", &wagaArbuz);
+                // wagaArbuz
+                oplataArbuz = wagaArbuz * ARBUZ;
+
                 break;
-            case 'B': 
-                printf("przyjecie zamowienia dla burakow\n");
+            case 'B':
+            case 'b': 
+                printf("Ile kilogramow burakow zamowic? \n"); scanf("%f", &wagaBurak);
+                // wagaBurak
+                oplataBurak = wagaBurak * BURAK;
+
                 break;
             case 'C':
-                printf("przyjecie zamowienia dla cebuli\n");
+            case 'c':
+                printf("Ile kilogramow cebuli zamowic? \n"); scanf("%f", &wagaCebula);
+                // wagaCebula
+                oplataCebula = wagaCebula * CEBULA;
+
                 break;
             default:
                 printf("********************************************\n");
@@ -413,7 +444,389 @@ void zad11(){
                 break;
         }
     }
-    // podsumowanie zamowienia    
+    // podsumowanie zamowienia
+
+    // obliczanie wagi
+    // instrukcja warunkowa
+    /*
+
+    000 - 0 kg dla arbuza, 0 kg dla buraka, 0 kg dla cebuli
+    001 - 0 kg dla arbuza, 0 kg dla buraka, nie 0 kg dla cebuli 
+    010 - 0 kg dla arbuza, nie 0 kg dla buraka, 0 kg dla cebuli
+    011 - 0 kg dla arbuza, nie 0 kg dla buraka, nie 0 kg dla cebuli
+    100 - nie 0 kg dla arbuza, 0 kg dla buraka, 0 kg dla cebuli
+    101 - nie 0 kg dla arbuza, 0 kg dla buraka, nie zero kg dla cebuli
+    110 - nie 0 kg dla arbuza, nie 0 kg dla buraka, 0 kg dla cebuli
+    111 - nie 0 kg dla arbuza, nie 0 kg dla buraka, nie 0 kg dla cebuli
+
+    */
+    // waga
+    // 000 - 0 0 0
+    if(wagaArbuz == 0 && wagaBurak == 0 && wagaCebula == 0){
+        waga = 0;
+        oplata = 0;
+        rabat = 0;
+        kosztPrzesylki = 0;
+    }
+    // 001 - 0 0 (nie 0)
+    if((wagaArbuz == 0 && wagaBurak == 0) || wagaCebula != 0){
+        waga = wagaCebula;
+        oplata = wagaCebula * CEBULA;
+        if(oplata > 100) {
+            rabat = RABAT * oplata;
+        }
+        if(waga < 5) {
+            kosztPrzesylki = KOSZTPRZESYLKI1;
+        }
+        if(waga > 5 && waga < 20){
+            kosztPrzesylki = KOSZTPRZESYLKI2;
+        }
+        if(waga > 20){
+            kosztPrzesylki = KOSZTPRZESYLKI3 + (waga - 20) * 0.1;
+        }
+    }
+    // 010 - 0 (nie 0) 0
+    if((wagaArbuz == 0 && wagaCebula == 0) || wagaBurak != 0){
+        waga = wagaBurak;
+        oplata = wagaBurak * BURAK;
+        if(oplata > 100) {
+            rabat = RABAT * oplata;
+        }
+        if(waga < 5) {
+            kosztPrzesylki = KOSZTPRZESYLKI1;
+        }
+        if(waga > 5 && waga < 20){
+            kosztPrzesylki = KOSZTPRZESYLKI2;
+        }
+        if(waga > 20){
+            kosztPrzesylki = KOSZTPRZESYLKI3 + (waga - 20) * 0.1;
+        }
+    }
+
+    // 011
+    if((wagaBurak != 0 && wagaCebula != 0) || wagaArbuz == 0){
+        waga = wagaBurak + wagaCebula;
+        oplata = wagaBurak * BURAK + wagaCebula * CEBULA;
+        if(oplata > 100) {
+            rabat = RABAT * oplata;
+        }
+        if(waga < 5) {
+            kosztPrzesylki = KOSZTPRZESYLKI1;
+        }
+        if(waga > 5 && waga < 20){
+            kosztPrzesylki = KOSZTPRZESYLKI2;
+        }
+        if(waga > 20){
+            kosztPrzesylki = KOSZTPRZESYLKI3 + (waga - 20) * 0.1;
+        }
+    }
+
+    // 100 - (nie 0) 0 0
+    if((wagaBurak == 0 && wagaCebula == 0) || wagaArbuz != 0){
+        waga = wagaArbuz;
+        oplata = wagaArbuz * ARBUZ;
+        if(oplata > 100) {
+            rabat = RABAT * oplata;
+        }
+        if(waga < 5) {
+            kosztPrzesylki = KOSZTPRZESYLKI1;
+        }
+        if(waga > 5 && waga < 20){
+            kosztPrzesylki = KOSZTPRZESYLKI2;
+        }
+        if(waga > 20){
+            kosztPrzesylki = KOSZTPRZESYLKI3 + (waga - 20) * 0.1;
+        }
+    } 
+
+    // 101 - (nie 0) 0 (nie 0)
+    if((wagaArbuz != 0 && wagaCebula != 0) || wagaBurak == 0){
+        waga = wagaArbuz + wagaCebula;
+        oplata = wagaArbuz * ARBUZ + wagaCebula * CEBULA;
+        if(oplata > 100) {
+            rabat = RABAT * oplata;
+        }
+        if(waga < 5) {
+            kosztPrzesylki = KOSZTPRZESYLKI1;
+        }
+        if(waga > 5 && waga < 20){
+            kosztPrzesylki = KOSZTPRZESYLKI2;
+        }
+        if(waga > 20){
+            kosztPrzesylki = KOSZTPRZESYLKI3 + (waga - 20) * 0.1;
+        }
+    }
+
+    // 110 - (nie 0) (nie 0) 0
+    if((wagaArbuz != 0 && wagaBurak != 0) || wagaCebula == 0){
+        waga = wagaArbuz + wagaBurak;
+        oplata = wagaArbuz * ARBUZ + wagaBurak * BURAK;
+        if(oplata > 100) {
+            rabat = RABAT * oplata;
+        }
+        if(waga < 5) {
+            kosztPrzesylki = KOSZTPRZESYLKI1;
+        }
+        if(waga > 5 && waga < 20){
+            kosztPrzesylki = KOSZTPRZESYLKI2;
+        }
+        if(waga > 20){
+            kosztPrzesylki = KOSZTPRZESYLKI3 + (waga - 20) * 0.1;
+        }
+    }
+
+    // 111 - (nie 0) (nie 0) (nie 0)
+    if((wagaBurak != 0 && wagaCebula != 0) && wagaArbuz != 0){
+        waga = wagaArbuz + wagaBurak + wagaCebula;
+        oplata = wagaArbuz * ARBUZ + wagaBurak * BURAK + wagaCebula * CEBULA;
+        if(oplata > 100) {
+            rabat = RABAT * oplata;
+        }
+        if(waga < 5) {
+            kosztPrzesylki = KOSZTPRZESYLKI1;
+        }
+        if(waga > 5 && waga < 20){
+            kosztPrzesylki = KOSZTPRZESYLKI2;
+        }
+        if(waga > 20){
+            kosztPrzesylki = KOSZTPRZESYLKI3 + (waga - 20) * 0.1;
+        }
+    }
+
+    // wyswietlanie 
+    printf("Waga razem: %.2f\n", waga);
+    if(wagaArbuz != 0) printf("Oplata arbuz: %.2f\n", wagaArbuz*ARBUZ);
+    else printf("Oplata arbuz: 0\n");
+    if(wagaBurak != 0 ) printf("Oplata burak: %.2f\n", wagaBurak*BURAK);
+    else printf("Oplata burak: 0\n");
+    if(wagaCebula != 0) printf("Oplata cebula: %.2f\n", wagaCebula*CEBULA);
+    else printf("Oplata cebula: 0\n");
+    printf("Oplata razem: %.2f\n", oplata);
+    if(oplata > 100) printf("Rabat: %.2f\n", rabat);
+    else printf("Rabat: 0\n");
+    printf("Koszt przesylki: %.2f\n", kosztPrzesylki);
+}
+
+// zad11 wykonane modularnie czyli podzielenie programu ze względu 
+// na funkcje w nim realizowane
+
+void zad12(){    
+    while((ch = getchar()) != 'K'){
+        switch (ch)
+        {
+            case 'A':
+            case 'a':
+                obliczArbuz();
+                break;
+            case 'B':
+            case 'b': 
+                obliczBurak();
+                break;
+            case 'C':
+            case 'c':
+                obliczCebula();                
+                break;
+            default:
+                menu();                
+                break;
+        }
+    }
+    // podsumowanie
+    podsumowanie();
+    
+    // wyswietlanie 
+    wyswietlanie();
+}
+
+// udostepniam menu wyboru
+void menu(){
+printf("********************************************\n");
+printf("Wybierz kategorie\n");
+printf("A) arbuzy               B) buraki\n");
+printf("C) cebula               K) koniec zamowienia\n");
+printf("********************************************\n");
+}
+
+// wykonuje obliczenia dla Arbuza
+void obliczArbuz(){
+printf("Ile kilogramow arbuza zamowic? \n"); scanf("%f", &wagaArbuz);
+// wagaArbuz
+oplataArbuz = wagaArbuz * ARBUZ;
+}
+
+// wykonuje obliczenia dla Buraka
+void obliczBurak(){
+printf("Ile kilogramow burakow zamowic? \n"); scanf("%f", &wagaBurak);
+// wagaBurak
+oplataBurak = wagaBurak * BURAK;
+}
+
+// wykonuje obliczenia dla Cebuli
+void obliczCebula(){
+printf("Ile kilogramow cebuli zamowic? \n"); scanf("%f", &wagaCebula);
+// wagaCebula
+oplataCebula = wagaCebula * CEBULA;
+}
+
+// obliczam koszty na podstawie wag
+void podsumowanie(){
+/*
+    000 - 0 kg dla arbuza, 0 kg dla buraka, 0 kg dla cebuli
+    001 - 0 kg dla arbuza, 0 kg dla buraka, nie 0 kg dla cebuli 
+    010 - 0 kg dla arbuza, nie 0 kg dla buraka, 0 kg dla cebuli
+    011 - 0 kg dla arbuza, nie 0 kg dla buraka, nie 0 kg dla cebuli
+    100 - nie 0 kg dla arbuza, 0 kg dla buraka, 0 kg dla cebuli
+    101 - nie 0 kg dla arbuza, 0 kg dla buraka, nie zero kg dla cebuli
+    110 - nie 0 kg dla arbuza, nie 0 kg dla buraka, 0 kg dla cebuli
+    111 - nie 0 kg dla arbuza, nie 0 kg dla buraka, nie 0 kg dla cebuli
+*/
+// waga
+// 000 - 0 0 0
+    if(wagaArbuz == 0 && wagaBurak == 0 && wagaCebula == 0){
+        waga = 0;
+        oplata = 0;
+        rabat = 0;
+        kosztPrzesylki = 0;
+    }
+    // 001 - 0 0 (nie 0)
+    if((wagaArbuz == 0 && wagaBurak == 0) || wagaCebula != 0){
+        waga = wagaCebula;
+        oplata = wagaCebula * CEBULA;
+        if(oplata > 100) {
+            rabat = RABAT * oplata;
+        }
+        if(waga < 5) {
+            kosztPrzesylki = KOSZTPRZESYLKI1;
+        }
+        if(waga > 5 && waga < 20){
+            kosztPrzesylki = KOSZTPRZESYLKI2;
+        }
+        if(waga > 20){
+            kosztPrzesylki = KOSZTPRZESYLKI3 + (waga - 20) * 0.1;
+        }
+    }
+    // 010 - 0 (nie 0) 0
+    if((wagaArbuz == 0 && wagaCebula == 0) || wagaBurak != 0){
+        waga = wagaBurak;
+        oplata = wagaBurak * BURAK;
+        if(oplata > 100) {
+            rabat = RABAT * oplata;
+        }
+        if(waga < 5) {
+            kosztPrzesylki = KOSZTPRZESYLKI1;
+        }
+        if(waga > 5 && waga < 20){
+            kosztPrzesylki = KOSZTPRZESYLKI2;
+        }
+        if(waga > 20){
+            kosztPrzesylki = KOSZTPRZESYLKI3 + (waga - 20) * 0.1;
+        }
+    }
+
+    // 011
+    if((wagaBurak != 0 && wagaCebula != 0) || wagaArbuz == 0){
+        waga = wagaBurak + wagaCebula;
+        oplata = wagaBurak * BURAK + wagaCebula * CEBULA;
+        if(oplata > 100) {
+            rabat = RABAT * oplata;
+        }
+        if(waga < 5) {
+            kosztPrzesylki = KOSZTPRZESYLKI1;
+        }
+        if(waga > 5 && waga < 20){
+            kosztPrzesylki = KOSZTPRZESYLKI2;
+        }
+        if(waga > 20){
+            kosztPrzesylki = KOSZTPRZESYLKI3 + (waga - 20) * 0.1;
+        }
+    }
+
+    // 100 - (nie 0) 0 0
+    if((wagaBurak == 0 && wagaCebula == 0) || wagaArbuz != 0){
+        waga = wagaArbuz;
+        oplata = wagaArbuz * ARBUZ;
+        if(oplata > 100) {
+            rabat = RABAT * oplata;
+        }
+        if(waga < 5) {
+            kosztPrzesylki = KOSZTPRZESYLKI1;
+        }
+        if(waga > 5 && waga < 20){
+            kosztPrzesylki = KOSZTPRZESYLKI2;
+        }
+        if(waga > 20){
+            kosztPrzesylki = KOSZTPRZESYLKI3 + (waga - 20) * 0.1;
+        }
+    } 
+
+    // 101 - (nie 0) 0 (nie 0)
+    if((wagaArbuz != 0 && wagaCebula != 0) || wagaBurak == 0){
+        waga = wagaArbuz + wagaCebula;
+        oplata = wagaArbuz * ARBUZ + wagaCebula * CEBULA;
+        if(oplata > 100) {
+            rabat = RABAT * oplata;
+        }
+        if(waga < 5) {
+            kosztPrzesylki = KOSZTPRZESYLKI1;
+        }
+        if(waga > 5 && waga < 20){
+            kosztPrzesylki = KOSZTPRZESYLKI2;
+        }
+        if(waga > 20){
+            kosztPrzesylki = KOSZTPRZESYLKI3 + (waga - 20) * 0.1;
+        }
+    }
+
+    // 110 - (nie 0) (nie 0) 0
+    if((wagaArbuz != 0 && wagaBurak != 0) || wagaCebula == 0){
+        waga = wagaArbuz + wagaBurak;
+        oplata = wagaArbuz * ARBUZ + wagaBurak * BURAK;
+        if(oplata > 100) {
+            rabat = RABAT * oplata;
+        }
+        if(waga < 5) {
+            kosztPrzesylki = KOSZTPRZESYLKI1;
+        }
+        if(waga > 5 && waga < 20){
+            kosztPrzesylki = KOSZTPRZESYLKI2;
+        }
+        if(waga > 20){
+            kosztPrzesylki = KOSZTPRZESYLKI3 + (waga - 20) * 0.1;
+        }
+    }
+
+    // 111 - (nie 0) (nie 0) (nie 0)
+    if((wagaBurak != 0 && wagaCebula != 0) && wagaArbuz != 0){
+        waga = wagaArbuz + wagaBurak + wagaCebula;
+        oplata = wagaArbuz * ARBUZ + wagaBurak * BURAK + wagaCebula * CEBULA;
+        if(oplata > 100) {
+            rabat = RABAT * oplata;
+        }
+        if(waga < 5) {
+            kosztPrzesylki = KOSZTPRZESYLKI1;
+        }
+        if(waga > 5 && waga < 20){
+            kosztPrzesylki = KOSZTPRZESYLKI2;
+        }
+        if(waga > 20){
+            kosztPrzesylki = KOSZTPRZESYLKI3 + (waga - 20) * 0.1;
+        }
+    }
+}
+
+// wyswietlam wyniki
+void wyswietlanie(){
+printf("Waga razem: %.2f\n", waga);
+if(wagaArbuz != 0) printf("Oplata arbuz: %.2f\n", wagaArbuz*ARBUZ);
+else printf("Oplata arbuz: 0\n");
+if(wagaBurak != 0 ) printf("Oplata burak: %.2f\n", wagaBurak*BURAK);
+else printf("Oplata burak: 0\n");
+if(wagaCebula != 0) printf("Oplata cebula: %.2f\n", wagaCebula*CEBULA);
+else printf("Oplata cebula: 0\n");
+printf("Oplata razem: %.2f\n", oplata);
+if(oplata > 100) printf("Rabat: %.2f\n", rabat);
+else printf("Rabat: 0\n");
+printf("Koszt przesylki: %.2f\n", kosztPrzesylki);
 }
 
 void sito(bool *tab, unsigned int n){
