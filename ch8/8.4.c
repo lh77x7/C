@@ -8,8 +8,12 @@ int main(void){
     printf("\nWpisz t, jesli moja proba jest udana lub");
     printf("\nn, jesli nie trafilem.\n");
     printf("Hmm... czy Twoja liczba jest %d?\n", proba);
-    while((odpowiedz = getchar()) != 't')   // pobieranie odpowiedzi
+    while((odpowiedz = getchar()) != 't'){
+        // pobieranie odpowiedzi
         printf("No dobrze, czy jest to %d\n", ++proba);
+        while (getchar() !='\n')
+            continue;
+    }   
     printf("Wiedzialem, ze mi sie uda!\n");
     return 0;
 }

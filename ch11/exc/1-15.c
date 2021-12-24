@@ -21,7 +21,7 @@ void zad15();
 int main(void){
     int choice;
 
-    printf("Podaj liczbe od 1-16(q konczy): ");
+    printf("Podaj liczbe od 1-15(q konczy): ");
     while(scanf("%d", &choice) == 1)
     {
         switch (choice)
@@ -74,7 +74,7 @@ int main(void){
         default:
             break;
         }
-        printf("Podaj liczbe od 1-16 (q konczy): ");
+        printf("Podaj liczbe od 1-15 (q konczy): ");
     }
     printf("Koniec programu.\n");
 
