@@ -110,7 +110,6 @@ void zad1(){
 }
 
 void zad2(){
-    // zlicza liczbe znakow w pliku
     int ch;
     FILE*fp;
     char nazwapliku[50];    // przechowuje nazwe pliku

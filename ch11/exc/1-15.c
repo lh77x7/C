@@ -101,9 +101,6 @@ int main(void){
 
 */
 
-
-
-
 void zad1(){
 
 }    
