@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <time.h>
+#include <stdbool.h>
 #define PODSTAWA 40
 #define STAWKA1 35
 #define STAWKA2 37
@@ -13,6 +14,7 @@
 #define PODATEK1 0.15 * 1200
 #define PODATEK2 0.20 * 600
 #define PODATEK3 0.2
+#define STOP '!'
 
 void zad1();
 void zad2();
@@ -76,10 +78,10 @@ int main(void){
 /*
 
 1 -     DONE
-2 -     NOT DONE!
-3 -     NOT DONE!
+2 -     DONE
+3 -     DONE
 4 -     DONE
-5 -     NOT DONE!
+5 -     DONE
 6 -     DONE
 7 -     DONE
 8 -     DONE
@@ -121,17 +123,64 @@ void zad2(){
         exit(1);    // wyjscie z programu
     }
     // getc(fp) pobiera znak z otwartego pliku
-    int licznik = 0;
+    int licznik = 1;
     while ((ch = getc(fp)) != EOF)
-        
+    if(licznik++ %10 != 0) {
+        printf("%c: %d ", ch, ch);
+    }
+    else
+        printf("%c: %d\n", ch, ch);
+    printf("\n");
+    // powinnem jeszcze sprawdzic znaki tabulacji, 
+    // nowej lini i inne znaki sterujace
+
     fclose(fp); // zamyka plik
 }
 
 void zad3(){
-    printf("3\n");
+    int ch;
+    int duzeLitery = 0, maleLitery = 0, ileZnakow = 0;
+    while((ch = getchar()) != STOP)
+    {
+        ileZnakow++;        // liczy znaki
+        if(ch >= 'a' && ch <= 'z')
+            maleLitery++;   // liczy male litery
+        if(ch >= 'A' && ch <= 'Z')
+            duzeLitery++;   // liczy duze litery
+    }
+    printf("Znakow = %d, male litery = %d, duza litery = %d\n", ileZnakow, maleLitery, duzeLitery);
 }
 
 void zad4(){
+    int ch, poprzedni;
+    long ileZnakow = 0; // liczba znakow
+    int ileWierszy = 0; // liczba linii
+    int ileSlow = 0;    // liczba slow
+    int ileNpWierszy = 0; // liczba niepelnych wierszy
+    bool WSlowie = 0;   // true, jesli ch znajduje sie w slowie
+    poprzedni = '\n';
+    while((ch = getchar()) != STOP)
+    {
+        ileZnakow++;        // liczy znaki
+        if(ch == '\n')
+            ileWierszy++;   // liczy wiersze
+        if(!isspace(ch) && !WSlowie)
+        {
+            WSlowie = true; // zaczyna sie nowe slowo
+            ileSlow++;  // liczy slowa
+        }
+        if(isspace(ch) && WSlowie)
+            WSlowie = false;    // znajduje koniec slowa
+        poprzedni = ch;     // przechowuje wartosc znaku
+    }
+    if(poprzedni = '\n')
+        ileNpWierszy = 1;
+    printf("Znakow = %ld, slow = %d, wierszy = %d\n", ileZnakow, ileSlow, ileWierszy);
+    printf("Niepelnych wierszy = %d\n", ileNpWierszy);
+    printf("Srednio liczba liter w slowie = %d\n", (ileZnakow - ileWierszy)/ileSlow);
+}
+
+void zad5(){
     int num, guess, tries = 0;
     srand(time(0)); // generator seed
     num = rand() % 100 + 1; // losowy numer pomiędzy 1, a 100
@@ -155,10 +204,6 @@ void zad4(){
 
     } while(guess != num);
     printf("Dobrze! Zgadles za %d razem\n", tries);
-}
-
-void zad5(){
-    printf("5\n");
 }
 
 int zad6(){
