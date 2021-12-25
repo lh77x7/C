@@ -1,6 +1,7 @@
 // 1-8.c - rozwiazania do cwiczen 1-8 rozdzial 12
 
 #include <stdio.h>
+#include "../../include/pe12-2a.h"
 
 void zad1();
 void zad2();
@@ -10,6 +11,11 @@ void zad5();
 void zad6();
 void zad7();
 void zad8();
+void krytyka();
+static int jednostki = 0;  // lacznosc wewnetrzna, zasieg plikowy
+int wybierzTryb(int);
+void pobierzDane();
+void wyswietlDane();
 
 int main(void){
     int choice;
@@ -55,7 +61,7 @@ int main(void){
 
 /*
 
-1 -     NOT DONE!
+1 -     DONE
 2 -     NOT DONE!
 3 -     NOT DONE!
 4 -     NOT DONE!
@@ -70,13 +76,29 @@ int main(void){
 
 
 void zad1(){
-
+    extern int jednostki;
+    printf("Ile funtow masla miesci sie w barylce?\n");
+    scanf("%d", &jednostki);
+    while (jednostki != 56)
+        krytyka();
+    printf("Musiales podejrzec!\n");
 }    
 
-
-
 void zad2(){
+    int tryb;
 
+    printf("Wybierz: 0 - system metryczny, 1 - system US: ");
+    scanf("%d", &tryb);
+    while(tryb >= 0)
+    {
+        wybierzTryb(tryb);
+        pobierzDane();
+        wyswietlDane();
+        printf("Wybierz: 0 - system metryczny, 1 - system US");
+        printf("(-1 aby zakonczyc):");
+        scanf("%d", &tryb);
+    }
+    printf("Koniec.\n");
 }
 
 void zad3(){
@@ -100,5 +122,24 @@ void zad7(){
 }
 
 void zad8(){
+
+}
+
+void krytyka(){
+    extern int jednostki;
+    printf("Nie masz szczescia, sprobuj ponownie.\n");
+    scanf("%d", &jednostki);
+
+}
+
+int wybierzTryb(int tryb) {
+        
+}
+
+void pobierzDane() {
+    
+}
+
+void wyswietlDane() {
 
 }

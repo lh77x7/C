@@ -1,6 +1,7 @@
 // 1-15.c - rozwiazania do cwiczen 1-15 rozdzial 11
 
 #include <stdio.h>
+#include <stdlib.h>
 
 void zad1();
 void zad2();
@@ -21,6 +22,7 @@ void zad15();
 int main(void){
     int choice;
 
+    
     printf("Podaj liczbe od 1-15(q konczy): ");
     while(scanf("%d", &choice) == 1)
     {
@@ -77,7 +79,7 @@ int main(void){
         printf("Podaj liczbe od 1-15 (q konczy): ");
     }
     printf("Koniec programu.\n");
-
+    
     return 0;
 }
 
