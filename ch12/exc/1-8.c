@@ -3,19 +3,22 @@
 #include <stdio.h>
 #include "../../include/pe12-2a.h"
 
-void zad1();
-void zad2();
-void zad3();
-void zad4();
-void zad5();
-void zad6();
-void zad7();
-void zad8();
-void krytyka();
+void zad1(void);
+void zad2(void);
+void zad3(void);
+void zad4(void);
+void zad5(void);
+void zad6(void);
+void zad7(void);
+void zad8(void);
+void krytyka(void);
 static int jednostki = 0;  // lacznosc wewnetrzna, zasieg plikowy
 int wybierzTryb(int);
-void pobierzDane();
-void wyswietlDane();
+void pobierzDane(void);
+void wyswietlDane(void);
+static int tryb;
+int pobierzInt(void);
+float pobierzFloat(void);
 
 int main(void){
     int choice;
@@ -72,10 +75,7 @@ int main(void){
 
 */
 
-
-
-
-void zad1(){
+void zad1(void){
     extern int jednostki;
     printf("Ile funtow masla miesci sie w barylce?\n");
     scanf("%d", &jednostki);
@@ -84,10 +84,11 @@ void zad1(){
     printf("Musiales podejrzec!\n");
 }    
 
-void zad2(){
+void zad2(void){
     int tryb;
 
     printf("Wybierz: 0 - system metryczny, 1 - system US: ");
+    printf("(-1 aby zakonczyc): ");
     scanf("%d", &tryb);
     while(tryb >= 0)
     {
@@ -95,51 +96,110 @@ void zad2(){
         pobierzDane();
         wyswietlDane();
         printf("Wybierz: 0 - system metryczny, 1 - system US");
-        printf("(-1 aby zakonczyc):");
+        printf("(-1 aby zakonczyc): ");
         scanf("%d", &tryb);
     }
     printf("Koniec.\n");
 }
 
-void zad3(){
+void zad3(void){
 
 }
 
-void zad4(){
+void zad4(void){
 
 }
 
-void zad5(){
+void zad5(void){
 
 }
 
-void zad6(){
+void zad6(void){
 
 }
 
-void zad7(){
+void zad7(void){
 
 }
 
-void zad8(){
+void zad8(void){
 
 }
 
-void krytyka(){
+void krytyka(void){
     extern int jednostki;
     printf("Nie masz szczescia, sprobuj ponownie.\n");
     scanf("%d", &jednostki);
 
 }
 
-int wybierzTryb(int tryb) {
-        
+int wybierzTryb(int wybor) {
+        switch (wybor)
+        {
+        case '0':
+            printf("Jestem tutaj na 0!\n");
+            pobierzDane();
+            //wyswietlDane();
+            break;
+        case '1':
+            printf("Jestem tutaj na 1!\n");
+            pobierzDane();
+            //wyswietlDane();
+            break;
+        default:
+            printf("Blad programu!\n");
+            break;
+        }
 }
 
-void pobierzDane() {
-    
+void pobierzDane(void) {
+    extern int tryb;
+    int kilometry, mile;
+    float litry, galony, wynik;
+    if(tryb == 0){
+        printf("Wprowadz przebyta odleglosc w kilometrach: ");
+        kilometry = pobierzInt();
+        printf("Wprowadz zuzyte paliwo w litrach: ");
+        litry = pobierzFloat();
+    }
+    else {
+        printf("Wprowadz przebyta odleglosc w milach: ");
+        mile = pobierzInt();
+        printf("Wprowadz zutyte paliwo w galonach: ");
+        galony = pobierzFloat();
+    }
 }
 
-void wyswietlDane() {
+void wyswietlDane(void) {
+    /*
+    extern int tryb;
+    int kilometry, mile;
+    float litry, galony, wynik;
+    */
+}
 
+int pobierzInt(void){
+    int we;
+    char ch;
+        while(scanf("%d", &we) != 1)
+        {
+            while((ch = getchar()) != '\n')
+            putchar(ch);    // pomija bledne dane wejsciowe
+            printf(" nie jest liczba calkowita.\n Prosze podac ");
+            printf("wartosc calkowita, np. 23, 7, 100");
+        }
+    return we;
+}
+
+float pobierzFloat(void){
+    float we;
+    char ch;
+        while (scanf("%f", &we) !=1)
+        {
+            while((ch = getchar()) != '\n')
+            putchar(ch);    // pomija bledne dane wejsciowe
+            printf(" nie jest liczba zmiennoprzecinkowa.\n Prosze podac ");
+            printf("wartosc zmiennoprzecinkowa, np. 23.4, 7.7, 4.4");
+        }
+    return we;    
 }
