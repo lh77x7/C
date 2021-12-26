@@ -1,4 +1,4 @@
-// naglowek dla programu pe12-2a.c i pe12-2b.c (zad2 1-8.c)
+// naglowek dla programu pe12-2a.c i pe12-2b.c
 #ifndef pe12_2a_h
 #define pe12_2a_h
 
