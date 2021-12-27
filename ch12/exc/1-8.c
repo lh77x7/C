@@ -11,6 +11,8 @@ void zad6(void);
 void zad7(void);
 void zad8(void);
 int krytyka(int jednostki);
+int funkcja(void);
+int ileRazy = 0;
 
 int main(void){
     int choice;
@@ -58,8 +60,8 @@ int main(void){
 
 1 -     DONE
 2 -     DONE
-3 -     NOT DONE!
-4 -     NOT DONE!
+3 -     DONE
+4 -     DONE
 5 -     NOT DONE!
 6 -     NOT DONE!
 7 -     NOT DONE!
@@ -87,7 +89,12 @@ void zad3(void){
 }
 
 void zad4(void){
-
+    int liczba, x = 0;
+    while(scanf("%d", &liczba) == 1)
+    {
+        x = funkcja();
+    }
+    printf("Wowalana: %d razy\n", x);
 }
 
 void zad5(void){
@@ -113,4 +120,9 @@ int krytyka(int jednostki){
     scanf("%d", &jednostki);
 
     return jednostki;
+}
+
+int funkcja (void){
+    ileRazy++;
+    return ileRazy;
 }
