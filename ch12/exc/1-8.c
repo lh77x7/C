@@ -1,6 +1,8 @@
 // 1-8.c - rozwiazania do cwiczen 1-8 rozdzial 12
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 void zad1(void);
 void zad2(void);
@@ -12,6 +14,7 @@ void zad7(void);
 void zad8(void);
 int krytyka(int jednostki);
 int funkcja(void);
+void sortowaniebabelowe(int tab[], int size);
 int ileRazy = 0;
 
 int main(void){
@@ -62,7 +65,7 @@ int main(void){
 2 -     DONE
 3 -     DONE
 4 -     DONE
-5 -     NOT DONE!
+5 -     DONE
 6 -     NOT DONE!
 7 -     NOT DONE!
 8 -     NOT DONE!
@@ -98,7 +101,28 @@ void zad4(void){
 }
 
 void zad5(void){
-
+    int tab[100];
+    srand(time(0));     // generator seed
+    // rand() % 10 + 1  (liczby z przedzialu od 1 do 10)
+    for(int i = 0; i < 100; i++){
+        tab[i] = rand() % 10 + 1;
+    }
+    // pokaz elementy przed sortowaniem
+    printf("przed sortowaniem: \n");
+    for(int i = 0; i < 100; i++){
+        printf("%d ", tab[i]);
+    }
+    printf("\n");
+    printf("------------------\n");
+    // sortowanie babelkowe (bubble sort)
+    sortowaniebabelowe(tab, 100);
+    // pokaz posortowane elementy tablicy
+    printf("Po sortowaniu: \n");
+    for(int i = 0; i < 100; i++){
+        printf("%d ", tab[i]);
+    }
+    printf("\n");
+    printf("------------------\n");
 }
 
 void zad6(void){
@@ -125,4 +149,17 @@ int krytyka(int jednostki){
 int funkcja (void){
     ileRazy++;
     return ileRazy;
+}
+
+void sortowaniebabelowe(int tab[], int size){
+    int i, j, temp;
+    for(i = 0; i < size - 1; i++){
+        for(j = 0; j < size - 1 - i; j++){
+            if(tab[j] < tab[j+1]){ // tab[j] < tab[j+1] - porzadek malejacy
+                temp = tab[j+1];    // gdy tab[j] > tab[j+1] - porzadek rosnący
+                tab[j+1] = tab[j];
+                tab[j] = temp;
+            }
+        }
+    }        
 }
