@@ -77,12 +77,13 @@ void zad1(void){
 }    
 
 void zad2(void){
-    printf("Rozwiazanie zad.2: folder exc2 - pe12-2a.c, pe12.2b.c ");
+    printf("Rozwiazanie zad.2: folder exc2 - pe12-2a.c, pe12-2b.c ");
     printf("oraz naglowek pe12-2a.h\n");
 }
 
 void zad3(void){
-
+    printf("Rozwiazanie zad.3: forder exc3 - pe12-2a.c, pe12-2b.c ");
+    printf("oraz naglowek pe12-2a.h\n");
 }
 
 void zad4(void){
