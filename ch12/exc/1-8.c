@@ -66,7 +66,7 @@ int main(void){
 3 -     DONE
 4 -     DONE
 5 -     DONE
-6 -     NOT DONE!
+6 -     DONE
 7 -     NOT DONE!
 8 -     NOT DONE!
 
@@ -101,32 +101,70 @@ void zad4(void){
 }
 
 void zad5(void){
-    int tab[100];
+    int *wsk;
+    wsk = (int *) malloc(100 * sizeof(int));
     srand(time(0));     // generator seed
     // rand() % 10 + 1  (liczby z przedzialu od 1 do 10)
     for(int i = 0; i < 100; i++){
-        tab[i] = rand() % 10 + 1;
+        wsk[i] = rand() % 10 + 1;
     }
     // pokaz elementy przed sortowaniem
     printf("przed sortowaniem: \n");
     for(int i = 0; i < 100; i++){
-        printf("%d ", tab[i]);
+        printf("%d ", wsk[i]);
     }
     printf("\n");
     printf("------------------\n");
     // sortowanie babelkowe (bubble sort)
-    sortowaniebabelowe(tab, 100);
+    sortowaniebabelowe(wsk, 100);
     // pokaz posortowane elementy tablicy
     printf("Po sortowaniu: \n");
     for(int i = 0; i < 100; i++){
-        printf("%d ", tab[i]);
+        printf("%d ", wsk[i]);
     }
     printf("\n");
     printf("------------------\n");
+    free(wsk);
 }
 
 void zad6(void){
+    int liczba1 = 0, liczba2 = 0, liczba3 = 0, liczba4 = 0, liczba5 = 0;
+    int liczba6 = 0, liczba7 = 0, liczba8 = 0, liczba9 = 0, liczba10 = 0;
+    srand(time(0)); // generator seed
+    int * wsk, n;
+    wsk = (int *) malloc(100 * sizeof(int));
+    for(int i = 0; i < 1000; i++){
+        wsk[i] = rand() % 10 + 1;
+    }
+    
+    for(int i = 0; i < 1000; i++){
+        //printf("%d ", wsk[i]);
+        if(wsk[i] == 1) liczba1++;
+        if(wsk[i] == 2) liczba2++;
+        if(wsk[i] == 3) liczba3++;
+        if(wsk[i] == 4) liczba4++;
+        if(wsk[i] == 5) liczba5++;
+        if(wsk[i] == 6) liczba6++;
+        if(wsk[i] == 7) liczba7++;
+        if(wsk[i] == 8) liczba8++;
+        if(wsk[i] == 9) liczba9++;
+        if(wsk[i] == 10) liczba10++;
+    }
+    printf("\n");
 
+    printf("Wystepowanie liczb w zbiorze 1000 liczb.\n");
+    printf("1: %d\n", liczba1);
+    printf("2: %d\n", liczba2);
+    printf("3: %d\n", liczba3);
+    printf("4: %d\n", liczba4);
+    printf("5: %d\n", liczba5);
+    printf("6: %d\n", liczba6);
+    printf("7: %d\n", liczba7);
+    printf("8: %d\n", liczba8);
+    printf("9: %d\n", liczba9);
+    printf("10: %d\n", liczba10);
+    printf("----------------------\n");
+    free(wsk);
 }
 
 void zad7(void){
