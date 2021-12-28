@@ -168,7 +168,7 @@ void zad6(void){
 }
 
 void zad7(void){
-
+    printf("Rozwiazanie zad. 7 folder exc 7 - 12.11, 12.12 + naglowek.h\n");
 }
 
 void zad8(void){

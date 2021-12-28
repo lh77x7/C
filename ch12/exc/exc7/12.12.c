@@ -3,13 +3,14 @@
 #include <stdio.h>
 #include <stdlib.h> // funkcja srand()
 #include <time.h>   // funkcja time()
-#include "../include/rzutkosc.h" // potrzeba funkcji rzucaj_n_razy() 
+#include "rzutkosc.h" // potrzeba funkcji rzucaj_n_razy() 
 //i zmiennej liczby rzutow
 
 int main(void){
     int rzuty, wynik;
-    int scianki;
+    int kolejki, scianki;
     srand((unsigned int) time(0));  // losowe ziarno
+    
     printf("Podaj liczbe scianek, 0 oznacza koniec.\n");
     while (scanf("%d", &scianki) == 1 && scianki > 0)
     {
