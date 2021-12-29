@@ -8,20 +8,25 @@
 
 int main(void){
     int rzuty, wynik;
-    int kolejki, scianki;
+    int kolejki, scianki, kosci;
     srand((unsigned int) time(0));  // losowe ziarno
-    
-    printf("Podaj liczbe scianek, 0 oznacza koniec.\n");
-    while (scanf("%d", &scianki) == 1 && scianki > 0)
+    printf("Wprowadz liczbe kolejek; wybierz q aby zakonczyc.");
+    while(scanf("%d", &kolejki) == 1 && kolejki > 0)
     {
-        printf("Ile rzutow?\n");
-        scanf("%d", &rzuty);
-        wynik = rzucaj_n_razy(rzuty, scianki);
-        printf("Wyrzucono razem %d uzywajac %d %d - sciennych kosci.\n",
-        wynik, rzuty, scianki);
-        printf("Podaj liczbe scianek, 0 oznacza koniec.\n");
+        printf("Ile scian i ile kosci: ");
+        while (scanf("%d", &scianki) == 1 && scianki > 0 && scanf("%d", &kosci) == 1 && kosci > 0)
+        {
+            printf("Oto %d kolejek rzutow %d %d-sciennymi kostkami: \n", kolejki, kosci, scianki);
+            for(int i = 0; i < kolejki; i++)
+            {
+                wynik = rzucaj_n_razy(kosci, scianki);
+                printf("%d ", wynik);
+                if(i % 14 == 0 && i > 0)
+                    printf("\n");
+            }
+        }
+        printf("Wprowadz liczbe kolejek; wybierz q aby zakonczyc.");
     }
-    printf("Funkcja rzucaj() zostala wywolana %d razy.\n", liczba_rzutow);  //zmienna zew.
     printf("ZYCZE DUZO SZCZESCIA!\n");
     
     return 0;

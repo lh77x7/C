@@ -2,15 +2,17 @@
 #include "rzutkosc.h"
 #include <stdio.h>
 #include <stdlib.h> // potrzebuje funkcji rand()
-int liczba_rzutow = 0;  // lacznosc zewnetrzna
-static int rzucaj(int scianki){
-    int oczka;
-    oczka = rand() % scianki + 1;
-    ++liczba_rzutow;    // zlicza wywolania funkcji
-    return oczka;
+
+static int rzucaj(int scianki, int kosci){
+    int oczka, i, suma = 0;
+    for(i = 0; i < kosci; i++){
+        oczka = rand() % scianki + 1;
+        suma += oczka;
+    }
+    return suma;
 }
 
-int rzucaj_n_razy(int rzuty, int scianki){
+int rzucaj_n_razy(int kosci, int scianki){
     int k;
     int suma = 0;
     if(scianki < 2)
@@ -18,12 +20,12 @@ int rzucaj_n_razy(int rzuty, int scianki){
         printf("Wymagane sa co najmniej 2 scianki.\n");
         return -2;
     }
-    if(rzuty < 1)
+    if(scianki < 1)
     {
-        printf("Wymagany co najmniej 1 rzut.\n");
+        printf("Wymagany co najmniej 1 scianka.\n");
         return -1;
     }
-    for(k = 0; k < rzuty; k++)
-        suma += rzucaj(scianki);
-    return suma;
+        suma += rzucaj(scianki, kosci);
+
+        return suma;
 }

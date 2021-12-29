@@ -15,6 +15,8 @@ void zad8(void);
 int krytyka(int jednostki);
 int funkcja(void);
 void sortowaniebabelowe(int tab[], int size);
+int *stworzTablice(int elem, int wart);
+void pokazTablice(const int tab[], int n);
 int ileRazy = 0;
 
 int main(void){
@@ -67,8 +69,8 @@ int main(void){
 4 -     DONE
 5 -     DONE
 6 -     DONE
-7 -     NOT DONE!
-8 -     NOT DONE!
+7 -     DONE
+8 -     DONE
 
 */
 
@@ -172,7 +174,24 @@ void zad7(void){
 }
 
 void zad8(void){
-
+    int *wt;
+    int rozmiar, wartosc;
+    printf("Podaj liczbe elementow: ");
+    scanf("%d", &rozmiar);
+    while(rozmiar > 0)
+    {
+        printf("Podaj wartosc poczatkowa: ");
+        scanf("%d", &wartosc);
+        wt = stworzTablice(rozmiar, wartosc);
+        if(wt)
+        {
+            pokazTablice(wt, rozmiar);
+            free(wt);
+        }
+        printf("Podaj liczbe elementow (<1 - koniec): ");
+        scanf("%d", &rozmiar);
+    }
+    printf("Koniec.\n");
 }
 
 int krytyka(int jednostki){
@@ -200,4 +219,25 @@ void sortowaniebabelowe(int tab[], int size){
             }
         }
     }        
+}
+
+int *stworzTablice(int elem, int wart){
+    int *wsk;
+    int i;
+    wsk = (int *) malloc (elem * sizeof(int));
+    for(i = 0; i < elem; i++){
+        wsk[i] = elem;
+    }
+    return wsk;
+}
+
+void pokazTablice(const int tab[], int n){
+    int i;
+    for(i = 0; i < n; i++){
+        printf("%d ", tab[i]);
+        if(i > 0 && i % 7 == 0){
+            printf("\n");
+        }
+    }
+    printf("\n");
 }
