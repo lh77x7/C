@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h> //strcpy(), strcat()
+#include <ctype.h>  // toupper()
 
 void zad1();
 void zad2();
@@ -79,7 +80,7 @@ int main(void){
 
 1 -     NOT DONE!
 2 -     NOT DONE!
-3 -     NOT DONE!
+3 -     DONE
 4 -     NOT DONE!
 5 -     NOT DONE!
 6 -     DONE
@@ -93,9 +94,6 @@ int main(void){
 
 */
 
-
-
-
 void zad1(){
 
 }    
@@ -105,6 +103,36 @@ void zad2(){
 }
 
 void zad3(){
+    FILE *we, *wy;
+    int ch;
+    char plikWej[40], plikDoc[40];
+    int licznik = 0;
+    getchar();
+    printf("Podaj nazwe pliku wejsciowego: ");
+    gets(plikWej);
+    // czy mozna otworzyc plik wejsciowy?
+    if((we = fopen(plikWej, "r")) == NULL)
+    {
+        fprintf(stderr, "Nie moglem otworzyc pliku \"%s\".\n.", plikWej);
+        exit(2);
+    }
+    printf("Podaj nazwe pliku wyjsciowego: ");
+    gets(plikDoc);
+    // czy mozna otworzyc plik docelowy do zapisu?
+    if((wy = fopen(plikDoc, "w")) == NULL)
+    {
+        fprintf(stderr, "Nie mozna otworzyc \"%s\" - pliku wyjsciowego.\n", plikDoc);
+        exit(3);
+    }
+    while((ch = getc(we)) != EOF)
+    {
+        ch = toupper(ch);
+        putc(ch, wy);
+        putc(ch, stdout);
+        licznik++;
+    }
+    if(fclose(we) != 0 || fclose(wy) != 0)
+        fprintf(stderr, "Blad przy zamykaniu plikow.\n");
 
 }
 
