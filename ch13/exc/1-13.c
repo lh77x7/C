@@ -78,11 +78,11 @@ int main(void){
 
 /*
 
-1 -     NOT DONE!
-2 -     NOT DONE!
+1 -     DONE
+2 -     DONE
 3 -     DONE
 4 -     NOT DONE!
-5 -     NOT DONE!
+5 -     DONE
 6 -     DONE
 7 -     NOT DONE!
 8 -     NOT DONE!
@@ -95,11 +95,11 @@ int main(void){
 */
 
 void zad1(){
-
+    printf("Patrz rozwiazanie 13.1.c\n");
 }    
 
 void zad2(){
-
+    printf("Patrz rozwiazanie 13.2.c\n");
 }
 
 void zad3(){
@@ -137,11 +137,11 @@ void zad3(){
 }
 
 void zad4(){
-
+    printf("Patrz rozwiazanie 13.4.c\n");
 }
 
 void zad5(){
-
+    printf("Patrz rozwiazanie 13.5.c\n");
 }
 
 void zad6(){

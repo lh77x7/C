@@ -1,4 +1,0 @@
-To jest plik tylko do stestowania!
-# ### \t \n 
-
-### dafdsfsa
