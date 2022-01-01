@@ -45,6 +45,7 @@ int main(int argc, char *argv[]){
                         if(ferror(pd) != 0)
                             fprintf(stderr, "Blad zapisu pliku %s\n", argv[2]);
                         fclose(pz);
+                        fprintf(pd, "Nie mozna wyswietlic");
                         pliki++;
                         printf("Plik %s dopisany.\n", argv[1]);
             

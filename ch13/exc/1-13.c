@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h> //strcpy(), strcat()
 #include <ctype.h>  // toupper()
+#define MAX 40
 
 void zad1();
 void zad2();
@@ -86,7 +87,7 @@ int main(void){
 6 -     DONE
 7 -     NOT DONE!
 8 -     NOT DONE!
-9 -     NOT DONE!
+9 -     DONE
 10 -    NOT DONE!
 11 -    NOT DONE!
 12 -    NOT DONE!
@@ -181,7 +182,39 @@ void zad8(){
 }
 
 void zad9(){
+    FILE *wp;
+    char slowa[MAX];
+    char ch;
+    int licznik = 1;
+    getchar();
+    if((wp = fopen("slowa", "a+b")) == NULL)
+    {
+        fprintf(stdin, "Nie moge otworzyc pliku \"slowa\".\n");
+        exit(1);
+    }
 
+    rewind(wp); // przejdz do poczatku pliku
+    while((ch = fgetc(wp)) != EOF)
+    {
+        if(ch = ' ')
+            licznik++;
+    }
+
+    puts("Podaj slowa, ktore maja zostac dodane do pliku;");
+    puts("Aby zakonczyc, wcisnij Enter na poczatku wiersza.");
+    while(gets(slowa) != NULL && slowa[0] != '\0')
+    {
+        fprintf(wp, "%d-%s ", licznik, slowa);
+        licznik++;
+    }
+    puts("Zawartosc pliku:");
+    rewind(wp); // przejdz do poczatku pliku
+    
+    while(fscanf(wp, "%s", slowa) == 1)
+        puts(slowa);
+    
+    if(fclose(wp) != 0)
+        fprintf(stderr, "Blad przy zamykaniu pliku.\n");
 }
 
 void zad10(){
@@ -193,39 +226,7 @@ void zad11(){
 }
 
 void zad12(){
-    FILE *we, *wy;  // deklarowanie 2 wskazników plikowych
-    int ch;
-    char nazwaWe[40]; // miejsce dla nazwy pliku wejsciowego
-    char nazwa[40]; // miejsce dla nazwy pliku wyjsciowego
-    int licznik = 0;
-    getchar();
-    printf("Podaj nazwe pliku: ");
-    gets(nazwaWe);
-    if((we = fopen(nazwaWe, "r")) == NULL)
-    {
-        fprintf(stderr, "Nie moglem otworzyc pliku \"%s\".\n", nazwaWe);
-        exit(2);
-    }
-    printf("Podaj nazwe pliku wyjsciowego: ");
-    gets(nazwa);
-    if((wy = fopen(nazwa, "w")) == NULL)
-    {   // otwiera plik do zapisu
-        fprintf(stderr, "Nie mozna otworzyc pliku wyjsciowego.\n");
-        exit(3);
-    }
-    while((ch = getc(we)) != EOF)
-        if(ch == 0)
-            putc(' ', wy);
-        if(ch == 1)
-            putc('.',  wy);    
-        
-        /*
-        if(licznik++ %3 == 0)
-            putc(ch, wy);   // wyswietla co 3 znak
-        */
 
-    if(fclose(we) != 0 || fclose(wy) != 0)
-        fprintf(stderr, "Blad przy zamykaniu plikow.\n");
 }
 
 void zad13(){

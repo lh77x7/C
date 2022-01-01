@@ -13,7 +13,7 @@ int main(void){
     puts("Podaj slowa, ktore maja zostac dodane do pliku;");
     puts("Aby zakonczyc, wcisnij Enter na poczatku wiersza.");
     while(gets(slowa) != NULL && slowa[0] != '\0')
-        fprintf(wp, "%s", slowa);
+        fprintf(wp, "%s ", slowa);
     puts("Zawartosc pliku:");
     rewind(wp); // przejdz do poczatku pliku
     while(fscanf(wp, "%s", slowa) == 1)
