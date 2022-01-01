@@ -173,7 +173,7 @@ void zad6(){
 }
 
 void zad7(){
-
+    printf("Patrz rozwiazanie 13.7.c\n");
 }
 
 void zad8(){
@@ -193,7 +193,39 @@ void zad11(){
 }
 
 void zad12(){
+    FILE *we, *wy;  // deklarowanie 2 wskazników plikowych
+    int ch;
+    char nazwaWe[40]; // miejsce dla nazwy pliku wejsciowego
+    char nazwa[40]; // miejsce dla nazwy pliku wyjsciowego
+    int licznik = 0;
+    getchar();
+    printf("Podaj nazwe pliku: ");
+    gets(nazwaWe);
+    if((we = fopen(nazwaWe, "r")) == NULL)
+    {
+        fprintf(stderr, "Nie moglem otworzyc pliku \"%s\".\n", nazwaWe);
+        exit(2);
+    }
+    printf("Podaj nazwe pliku wyjsciowego: ");
+    gets(nazwa);
+    if((wy = fopen(nazwa, "w")) == NULL)
+    {   // otwiera plik do zapisu
+        fprintf(stderr, "Nie mozna otworzyc pliku wyjsciowego.\n");
+        exit(3);
+    }
+    while((ch = getc(we)) != EOF)
+        if(ch == 0)
+            putc(' ', wy);
+        if(ch == 1)
+            putc('.',  wy);    
+        
+        /*
+        if(licznik++ %3 == 0)
+            putc(ch, wy);   // wyswietla co 3 znak
+        */
 
+    if(fclose(we) != 0 || fclose(wy) != 0)
+        fprintf(stderr, "Blad przy zamykaniu plikow.\n");
 }
 
 void zad13(){
