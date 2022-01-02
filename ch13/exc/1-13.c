@@ -82,11 +82,11 @@ int main(void){
 1 -     DONE
 2 -     DONE
 3 -     DONE
-4 -     NOT DONE!
+4 -     DONE
 5 -     DONE
 6 -     DONE
 7 -     DONE
-8 -     NOT DONE!
+8 -     DONE
 9 -     DONE
 10 -    NOT DONE!
 11 -    NOT DONE!
@@ -178,7 +178,7 @@ void zad7(){
 }
 
 void zad8(){
-
+    printf("Patrz rozwiazanie 13.8.c\n");
 }
 
 void zad9(){

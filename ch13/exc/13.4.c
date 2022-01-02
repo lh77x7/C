@@ -11,7 +11,7 @@ int main(int argc, char *argv[]){
         exit(1);
     }
 
-    for(i = 0; i < argc; i++)
+    for(i = 1; i < argc; i++)
     {
         if((we = fopen(argv[i], "r")) == NULL)
         {
@@ -22,15 +22,9 @@ int main(int argc, char *argv[]){
         {
             putchar(ch);
         }
+        printf("\n");
         
     }
-
-    /*
-    while((ch = getc(we)) != EOF)
-    {
-        putc(ch, stdout);
-    }
-    */
     
     if(fclose(we) != 0)
         fprintf(stderr, "Blad przy zamykaniu plikow.\n");
