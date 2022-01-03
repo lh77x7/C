@@ -218,7 +218,36 @@ void zad9(){
 }
 
 void zad10(){
-
+    FILE *we;
+    char nazwa[40];
+    char ch;
+    char wiersz[40];
+    long poz;
+    int pozycja;
+    getchar();
+    printf("Podaj nazwe pliku do otwarcia: ");
+    gets(nazwa);
+    // otwieram plik
+    if((we = fopen(nazwa, "r")) == NULL)
+    {
+        fprintf(stderr, "Nie mogę otworzyć pliku %s.\n", nazwa);
+        exit(1);
+    }
+    printf("Podaj pozycje w pliku: ");
+    scanf("%d", &pozycja);
+    while(pozycja > 0 && pozycja < 100)
+    {
+        while((ch = getc(we)) != EOF || ch != '\n')
+        {
+            poz = (long) pozycja * sizeof(char); // oblicza offset
+            fseek(we, poz, SEEK_SET); // przejscie w odpowiednie miejsce
+            fread(&ch, sizeof(char), 1, we);
+            fputc(ch, stdout);
+        }
+        scanf("%d", &pozycja);
+    }
+    // zamykam plik
+    fclose(we);
 }
 
 void zad11(){
