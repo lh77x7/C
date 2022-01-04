@@ -2,6 +2,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
+#define STOP '|'
 
 void zad1();
 void zad2();
@@ -95,9 +97,9 @@ int main(void){
 8 -     NOT DONE!
 9 -     NOT DONE!
 10 -    NOT DONE!
-11 -    NOT DONE!
-12 -    NOT DONE!
-13 -    NOT DONE!
+11 -    DONE
+12 -    DONE
+13 -    DONE
 14 -    NOT DONE!
 15 -    NOT DONE!
 
@@ -144,15 +146,42 @@ void zad10(){
 }
 
 void zad11(){
-
+    // zliczba slowa, wielkie litery, male litery
+    // znaki przystankowe, cyfry
+    int ileSlow = 0;
+    int ileDuzych = 0;
+    int ileMalych = 0;
+    int znakiPrzyst = 0;
+    int cyfry = 0;
+    char c;
+    printf("Wprowadzaj dane az do napotkania (\"|\")\n");
+    while((c = getchar()) != STOP)
+    {
+        if(isdigit(c))
+            cyfry++;
+        if(islower(c))
+            ileMalych++;
+        if(isupper(c))
+            ileDuzych++;
+        if(isspace(c))
+            ileSlow++;
+        if(ispunct(c))
+            znakiPrzyst++;
+    }
+    printf("Podsumowanie:\n");
+    printf("cyfry = %d\n", cyfry);
+    printf("male litery = %d\n", ileMalych);
+    printf("duze litery = %d\n", ileDuzych);
+    printf("slowa = %d\n", ileSlow);
+    printf("znaki przystankowe = %d\n", znakiPrzyst);
 }
 
 void zad12(){
-
+    printf("Patrz rozwiazanie 11.12.c\n");
 }
 
 void zad13(){
-    
+    printf("Patrz rozwiazanie 11.13.c\n");
 }
 
 void zad14(){
