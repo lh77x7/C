@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #define STOP '|'
+#define MAKSZNAKOW 15
 
 void zad1();
 void zad2();
@@ -20,6 +21,8 @@ void zad12();
 void zad13();
 void zad14();
 void zad15();
+void pobierz(int);
+void pobierzZnak(char *tablica, int);
 
 int main(void){
     int choice;
@@ -87,8 +90,8 @@ int main(void){
 
 /*
 
-1 -     NOT DONE!
-2 -     NOT DONE!
+1 -     DONE
+2 -     DONE
 3 -     NOT DONE!
 4 -     NOT DONE!
 5 -     NOT DONE!
@@ -106,11 +109,12 @@ int main(void){
 */
 
 void zad1(){
-
+    pobierz(MAKSZNAKOW);
 }    
 
 void zad2(){
-
+    char tablica[MAKSZNAKOW];
+    pobierzZnak(tablica, MAKSZNAKOW);
 }
 
 void zad3(){
@@ -190,4 +194,30 @@ void zad14(){
 
 void zad15(){
 
+}
+
+void pobierz(int liczba){
+    int i = 0;
+    char znak;
+    while(scanf("%c", &znak) != 0 && i < liczba){
+        i++;              
+    }
+}
+
+void pobierzZnak(char *tablica, int n){
+    int i = 0, j;
+    char znak;
+    printf("Podawaj znaki: ");
+    znak = getchar();
+    while((znak = getchar()) && !isspace(znak) && i < n)
+    {
+        tablica[i] = znak;
+        i++;        
+    }
+    // wyswietlani znakow
+    for(j = 0; j < i; j++)
+    {
+        printf("%c", tablica[j]);
+    }
+    printf("\n");
 }
