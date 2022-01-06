@@ -5,6 +5,7 @@
 #include <ctype.h>
 #define STOP '|'
 #define MAKSZNAKOW 15
+#define ROZMIARLAN 100
 
 void zad1();
 void zad2();
@@ -23,6 +24,7 @@ void zad14();
 void zad15();
 void pobierz(int);
 void pobierzZnak(char *tablica, int);
+void porzuc(char *tab, char *tab2, int n);
 
 int main(void){
     int choice;
@@ -92,7 +94,7 @@ int main(void){
 
 1 -     DONE
 2 -     DONE
-3 -     NOT DONE!
+3 -     DONE
 4 -     NOT DONE!
 5 -     NOT DONE!
 6 -     NOT DONE!
@@ -118,7 +120,11 @@ void zad2(){
 }
 
 void zad3(){
-
+    char tab[ROZMIARLAN];
+    char tab2[ROZMIARLAN];
+    getchar(); // program oczekuje znaku
+    porzuc(tab, tab2, ROZMIARLAN);
+    return;
 }
 
 void zad4(){
@@ -220,4 +226,23 @@ void pobierzZnak(char *tablica, int n){
         printf("%c", tablica[j]);
     }
     printf("\n");
+}
+
+void porzuc(char *tab, char *tab2, int n){
+    int i = 0,j;
+    puts("Wprowadz wiersz");
+    gets(tab);
+
+    while(!isspace(*tab))
+    {
+        tab2[i] = *tab;
+        tab++;
+        i++;
+    }      
+    // wyswietl slowo
+    for(j = 0; j < i; j++)
+    {
+        printf("%c", tab2[j]);
+    }
+    printf("\n"); 
 }
