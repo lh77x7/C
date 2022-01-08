@@ -90,7 +90,58 @@ void zad1(){
 }    
 
 void zad2(){
-
+    struct dni {
+        int dzien;
+        char miesiac[20];
+        int rok;
+    };
+    int suma = 0;
+    struct dni podajdzien;
+    printf("Podaj dzien: "); scanf("%d", &podajdzien.dzien);
+    printf("Podaj miesiac: "); scanf("%s", podajdzien.miesiac);
+    printf("Podaj rok: ");  scanf("%d", &podajdzien.rok);
+    printf("Podajles:\n");
+    printf("%d, %s, %d\n", podajdzien.dzien, podajdzien.miesiac, podajdzien.rok);
+    // sprawdz ktory miesiac roku (ogranicz sie do 3 pierwszych liter zgodnie z zadaniem)
+    // styczen - 1 , luty - 2, marzec - 3, kwiecien - 4, maj - 5, czerwiec - 6,
+    // lipiec - 7, sierpien - 8, wrzesien - 9, pazdziernik - 10, listopad - 11,
+    // grudzien - 12
+    if((podajdzien.miesiac[0] == 's' && podajdzien.miesiac[1] == 't') || (podajdzien.miesiac[0] == '1' && podajdzien.miesiac[1] == '\0')){
+        printf("styczen\n");
+    }
+    if((podajdzien.miesiac[0] == 'l' && podajdzien.miesiac[1] == 'u') || podajdzien.miesiac[0] == '2'){
+        printf("luty\n");
+    }
+    if((podajdzien.miesiac[0] == 'm' && podajdzien.miesiac[2] == 'r') || podajdzien.miesiac[0] == '3'){
+        printf("marzec\n");
+    }
+    if(podajdzien.miesiac[0] == 'k' || podajdzien.miesiac[0] == '4'){
+        printf("kwiecien\n");
+    }
+    if((podajdzien.miesiac[0] == 'm' && podajdzien.miesiac[2] == 'j')  || podajdzien.miesiac[0] == '5'){
+        printf("maj\n");
+    }
+    if((podajdzien.miesiac[0] == 'c' && podajdzien.miesiac[1] == 'z') || podajdzien.miesiac[0] == '6'){
+        printf("czerwiec\n");
+    }
+    if((podajdzien.miesiac[0] == 'l' && podajdzien.miesiac[2] == 'p') || podajdzien.miesiac[0] == '7'){
+        printf("lipiec\n");
+    }
+    if((podajdzien.miesiac[0] == 's' && podajdzien.miesiac[1] == 'i') || podajdzien.miesiac[0] == '8'){
+        printf("sierpien\n");
+    }
+    if(podajdzien.miesiac[0] == 'w' || podajdzien.miesiac[0] == '9'){
+        printf("wrzesien\n");
+    }
+    if(podajdzien.miesiac[0] == 'p' || (podajdzien.miesiac[0] == '1' && podajdzien.miesiac[1] == '0')){
+        printf("padziernik\n");
+    }
+    if((podajdzien.miesiac[0] == 'l' && podajdzien.miesiac[2] == 's') || (podajdzien.miesiac[0] == '1' && podajdzien.miesiac[1] == '1')){
+        printf("listopad\n");
+    }
+    if(podajdzien.miesiac[0] == 'g' || (podajdzien.miesiac[0] == '1' && podajdzien.miesiac[1] == '2')){
+        printf("grudzien\n");
+    }
 }
 
 void zad3(){
