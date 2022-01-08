@@ -71,7 +71,7 @@ int main(void){
 
 /*
 
-1 -     NOT DONE!
+1 -     DONE
 2 -     DONE
 3 -     DONE
 4 -     NOT DONE!
@@ -86,11 +86,12 @@ int main(void){
 */
 
 void zad1(){
-
+    printf("Patrz rozwiazanie zadania 14.1.c\n");
 }    
 
 void zad2(){
-    struct dni {
+    printf("Patrz rozwiazanie zadania 14.2.c\n");
+    /*struct dni {
         int dzien;
         char miesiac[20];
         int rok;
@@ -100,7 +101,7 @@ void zad2(){
     printf("Podaj dzien: "); scanf("%d", &podajdzien.dzien);
     printf("Podaj miesiac: "); scanf("%s", podajdzien.miesiac);
     printf("Podaj rok: ");  scanf("%d", &podajdzien.rok);
-    printf("Podajles:\n");
+    printf("Podales:\n");
     printf("%d, %s, %d\n", podajdzien.dzien, podajdzien.miesiac, podajdzien.rok);
     // sprawdz ktory miesiac roku (ogranicz sie do 3 pierwszych liter zgodnie z zadaniem)
     // styczen - 1 , luty - 2, marzec - 3, kwiecien - 4, maj - 5, czerwiec - 6,
@@ -144,7 +145,7 @@ void zad2(){
         suma = 334 + podajdzien.dzien;
     }
     printf("Od poczatku roku minelo: %d dni\n", suma);
-
+    */
 }
 
 void zad3(){
