@@ -72,7 +72,7 @@ int main(void){
 /*
 
 1 -     NOT DONE!
-2 -     NOT DONE!
+2 -     DONE
 3 -     DONE
 4 -     NOT DONE!
 5 -     NOT DONE!
@@ -106,42 +106,45 @@ void zad2(){
     // styczen - 1 , luty - 2, marzec - 3, kwiecien - 4, maj - 5, czerwiec - 6,
     // lipiec - 7, sierpien - 8, wrzesien - 9, pazdziernik - 10, listopad - 11,
     // grudzien - 12
+    // ile dni od poczatku roku?
     if((podajdzien.miesiac[0] == 's' && podajdzien.miesiac[1] == 't') || (podajdzien.miesiac[0] == '1' && podajdzien.miesiac[1] == '\0')){
-        printf("styczen\n");
+        suma = podajdzien.dzien;
     }
     if((podajdzien.miesiac[0] == 'l' && podajdzien.miesiac[1] == 'u') || podajdzien.miesiac[0] == '2'){
-        printf("luty\n");
+        suma = 31 + podajdzien.dzien;
     }
     if((podajdzien.miesiac[0] == 'm' && podajdzien.miesiac[2] == 'r') || podajdzien.miesiac[0] == '3'){
-        printf("marzec\n");
+        suma = 59 + podajdzien.dzien;
     }
     if(podajdzien.miesiac[0] == 'k' || podajdzien.miesiac[0] == '4'){
-        printf("kwiecien\n");
+        suma = 90 + podajdzien.dzien;
     }
     if((podajdzien.miesiac[0] == 'm' && podajdzien.miesiac[2] == 'j')  || podajdzien.miesiac[0] == '5'){
-        printf("maj\n");
+        suma = 120 + podajdzien.dzien;
     }
     if((podajdzien.miesiac[0] == 'c' && podajdzien.miesiac[1] == 'z') || podajdzien.miesiac[0] == '6'){
-        printf("czerwiec\n");
+        suma = 151 + podajdzien.dzien;
     }
     if((podajdzien.miesiac[0] == 'l' && podajdzien.miesiac[2] == 'p') || podajdzien.miesiac[0] == '7'){
-        printf("lipiec\n");
+        suma = 181 + podajdzien.dzien;
     }
     if((podajdzien.miesiac[0] == 's' && podajdzien.miesiac[1] == 'i') || podajdzien.miesiac[0] == '8'){
-        printf("sierpien\n");
+        suma = 212 + podajdzien.dzien;
     }
     if(podajdzien.miesiac[0] == 'w' || podajdzien.miesiac[0] == '9'){
-        printf("wrzesien\n");
+        suma = 243 + podajdzien.dzien;
     }
     if(podajdzien.miesiac[0] == 'p' || (podajdzien.miesiac[0] == '1' && podajdzien.miesiac[1] == '0')){
-        printf("padziernik\n");
+        suma = 273 + podajdzien.dzien;
     }
     if((podajdzien.miesiac[0] == 'l' && podajdzien.miesiac[2] == 's') || (podajdzien.miesiac[0] == '1' && podajdzien.miesiac[1] == '1')){
-        printf("listopad\n");
+        suma = 304 + podajdzien.dzien;
     }
     if(podajdzien.miesiac[0] == 'g' || (podajdzien.miesiac[0] == '1' && podajdzien.miesiac[1] == '2')){
-        printf("grudzien\n");
+        suma = 334 + podajdzien.dzien;
     }
+    printf("Od poczatku roku minelo: %d dni\n", suma);
+
 }
 
 void zad3(){
