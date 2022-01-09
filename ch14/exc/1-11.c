@@ -74,7 +74,7 @@ int main(void){
 1 -     DONE
 2 -     DONE
 3 -     DONE
-4 -     NOT DONE!
+4 -     DONE
 5 -     NOT DONE!
 6 -     NOT DONE!
 7 -     NOT DONE!
@@ -204,7 +204,7 @@ void zad3(){
 }
 
 void zad4(){
-
+    printf("Patrz rozwiazanie zadania 14.4.c oraz 14.4c.c\n");
 }
 
 void zad5(){
