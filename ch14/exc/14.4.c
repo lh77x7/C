@@ -19,7 +19,7 @@ int main(void){
     {
         {65092301159, "Michael", "James", "Jordan"},
         {55555555555, "Leszek", "Pawel", "Hatala"},
-        {77777777777, "Lebron", "", "James"}
+        {77777777777, "Lebron", "Raymond", "James"}
     };
 
     wyswietl(wsk, N);
@@ -30,6 +30,6 @@ int main(void){
 void wyswietl(struct osoba *wsk, int n){
     int i;
     for(i = 0; i < n; i++){
-        printf("%s, %s %c -- %lld\n", wsk[i].dane.nazwisko, wsk[i].dane.imie, wsk[i].dane.drugieImie[0], wsk[i].pesel);
+        printf("%s, %s %c. -- %lld\n", wsk[i].dane.nazwisko, wsk[i].dane.imie, wsk[i].dane.drugieImie[0], wsk[i].pesel);
     }       
 }
