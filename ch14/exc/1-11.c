@@ -208,7 +208,7 @@ void zad4(){
 }
 
 void zad5(){
-
+    printf("Patrz rozwiazanie zadania 14.5.c\n");
 }
 
 void zad6(){
