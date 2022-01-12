@@ -25,6 +25,8 @@ void zad15();
 void pobierz(int);
 void pobierzZnak(char *tablica, int);
 void porzuc(char *tab, char *tab2, int n);
+void znajdzZnak(char *, char *, int);
+int znajduje_sie_w(char *lancuch, char *znak);
 
 int main(void){
     int choice;
@@ -95,8 +97,8 @@ int main(void){
 1 -     DONE
 2 -     DONE
 3 -     DONE
-4 -     NOT DONE!
-5 -     NOT DONE!
+4 -     DONE
+5 -     DONE
 6 -     NOT DONE!
 7 -     NOT DONE!
 8 -     NOT DONE!
@@ -128,11 +130,32 @@ void zad3(){
 }
 
 void zad4(){
+    char tablica[ROZMIARLAN], litera;
+    int i = 1;
+    getchar();
+    printf("Wprowadz lancuch: ");
+    char *wsk = gets(tablica);
+    printf("Jakiej litery szukasz?: ");
+    scanf("%c", &litera);
+    while(*wsk != '\0')
+    {
+        znajdzZnak(wsk, &litera, i);
+        wsk++;
+        i++;
+    }
 
 }
 
 void zad5(){
+    char znak;
+    char lancuch[ROZMIARLAN];
+    getchar();
+    printf("Wprowadz lancuch: ");
+    gets(lancuch);
+    printf("Jaka litere chcesz znalezc w lancuchu? ");
+    scanf("%c", &znak);
 
+    printf("%d\n", znajduje_sie_w(lancuch, &znak));
 }
 
 void zad6(){
@@ -245,4 +268,30 @@ void porzuc(char *tab, char *tab2, int n){
         printf("%c", tab2[j]);
     }
     printf("\n"); 
+}
+
+void znajdzZnak(char *a, char *b, int i){
+    if(*a == *b)
+        printf("Znaleziono na pozycji %d\n", i);
+    else {
+            return;
+    }
+
+}
+
+int znajduje_sie_w(char *lancuch, char *znak){
+    int licznik = 0;
+    while(*lancuch != '\0')
+    {
+        if(*lancuch == *znak)
+        {
+            licznik++;
+        }
+        lancuch++;
+    }
+
+    if(licznik != 0)
+        return 1;
+    else
+        return 0;
 }
