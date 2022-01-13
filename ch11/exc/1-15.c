@@ -27,6 +27,7 @@ void pobierzZnak(char *tablica, int);
 void porzuc(char *tab, char *tab2, int n);
 void znajdzZnak(char *, char *, int);
 int znajduje_sie_w(char *lancuch, char *znak);
+char *kopiujLancuch(char *cel, char *zrodlo, int);
 
 int main(void){
     int choice;
@@ -99,7 +100,7 @@ int main(void){
 3 -     DONE
 4 -     DONE
 5 -     DONE
-6 -     NOT DONE!
+6 -     DONE
 7 -     NOT DONE!
 8 -     NOT DONE!
 9 -     NOT DONE!
@@ -159,6 +160,16 @@ void zad5(){
 }
 
 void zad6(){
+    char tablica1[ROZMIARLAN];
+    char tablica2[ROZMIARLAN];
+    int n;
+    getchar();
+    printf("Podaj pierwszy lancuch: ");
+    gets(tablica1);
+    printf("Ile znakow chcesz skopiowac? ");
+    scanf("%d", &n);
+    kopiujLancuch(tablica2, tablica1, n);
+    puts(tablica2);
 
 }
 
@@ -294,4 +305,14 @@ int znajduje_sie_w(char *lancuch, char *znak){
         return 1;
     else
         return 0;
+}
+
+char *kopiujLancuch(char *cel, char *zrodlo, int n){
+    int i = 0;
+    while(i < n)
+    {
+        cel[i] = zrodlo[i];
+        i++;        
+    }
+    return cel;
 }
