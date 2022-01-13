@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <ctype.h>
 #define STOP '|'
 #define MAKSZNAKOW 15
@@ -28,6 +29,7 @@ void porzuc(char *tab, char *tab2, int n);
 void znajdzZnak(char *, char *, int);
 int znajduje_sie_w(char *lancuch, char *znak);
 char *kopiujLancuch(char *cel, char *zrodlo, int);
+char *zawieraLancuch(char *, char *);
 
 int main(void){
     int choice;
@@ -101,7 +103,7 @@ int main(void){
 4 -     DONE
 5 -     DONE
 6 -     DONE
-7 -     NOT DONE!
+7 -     DONE
 8 -     NOT DONE!
 9 -     NOT DONE!
 10 -    NOT DONE!
@@ -174,7 +176,20 @@ void zad6(){
 }
 
 void zad7(){
+    char lancuch1[ROZMIARLAN];
+    char lancuch2[ROZMIARLAN];
+    char *wsk;
+    getchar();
+    puts("Wprowadz pierwszy lancuch: ");
+    gets(lancuch1);
+    puts("Wprowadz drugi lancuch: ");
+    gets(lancuch2);
 
+    wsk = zawieraLancuch(lancuch1, lancuch2);
+    if(wsk != NULL)
+        printf("Lancuch 2 zawiera sie w lancuch 1: %c, %p\n", *wsk, wsk);
+    else 
+        printf("Lancuch 2 nie zawiera sie w lancuchu 1.\n");
 }
 
 void zad8(){
@@ -315,4 +330,25 @@ char *kopiujLancuch(char *cel, char *zrodlo, int n){
         i++;        
     }
     return cel;
+}
+
+char *zawieraLancuch(char *lancuch1, char *lancuch2){
+    char *litera;
+    // lancuch1 - lancuch pierwotny
+    // lancuch2 - lancuch wtorny (porownywany do pierwotnego)
+    if((strcmp(lancuch1, lancuch2)) >= 0 )
+    {
+        // czy znalazles koniec lancucha1?
+        while(*lancuch1 != '\0')
+        {
+            if(*lancuch1 == *lancuch2) // kiedy lancuchy sa sobie rowne
+            {
+                litera = lancuch1; // przypisz litere z lancucha 1
+            }
+            lancuch1++; // przejdz po kolejnym znaku lancucha 1
+        }
+    }
+    else
+        litera = NULL;
+    return litera;
 }
