@@ -109,7 +109,7 @@ int main(void){
 7 -     DONE
 8 -     DONE
 9 -     DONE
-10 -    NOT DONE!
+10 -    DONE
 11 -    DONE
 12 -    DONE
 13 -    DONE
@@ -264,7 +264,7 @@ void zad14(){
 }
 
 void zad15(){
-
+    printf("Patrz rozwiazanie 11.15.c\n");
 }
 
 void pobierz(int liczba){
