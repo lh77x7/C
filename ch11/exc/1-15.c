@@ -32,6 +32,7 @@ char *kopiujLancuch(char *cel, char *zrodlo, int);
 char *zawieraLancuch(char *, char *);
 void odwroc(char *);
 void usunSpacje(char *);
+int myAtoi(char *);
 
 int main(void){
     int choice;
@@ -112,7 +113,7 @@ int main(void){
 11 -    DONE
 12 -    DONE
 13 -    DONE
-14 -    NOT DONE!
+14 -    DONE
 15 -    NOT DONE!
 
 */
@@ -214,7 +215,7 @@ void zad9(){
 }
 
 void zad10(){
-
+    printf("Patrz rozwiazanie 11.10.c\n");
 }
 
 void zad11(){
@@ -257,7 +258,9 @@ void zad13(){
 }
 
 void zad14(){
-
+    char str[] = "-123";
+    int val = myAtoi(str);
+    printf("%d\n", val);
 }
 
 void zad15(){
@@ -395,4 +398,21 @@ void usunSpacje(char *lancuch){
     }
 
     printf("%s", lancuch);
+}
+
+int myAtoi(char *lancuch){
+    int wynik = 0;
+    int znak = 1;
+    int i = 0;
+    // jesli znak negatywny aktualizuj go
+    if(lancuch[0] == '-') {
+         znak = -1;
+        // aktualizuj index pierwszej cyfry
+        i++;
+    }
+    // sprawddz każda liczbe i aktualizuj wynik
+    for(; lancuch[i] != '\0'; ++i)
+        wynik = wynik * 10 + lancuch[i] - '0';
+    // zwroc wynik ze znakiem
+    return znak * wynik;
 }
