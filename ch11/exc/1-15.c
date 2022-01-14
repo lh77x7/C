@@ -30,6 +30,7 @@ void znajdzZnak(char *, char *, int);
 int znajduje_sie_w(char *lancuch, char *znak);
 char *kopiujLancuch(char *cel, char *zrodlo, int);
 char *zawieraLancuch(char *, char *);
+void odwroc(char *);
 
 int main(void){
     int choice;
@@ -104,7 +105,7 @@ int main(void){
 5 -     DONE
 6 -     DONE
 7 -     DONE
-8 -     NOT DONE!
+8 -     DONE
 9 -     NOT DONE!
 10 -    NOT DONE!
 11 -    DONE
@@ -193,7 +194,12 @@ void zad7(){
 }
 
 void zad8(){
-
+    char lancuch[ROZMIARLAN];
+    getchar();
+    puts("Wprowadz zawartosc lancucha: ");
+    gets(lancuch);
+    odwroc(lancuch);
+    puts(lancuch);
 }
 
 void zad9(){
@@ -351,4 +357,20 @@ char *zawieraLancuch(char *lancuch1, char *lancuch2){
     else
         litera = NULL;
     return litera;
+}
+
+void odwroc(char *lancuch){
+    int len = 0, temp;
+    while (lancuch[len++]);     // dziala do napotkania znaku '\0'
+    len -= 2;       // odejmnij 2 czyli null oraz tablica numerowana jest od 0
+
+    // i ustawione na poczatek = 0; i < od połowy + 1; inkrementacja licznika
+    for(int i = 0, temp; i < (len+1)/2; i++){
+        // temp - zmienna pomocnicza przy przenoszeniu znaków
+        // zwykła podmiana
+        temp = lancuch[len - i];
+        lancuch[len - i] = lancuch[i];
+        lancuch[i] = temp; 
+    }
+        
 }
