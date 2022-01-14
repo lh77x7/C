@@ -31,6 +31,7 @@ int znajduje_sie_w(char *lancuch, char *znak);
 char *kopiujLancuch(char *cel, char *zrodlo, int);
 char *zawieraLancuch(char *, char *);
 void odwroc(char *);
+void usunSpacje(char *);
 
 int main(void){
     int choice;
@@ -106,7 +107,7 @@ int main(void){
 6 -     DONE
 7 -     DONE
 8 -     DONE
-9 -     NOT DONE!
+9 -     DONE
 10 -    NOT DONE!
 11 -    DONE
 12 -    DONE
@@ -203,7 +204,13 @@ void zad8(){
 }
 
 void zad9(){
-
+    char lancuch[ROZMIARLAN];
+    getchar();
+    while(gets(lancuch) && isalpha(*lancuch))
+    {
+        usunSpacje(lancuch);
+        puts(lancuch);
+    }
 }
 
 void zad10(){
@@ -373,4 +380,19 @@ void odwroc(char *lancuch){
         lancuch[i] = temp; 
     }
         
+}
+
+void usunSpacje(char *lancuch){
+
+    while(*lancuch)
+    {
+        if(*lancuch == ' ')
+            *lancuch = *(lancuch + 1);
+        else 
+            *lancuch = *(lancuch);
+        
+        lancuch++;
+    }
+
+    printf("%s", lancuch);
 }
