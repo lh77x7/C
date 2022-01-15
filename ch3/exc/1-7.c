@@ -1,4 +1,36 @@
-/* rozwiązanie do ćwiczeń 1-7 */ 
+/* rozwiązanie do ćwiczeń 1-7 */
+
+/*
+
+1. Zbadaj, jak zachowuje się Twój system w sytuacji przepełnienia zmiennej całkowitej,
+przepełnienia zmiennej zmiennoprzecinkowej i nadmiaru zmiennej zmiennoprzecinkowej.
+Zastosuj metodę doświadczalną - napisz program, w którym występują te problemy.
+
+2. Napisz program, który prosi o podanie kody ASCII, np. 66, a następnie wyświetla 
+znak odpowiadający temu kodowi.
+
+3. Napisz program, który wydaje sygnał dźwiękowy, po czym wyświetla następujący
+tekst:
+
+    Sally, przerazona niespodziewanym odglosem, krzyknela "A niech mnie, co to bylo!?"
+
+4. Napisz program, który pobiera liczbę zmiennoprzecinkową i wyświetla ją napierw 
+w postaci ułamka dziesiętnego, a potem w notacji wykładniczej. Zastosuj następujący
+wzorzec dla danych wyjściowych:
+
+    Podana liczba to 21.290000 lub 2.129000e+001.
+
+5. W roku jest około 3.156 x 10e7 s. Napisz program, który pobiera Twój wiek w latach,
+a następnie przelicza go na sekundy.
+
+6. Masa cząsteczki wody to około 3.0x 10e-23 g. Litr wody to 1000 g. Napisz program, 
+który pobiera objętość wody w litrach i wyświetla liczbę cząsteczek wody 
+w tej objętości.
+
+7. Calowi odpowiada 2.54 centymetra. Napisz program, który pyta o podanie Twojego 
+wzrostu w centymetrach i wyświetla go w calach i odwrotnie.
+
+*/
 
 #include <stdio.h>
 int main(void) {

@@ -1,5 +1,57 @@
 /* cwiczenia 1 - 4 */
 
+/*
+
+1. Napisz program, wypisujący na ekranie Twoje imię i nazwisko: w jednym wierszu
+przy pomocy jednego wywołania funkcji printf(), w dwóch osobnych wierszach przy pomocy
+dwóch wywołań printf(). Dane wyjściowe powinny wyglądać następująco 
+(z wyjątkiem imienia i nazwiska):
+
+Hans Kloss  Piersza instrukcja pisania
+Hans        Druga instrukcja pisania
+Kloss       Wciaż druga instrukcja pisania
+Hans Kloss  Trzecia i czwarta instrukcja pisania
+
+2. Napisz program wyswietlający na ekranie Twoje imię i adres.
+
+3. Napisz program przeliczący Twój wiek w latach na wiek w dniach. Nie uwzględniaj
+ułamków lat oraz lat przestępnych.
+
+4. Napisz program, dający w wyniku następujący tekst:
+
+Panie Janie!
+Panie Janie!
+Rano wstan!
+
+Niech program wykorzystuje dwie dodatkowe (poza main()) funkcje: jedną wyświetlającą
+jednokrotnie tekst Panie Janie! i drugą, wyświetlającą ostatni z podanych
+wyżej wierszy.
+
+5. Napisz program, który tworzy zmienną całkowitą o nazwie liczba, nadaje jej wartość
+10, oblicza podwojoną i podniesioną do kwadratu wartość zmiennej oraz wyświetla
+wszystkie trzy liczby odpowiednio je oznaczając.
+
+6. Napisz program wyświetlający następujący tekst:
+
+Usmiech!Usmiech!Usmiech!
+Usmiech!Usmiech!
+Usmiech!
+
+7. Napisz program, który wywołuje funkcję raz_trzy(). Funkcja ta powinna wyświetlić 
+słowo raz w jednej linii, wywołać funkcję dwa(), a potem wyświetlić słowo trzy w 
+kolejnej linii. Funkcja dwa() powinna wyświetlić słowo dwa w jednej linii. 
+Funkcja main() powinna wyświetlić frazę: zaczynamy: zanim wywoła funkcję raz_trzy(),
+a następnie wyświetlić frazę: koniec!. Zatem program powinien wyświetlić następującą
+treść:
+
+zaczynamy:
+jeden
+dwa
+trzy
+koniec!
+
+*/
+
 #include <stdio.h>
 void fun1(void);
 void fun2(void);
