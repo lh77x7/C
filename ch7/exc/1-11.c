@@ -1,4 +1,105 @@
 // 1-11.c - rozwiązania zadań z rozdziału 7
+
+/*
+
+1. Napisz program, który odczytuje dane wejściowe aż do napotkania znaku #,
+a następnie wyświetla informację o liczbie odczytywanych odstępów, znaków
+nowej linii i wszystkich innych znaków.
+
+2. Napisz program, który odczytuje dane wejścioweg aż do napotkania znaku #,
+a następnie wyświetla każdy wpisany znak wraz z jego dziesiętnym kodem ASCII.
+W jednym wierszu powinno znajdować się osiem par znak-kod. Propozycja:
+użyj licznika znaków i operatora modulo (%) do wyświetlania znaku nowej
+linii w co ósmym cyklu pętli.
+
+3. Napisz program, który pobiera liczby całkowite do momentu wpisania przez 
+użytkownika cyfry 0. Po zakończeniu wczytywanych danych wejściowych program
+powinien wyświetlać ilość wpisywanych liczb parzystych (wyłączeniem zera) 
+i ich średnia wartość oraz ilość wpisywanych liczb nieparzystych i ich średnią
+wartość.
+
+4. Korzystając z instrukcji if else, napisz program, który odczytuje dane 
+wejściowe do znaku #, zastępuje każdą kropkę wykrzyknikiem, a każdy wykrzynik 
+- dwoma wykrzynikami, oraz wyświetla liczbę zamian, jaką wykonał.
+
+5. Wykonaj ponownie ćwiczenia 3, korzystając z instrukcji switch.
+
+6. Napisz program, który odczytuje dane wejściowe aż do pojawienia się znaku #,
+a następnie wyświetla informacje o ilości powtórzeń ciągu ot.
+
+    UWAGA.
+    Program będzie musiał przechowywać wartość zarówno poprzedniego, jak 
+    i bieżącego znaku. Przetestuj program przy pomocy następujących danych
+    wejściowych: "Wlazl kotek na plotek i mruga."
+
+7. Napisz program, który pobiera liczbę przepracowanych godzin w tygodniu, a następnie
+wyświetla wynagrodzenie brutto, podatek oraz wynagrodzenie netto.
+Przyjmij następujące wartości:
+
+a) podstawowe wynagrodzenie - 40 zł/godz.
+
+b) nadgodziny (powyżej 40 godzin w tygodniu) = 150 % podstawowego wynagrodzenia
+
+c) podatek 15 % dla pierwszych 1200 zł
+           20 % dla kolejnych 600 zł
+           25 % dla reszty wynagrodzenia
+Użyj stałych #define i nie przejmuj się, że przykład nie przestaje do aktualnych
+przepisów podatkowych.
+
+8. Zmień założenie a. z ćwiczenia 6 tak, aby program wyświetlał menu pozwalające
+wybrać stawkę wynagrodzenia (zastosuj instrukcję switch). Po uruchomieniu program
+powinien wyświetlać coś w tym rodzaju:
+    ***************************************************************
+    Podaj liczbe odpowiadajaca zadanej stawce wynagrodzenia lub opcji:
+    1) 35 zl/godz.              2) 37 zl/godz.
+    3) 40 zl/godz.              4) 45 zl/godz.
+    5) wyjscie
+    ***************************************************************
+
+W przypadku wybrania opcji od 1 do 4, program powinien poprosic o podanie liczby
+przepracowanych godzin. Po wyświetleniu wyników, program powinien wrócić do menu.
+W przypadku wpisania wartości innej niż cyfry z przedziału 1 do 5, program 
+powinien przypomnieć użytkownikowi o dostępnych opcjach, a następnie wrócić
+do menu. Stawki wynagrodzenia i podatku przedstaw za pomocą stałych #define.
+
+9. Napisz program, który pobiera liczbę całkowitą, po czym wyświetla wszystkie
+liczby pierwsze mniejsze lub równe tej liczbie.
+
+10. Amerykańska skala podatkowa z roku 1988 była jedyną z najprostszych w ostatnich
+czasach. Składała się z czterech kategorii, z których każda zawierała dwie stawki.
+Oto jej podsumowanie:
+
+Kategoria                           Podatek
+Stan wolny                          15 % dochodu dla 17850 $ plus 28 % reszty
+Głowa rodziny                       15 % dochodu dla 23900 $ plus 28 % reszty
+Małożeństwo, rozliczane wspólnie    15 % dochodu dla 29750 $ plus 28 % reszty
+Małożeństwo, rozliczenie osobne     15 % dochodu dla 14875 $ plus 28 % reszty
+
+Na przykład, osoba stanu wolnego, która osiągnęła dochód w wysokości 20 000 dolarów,
+jest winna państwu 0.15 * 17 8500 + 0.28 * (20 000 $ - 17 850 $). 
+Napisz program, który pobiera kategorię i dochód podlegający opodatkowaniu, a następnie
+oblicza wysokość kwoty podatku. Użyj pętli tak, aby użytkownik mógł obliczyć
+podatek dla kilku różnych przypadków w czasie jednej sesji z programem.
+
+11. Firma ABC Wysyła Warzyw sprzedaje arbuzy po 1,25 zł za kilogram, buraki
+po 0,65 zł za kg i cebulę po 0,89 zł za kg. Zamówienia o wartości powyżej
+100 złotych premiowane są 5 % rabatem naliczanym przed dodaniem kosztów przesyłki.
+Koszt przesyłki o wadze nieprzekraczającej 5 kg wynosi 3.50 zł, przesyłki 
+o wadze większej niż 5 kg, ale mniejszej od 20 kg wynosi 10 zł, zaś przesyłka
+towarów o wadze powyżej 20 kg kosztuje 8 zł plus 10 gr za każdy kilogram.
+
+Napisz program, wprowadzający polecenia użytkownika przy pomocy instrukcji
+pętli z instrukcji switch. Niech naciśnięcie klawisza A powoduje przejście
+do wprowadzenia zamówionej ilości arbuzów, B - zamówionej ilości buraków, 
+zaś C - cebuli. Po naciśnięciu K program kończy przyjmowanie zamówienia.
+Powinien wtedy wyliczyć wszystkie opłaty, rabat, koszt przesyłki oraz sumę
+płatności oraz wyświetlić informację o zamówieniu: cenę jednostkową za kilogram,
+ilość zamówionych warzyw oraz wartość zamówienia dla każdego z zamówionych
+towarów, wartość całości zamówienia, ewentualną wysokość przysługującego rabatu,
+koszt przesyłki oraz całkowity koszt zamówienia.
+
+*/
+
 #include <stdio.h>
 #include <stdlib.h>  // potrzebuje malloc(), free()
 #include <stdbool.h> // potrzebuje bool

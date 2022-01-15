@@ -1,5 +1,136 @@
 // 1-16.c - rozwiazania do cwiczen 1-16 rozdzial 6
 
+/*
+
+1. Napisz program, który tworzy tablicę 26 elementóww, zapisuje w niej 26 małych
+liter, a następnie wyświetla jej zawartość.
+
+2. Użyj pętli zagnieżdżonych, aby uzyskać następujący wzór:
+
+$
+$$
+$$$
+$$$$
+$$$$$
+
+3. Użyj pętli zagnieżdżonych, aby uzyskać wzór:
+
+F
+FE
+FED
+FEDC
+FEDCB
+FEDCBA
+
+Uwaga: jeżli Twój system używa znaków ASCII lub jakiejś innej tablicy kodów liter
+w porządku numerycznym, to możesz wykorzystać inną tablicę złożoną z liter alfabetu,
+np.:
+    char litery[26] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+Następnie możesz odwołać się do konkretnych liter za pomocą indeksu tablicy;
+dla przykładu, litery[0] oznacza wartość 'A' itp.
+
+4. Napisz program, który pobiera od użytkownika wielką literę, a następnie wyświetla
+poniższą "piramidę", korzystając z pętli zagnieżdżonych:
+
+        A
+       ABA
+      ABCBA
+     ABCDCBA
+    ABCDEDCBA
+
+Wzór powinien kończyć się na wpisanym przez użytkownika znaku. Na przykład, poniższy
+obraz byłby wynikiem podania litery E.
+
+Wskazówka: do utworzenia rzedów użyj pętli zewnętrznej. Zawrtość poszczególnych
+rządów skonstruuj za pomocą trzech pętli wewnętrznych: wyświetlającej początkowe
+odstępy, wyświetlającej litery w kolejności rosnącej oraz wyświetlającej litery
+w kolejności malejącej. Jeśli Twój system nie używa ASCII albo podobnego układu
+reprezentującego litery w ścisłym porządku numerycznym, zwróć uwagę na wskazówki
+w ćwiczeniu 3.
+
+5. Napisz program, wyświetlający tabelę. Każdy wiersz tabeli powinien zawierać
+liczby całkowitą, jej kwadrat oraz jej sześcian. Dolna i górna granica tabeli powinna
+być określana przez użytkownika. Skorzystaj w pętli for.
+
+6. Napisz program, który wczytuje pojedyńcze słowo do tablicy znakowej, a następnie
+wyświetla je wspak. Wskazówka: użyj funkcji strlen() do obliczenia indeksu
+ostatniego znaku w tablicy (patrz rozdział 4. "Łańcuchy znakowe i formatowanie
+wejście/wyjście").
+
+7. Napisz program, który pobiera dwie liczby zmiennoprzecinkowe i wyświetla wartość
+ich różnicy podzielonej przez ich iloczyn. Program powinien odczytywać kolejne 
+pary danych wejściowych aż do momentu, gdy użytkownik wpisze wartość nie będącą
+liczbą.
+
+8. Zmodyfikuj ćwiczenie 7 tak, aby program do obliczenia wyniku wykorzystywał
+funkcję.
+
+9. Napisz program, który pobiera dolną lub górną granicę pewnego przedziału liczbowego.
+Następnie oblicza sumę wszystkich kwadratów liczb całkowitych z tego przedziału,
+począwszy od kwadratu najmniejszej, a skończywszy na kwadracie największej z nich.
+Program powinien ponownie pytać o granice przedziału i wyświetlać wynik,
+dopóki podane zakresy przedziału nie będą równe, albo górny zakres będzie mniejszy
+od dolnego. Poniżej przedstawiono przykład działania takiego programu:
+
+    Podaj dolna i gorna granice przedzialu liczb calkowitych: 5 9
+    Suma kwadratow od 25 do 81 wynosi 255
+    Podaj następny przedzial: 3 35
+    Suma kwadratow od 9 do 625 wynosi 5520
+    Podaj nastepny przedzial: 5 5
+    Koniec
+
+10. Napisz program, który wczytuje osiem liczb całkowitych do tablicy, a następnie
+wyświetla je w odwrotnej kolejności.
+
+11. Napisz program, który oblicza sume 1, 2, 3, i tak dalej (aż do pewnej granicy)
+wyrazów następujących ciągów:
+
+    + 1.0/2.0 + 1.0/3.0 + 1.0/4.0 + ...
+    - 1.0/2.0 + 1.0/3.0 - 1.0/4.0 + ...
+
+Maksymalna liczba wyrazów do zsumowania powinna być określona przez użytkownika.
+Przyjrzyj się sumom dla 20, 100 i 500 wyrazów. Czy któryś z ciągów wydaje się
+zbiegać do jakiejś wartości? Wskazówka: -1 pomnożenie przez siebie nieparzystą 
+ilość razy jest równe -1, a parzystą ilosć razy - +1.
+
+12. Napisz program, który tworzy 8-elementową tablicę typu int, przypisuje jej
+elementom pierwsze osiem potęg liczby 2, po czym wyświetla ich wartości. Do
+przypisania wartości użyj pętli for, a do wyświetlenia wartości - dla urozmaicenia
+- petli do while.
+
+13. Napisz program, który tworzy dwie ośmioelementowe tablice wartości typu double
+i stosuje pętle pozwalające użytkownikowi wprowadzać wartość ośmiu elementów 
+do pierwszej z nich. Niech program umieści w drugiej tablicy skumulowane sumy
+elementów pierwszej tablicy. Na przykład, czwarty element drugiej tablicy powinien
+być równy sumie pierwszych czterech elementów pierwszej tablicy, piąty drugiej
+tablicy powinien być równy sumie pierwszych pięciu elementów pierwszej tablicy.
+(Można to osiągnąć za pomocą pętli zagnieżdżonych, ale wiedząc że piąty element
+drugiej tablicy równa się sumie czwartego elementu tej tablicy i piątego elementu
+pierwszej, możemy uniknąć zagnieżdżonych pętli i wykorzystać do tego celu tylko
+pętle pojedynczą). Użyj też pętli do wyświetlania zawartości obu tablic, tak by
+elementy pierwszej były wyświetlone w jednej linii, a pod nimi odpowiadające im
+sumy skumulowane, będące elementami drugiej tablicy.
+
+14. Napisz program, który pobiera ze standardowego urządzenia wejściowego linię
+i wyświetla ją w odwrotnej kolejności. Możesz zachować pobrane wartości w tablicy 
+char; załóż, że linia nie może stosować ze specyfikatorem %c aby czytać znaki po
+kolei - aż do wprowadzenia znaku nowej lini (\n), klawiszem Enter.
+
+15. Ewa inwestuje 100 zł z 10 % procentem prostym. (Każdego roku inwestycja daje
+zysk w wysokości 10 % jej początkowej wartości). Kasia inwestuje 100 zł z 5 %
+rocznym procentem składanym. (5 % od bieżącej wartości, zawierającej w sobie
+poprzednio doliczone odsetki). Napisz program, który oblicza, po ilu latach
+wartość inwestycji Kasi przekroczy wartość inwestycji Ewy, oraz wyświetla obie
+wartości w tym momencie.
+
+16. Jim Szczęściarz wygrał milion dolarów, które ulokował na rachunku bankowym
+o oprocentowaniu 8 % rocznie. Ostatniego dnia każdego roku Jum wypłaca 100 000 dolarów.
+Napisz program, który oblicza, ile lat upłynie, zanim Jim całkowicie opróżni
+swoje konto.
+
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
