@@ -1,5 +1,81 @@
 // 1-15.c - rozwiazania do cwiczen 1-15 rozdzial 11
 
+/*
+
+1. Zaprojektuj funkcję, która pobiera z klawiatury nabliższe n znaków, włącznie z
+ostępami, tabulatorami i znakami nowej linii.
+
+2. Zmodyfikuj funkcję z ćwiczenia 1 tak, aby kończyła działanie po odczytaniu n znaków
+lub po napotkaniu pierwszego odstępu, tabulatora lub znaku nowej linii.
+(Nie korzystaj z funkcji scanf()).
+
+3. Zaprojektuj funkcję, która pobiera z danych wejściowych pierwsze słowo i porzuca 
+resztę wiersza. Za słowo możesz uznać ciąg znaków nie zawierający odstępów, 
+tabulatorów lub znaków nowej linii.
+
+4. Zaprojektuj i sprawdź funkcję wyszujującą w łańcuchu przekazywanym w pierwszym
+argumencie pierwszego wystąpienia znaku podanego w drugim argumencie.
+W przypadku znaleziania znaku, funkcja ma zwrócić wskaźnik do niego, 
+w przeciwnym wypadku wartość null. (Będzie to analogiczne do działania funkcji
+strchr()). Sprawdź funkcję stosując ją w programie, który w pętli pobiera
+i przekazuje do niej dane.
+
+5. Napisz funkcję znajduje_sie_w(), która przyjmuje dwa argumenty: znak 
+i wskaźnik do łańcucha. Niech funkcja zwraca wartość niezerową (prawda), jeśli
+łańcuch zawieara dany znak, w przeciwnym wypadku zwraca zero (fałsz). Spawdź
+funkcję stosując ją w programie, który w pętli pobiera i przekazuje do niej dane.
+
+6. Funkcja strncpy(s1, s2, n) kopiuje z s2 do s1 dokładnie n znaków, w razie potrzeby
+skracając s2 lub dodając do niego znaki zerowe. Łańcuch wynikowy może nie kończyć
+się znakiem zerowym, jeśli długość s2 wynosi n lub więcej. Wartością zwracaną
+jest s1. Napisz swoją własną wersję tej funkcji.
+
+7. Napisz funkcję zawiera_lan(), która pobiera jako argumenty dwa wskaźniki
+łańcuchowe. Jeśli drugi łańcuch zawiera się w pierwszym łańcuchu, funkcja 
+powinna zwrócić adres, pod którym rozpoczyna się ten łańcuch. Na przykład,
+wywołanie zawiera_lan("pula", "ul") powinno zwrócić adres litery u w słowie pula.
+Jeśli drugi łańcuch nie zawiera się w pierwszym łańcuchu, zwracaną wartością
+powinien być wskaźnik zerowy.
+
+8. Napisz funkcję, która odwraca zawartość łańcucha i zapisuje ją w tym samym
+łańcuchu.
+
+9. Napisz funkcję, która pobiera łańcuch i usuwa z niego odstępy. Wypróbuj ją 
+w programie, który odczytuje wiersze za pomocą pętli i kończy działanie po wpisaniu
+pustej linii. Program powinien stosować funkcję do kazdego wpisanego wiersza
+i wyświetlać wynik.
+
+10. Napisz program, który wczytuje maksymalnie 10 łańcuchów i kończy odczytywanie
+w przypadku wystąpienia końca pliku. Powinien on wyświetlać menu zawirające
+pieć opcji: (1) wyświetlanie pierwotnej listy łańcuchow, (2) wyświetlanie
+łańcuchów w porządku ASCII, (3) wyświetlanie łańcuchów według długości (rosnąco), 
+(4) wyświetlanie łańcuchów dopóty, dopóki użytkownik nie wybierze opcji nr 5. 
+Rzecz jasna, program powinien rzeczywiście wykonywać zapowiedziane czynności.
+
+11. Napisz program, który pobiera dane wejściowe do momentu wystąpienia końca pliku, 
+a następnie wyświetla informacje o liczbie słów, wielkich liter, małych liter,
+znaków przystankowych oraz cyfr. Skorzystaj z rodziny funkcji ctype.h.
+
+12. Napisz program, który wyświetla na ekranie argumenty wiersza poleceń w odwrotnej
+kolejności. Na przykład, jeśli argumentami są słowa idz do domu, program
+powinien wyświetlić domu do idz.
+
+13. Napisz program do potegowania działających w oparciu o wiersz poleceń. 
+Pierwszym argumentem powinna być liczba typu double (podstawa potęgi), a drugim 
+- liczba całkowita (wykładnik).
+
+14. Korzystając z funkcji klasyfikujących znaki wykonaj własną implementację
+funkcji atoi().
+
+15. Napisz program, który odczytuje dane do końca pliku i wyświetla je na ekranie.
+Program powinien reagować na następujące argumenty wiersza poleceń:
+
+    -p  wyświetlanie danych bez zmian
+    -u  zamiana wszystkich liter na duże
+    -l  zamiana wszystkich liter na małe
+  
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

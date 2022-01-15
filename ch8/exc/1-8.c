@@ -1,5 +1,81 @@
 // 1-8.c - rozwiazania do cwiczen 1-8 rozdzial 8
 
+/*
+
+1. Napisz program, który zlicza znaki (wpisywanie lub pobieranie z pliku) aż
+do wystąpienia końca pliku.
+
+2. Napisz program, który odczytuje dane wejściowe do momentu napotkania końca
+pliku i wyświetla każdy znak wraz z jego dziesiętnym kodem ASCII. W jednym
+wierszu powinno znajdować się dziesięć par znak-kod, ale odczytanie znaku
+nowej linii powinno pociągnąć ze sobą rozpoczęcie nowego wiersza.
+Znaki niedrukowane o kodach mniejszych niż kod spacji powinny być traktowane 
+w szczególny sposób. Jeśli znak jest tabulatorem lub znakiem nowej linii, należy
+wyświetlić odpowiednio \t lub \n. Inne znaki niedrukowane należy przedstawić
+w postaci znaków sterujących. Na przykład, znak o kodzie 1 to Ctrl-A, co można 
+zapisać jako ^A. Zwróć uwagę, że kod ASCII litery a jest o 64 większy niż kod znaku 
+Ctrl-A. Podobna zależność zachodzi dla innych znaków niedrukowanych.
+
+3. Napisz program, który odczytuje dane do momentu napotkania końca pliku i wyświetla
+liczbę małych i wielkich liter. Przyjmij, że kolejnym literom odpowiadają kolejne
+wartości numeryczne.
+
+4. Napisz program, który odczytuje dane do napotkania końca pliku i wyświetla
+średnią liczbę liter w słowie. Pamiętaj, że do liter nie można zaliczyć znaków
+niedrukowanych. Ściśle rzecz biorąc, nie należałoby również zliczać znaków
+przestankowych, ale nie musisz się tym przejmować. (Jeśli jednak chcesz się tym
+przejmować, możesz skorzystać z funkcji ispunct() z rodziny ctype.h).
+
+5. Zmień program z listingu 8.4 tak, aby stosował bardziej inteligentną strategię
+zgadywania. Na przykład, na początek niech program zapyta użytkownika, czy szukana
+liczba jest większa, mniejsza czy równa 50. Jeśli szukana liczba jest większa,
+następną próbą powinno być być 75, które znajduje się w połowie drogi między 50 a 100.
+Jeśli 75 jest zbyt duże, kolejną próbą powinna być liczba pomiędzy 75 a 50, i tak
+dalej. Dzięki opisanej strategii przeszukiwania dwudzielnego, program szybko 
+namierza prawidłową odpowiedź, przynajmniej jeśli użytkownik nie oszukuje.
+
+6. Zmodyfikuj funkcję pobierz_pierwszy() z listingu 8.8 tak, aby zwracała ona pierwszy
+napotkany znak drukowalny. Przetestuj ją w prostym programie.
+
+7. Zmodyfikuj ćwiczenie 8. z rodziału 7. tak, aby opcje menu były oznaczone
+literami zamiast liczbami.
+
+8. Napisz program wyświetlający menu z następującymi możliwościami: dodawanie,
+odejmowanie, mnożenie i dzielenie. Po dokonaniu wyboru, program powinien
+zapytać o dwie liczby, a następnie wykonać żądane działanie.
+Program powinien akceptować wyłącznie proponowane opcje. Należy używać 
+typu float do reprezentacji liczb oraz pozwolić użytkownikowi na kolejną próbę,
+jeśli pomyli się przy wprowadzaniu danych. W przypadku dzielenia program powinien
+ponownie poprosić użytkownika o wprowadzanie liczby, jeśli jako drugą wartość 
+podano 0. Uruchomienie programu powinno dać następujący rezultat:
+
+    Wybierz jedno z dzialan:
+    a. dodawanie    b. odejmowanie
+    c. mnozenie     d. dzielenie
+    k. koniec
+    a
+    Podaj pierwsza liczbe: 22.4
+    Podaj druga liczbe: jeden
+    jeden nie jest liczba.
+    Podaj liczbe, np. 2.5, -178E8 czy 3: 1
+    22.4 + 1 = 23.4
+    Wybierz jedno z dzialan:
+    a. dodawanie    b. odejmowanie
+    c. mnozenie     d. dzielenie
+    k. koniec   
+    d
+    Podaj pierwszy liczbe: 18.4
+    Podaj druga liczbe: 0
+    Podaj liczbe inna niz 0: 0.2
+    18.4 / 0.2 = 92
+    a. dodawanie    b. odejmowanie
+    c. mnozenie     d. dzielenie
+    k. koniec
+    k
+    Koniec.
+    
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>

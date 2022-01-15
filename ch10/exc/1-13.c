@@ -1,5 +1,94 @@
 // 1-13.c - rozwiazania do cwiczen 1-13 rozdzial 10
 
+/*
+
+1. Zmodyfikuj program meteorologiczny z listingu 10.12 tak, aby wykonywał on
+obliczenia korzystając ze wskaźników zamiast indeksów. (Nadal konieczna
+jest deklaracja i inicjalizacja tablicy).
+
+2. Napisz program, który inicjalizuje tablicę, a następnie kopiuje jej zawartość
+do dwóch innych tablic. (Wszystkie trzy tablice powinny być zadeklarowane 
+w głównym programie). Do wykonania pierwszej kopii użyj funkcji wykorzystującej
+zapis wskaźnikowy i zwiększanie wskaźników. Każda funkcja powinna przyjmować
+jako argumenty nazwę tablicy źródłowej, nazwę tablicy docelowej oraz rozmiar
+tablic. Oznacza to, że wywołanie funkcji mogłoby wyglądać jak w następujących
+deklaracjach:
+
+    double zrodlo[5] = {1.1, 2.2, 3.3, 4.4, 5.5};
+    double cel1[5];
+    double cel2[5];
+    kopiuj_tab(zrodlo, cel1, 5);
+    kopiuj_wsk(zrodlo, cel2, 5);
+
+3. Napisz funkcję, która zwraca największą wartość przechowywaną w tablicy.
+Przetestuj ją w prostym programie.
+
+4. Napisz funkcję, która zwraca indeks największej wartości przechowywanej w 
+tablicy. Przetestuj ją w prostym programie.
+
+5. Napisz funkcję, która zwraca indeks największej wartości przechowywanej w tablicy.
+Przetestuj ją w prostym programie.
+
+6. Napisz program, który inicjalizuje tablicę dwuwymiarową i kopiuje ją do innej
+tablicy dwuwymiarowej korzystając z jednej z funkcji z ćwiczenia 2. (Ponieważ 
+tablica dwuwymiarowa jest tablica tablic, jednowymiarowa funkcja kopiująca może
+być stosowana do poszczególnych podtablic).
+
+7. Użyj funkcji kopiującej z ćwiczenia 2 do skopiowania do trzeciego do piątego
+elementu 7-elementowej tablicy. Elementy powinny zostać umieszczone w tablicy
+3-elementowej. Sama funkcja nie musi być modyfikowana; wystarczy dobrać
+odpowiednie argumenty faktyczne. (Argumentami nie muszą być nazwa tablicy i jej
+rozmiar - równie dobrze przekazywać można adres jednego z elementów oraz liczbę
+elementów do skopiowania).
+
+8. Napisz program inicjalizujący tablicę dwuwymiarową o rozmiarach 3x5 i elementach
+typu double i korzystający z funkcji wykorzystującej VLA do kopiowania danych
+do innej dwuwymiarowej tablicy. Napisz także używając VLA funkcję pozwalającą
+wyświetlić zawartość obu tablic. Funkcje muszą obsługiwać w ogólności tablice
+o rozmiarach NxM. (Jeśli Twój kompilator nie pozwala stosować VLA, wykorzystaj
+tradycyjne metody języka C i wykonaj zadania na tablicy Nx5).
+
+9. Napisz funkcję, która przyspisuje każdemu elementowi tablicy sumę wartości
+odpowiednich elementów w dwóch innych tablicach. (Jeśli tablica nr 1 ma wartości
+2, 4, 5 i 8, a tablica nr wartości 1, 0, 4 i 6, funkcja przypisuje tablicy nr 3
+wartości 3, 4, 9 i 14). Funkcja powinna przyjmować jako argumenty trzy nazwy tablic
+oraz ich rozmiar. Wypróbuj funkcję w prostym programie.
+
+10. Napisz program, który deklaruje tablicę o wymiarach 3 na 5 i przypisuje jej 
+jakieś wartości początkowe, a następnie wyświetla wartości, podwaja je i wyświetla
+nowe wartości. Wyświetlaniem i podwajaniem powinny zajmować się osobne funkcje, 
+pobierające jako argumenty nazwę tablicy oraz liczbę rzędów.
+
+11. Przepisz program deszcz z listingu 10.7 - tak, by jego główne zadania były
+wykonywane przez funkcje zamiast w main().
+
+Zmień program meteorologiczny z listingu 10.7 tak, aby główne czynności były
+wykonywane przez osobne funkcje.
+
+12. Napisz program, który prosi użytkownika o podanie trzech zbirów składających
+się z pięciu liczb typu double, a nastepnie:
+
+a) Zapisuje te dane w tablicy o wymiarach 3 na 5.
+
+b) Oblicza średnią dla każdego zbioru z osobna.
+
+c) Oblicza średnią dla wszystkich wartości.
+
+d) Znajduje największą spośród 15 wartości.
+
+e) Wyświetla wyniki.
+
+Każde z zadań powinno być obsługiwane przez osobne funkcje korzystające z tradycyjnych
+metod języka C odnośnie tablic. Rozwiąż zadanie "b", stosując funkcję obliczającą
+i zwracającą średnią z jednowymiarowej tablicy. Użyj pętli, aby wywołać 
+ją trzykrotnie. Pozostałe zadania powinny pobierać jako argument całą tablicę, 
+a funkcje realizujące zadania "c" i "d" powinien zwrócić odpowiedź wywołującemu
+je programowi.
+
+13. Wykonaj zadanie 12 używając jako argumentów tablic o zmiennych rozmiarach.
+
+*/
+
 #include <stdio.h>
 #define MIESIACE 12 // liczba miesiecy w roku (zad. 1, 11)
 #define LATA 5      // liczba lat danych    (zad. 1, 11)

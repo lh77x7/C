@@ -1,5 +1,54 @@
 // 1-10.c - rozwiazania do cwiczen 1-10 rozdzial 9
 
+/*
+
+1. Zaprojektuj funkcje min(x,y), zwracającą mniejszą z dwóch wartości typu double,
+i przetestuj ją za pomocą prostego programu.
+
+2. Zaprojektuj funkcję rzad_zn(ch, i, j), wyświetlającą znak ch w kolumnach od i do j.
+Wypróbuj ją w prostym programie.
+
+3. Napisz funkcję, która pobiera trzy argumenty: znak oraz dwie liczby całkowite.
+Pierwsza liczba określa liczbę razy, jaką należy wyświetlić znak w jednym
+wierszu; druga liczba określa liczbę wierszy. Napisz program, który wykorzystuje
+tę funkcję.
+
+4. Średnia harmoniczna dwóch liczb uzyskujemy przez znalezienie odwrotności
+danych liczb, wyciągnięciu z nich średniej arytmetycznej i obliczenie odwrotności
+otrzymanego wyniku. Napisz funkcję, która pobiera dwa argumenty typu double 
+i zwraca ich średnią harmoniczną.
+
+5. Napisz i sprawdź funkcję o nazwie wieksze_od(), która zamienia zawartość obu 
+zmiennych typu double większą z nich. Dla przykładu, wieksze_od(x, y) przypisze
+obu zmiennym x i y wartość większej z nich.
+
+6. Napisz program, który odczytuje znaki z wejścia standardowego aż do wystąpienia
+końca pliku. Dla każdego znaku program powinien informowac, czy jest on literą.
+Jeśli tak, program powinien również wyświetlić numer litery w alfabecie.
+Na przykład, litery c i C obie mają numer 3. Wykorzystaj funkcję, który pobiera
+znak jako argument i zwraca jego numer w alfabecie, jeśli jest on literą;
+w przeciwnym przypadku wartością zwracaną powinno być -1.
+
+7. W rodziale 6 napisaliśmy funkcję potega(), która zwracała wynik podniesienia
+liczby typu double do potegi naturalnej (patrz listing 6.18). Ulepsz tę funkcję 
+tak, aby poprzednie obsługiwała potęgi ujemne. Ponadto, wbuduj w funkcji 
+założenie, że 0 do dowolnej potęgi wynosi 0 oraz że podniesienie dowolnej liczby
+do potęgi 0 daje wynik 1. Użyj pętli. Przetestuj funkcję w programie.
+
+8. Ponownie wykonaj ćwiczenie 6 - tym razem użyj funkcji rekurencyjnej.
+
+9. Uogólnij funkcję do_binar z listingu 9.8 do postaci do_podst_n(), pobierającej
+jego drugi argument wartość z przedziału od 2 do 10. Następnie powinna ona
+wyświetlić liczbę, pobraną jako pierwszy argument w odpowiadającym drugiemu 
+argumentowi systemie liczbowym. Na przykład funkcja do_podst_n(129, 8)
+wyświetli 210, co jest ósemkowym odpowiednikiem liczby 129. Sprawdź działanie
+programu pisząc wykorzystujący ją program.
+
+10. Napisz i przetestuj funkcję Fibonacci(), którą zamiast rekurencji do 
+obliczenia kolejnych wyrazów ciągu Fibonacciego używa pętli.
+
+*/
+
 #include <stdio.h>
 
 void zad1();
