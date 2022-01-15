@@ -1,4 +1,63 @@
 // cwiczenia 1-7 z rodziału 4
+
+/*
+
+1. Napisz program, który pyta o Twoje imię, a następnie nazwisko, po czym wyświetla
+je w układzie Nazwisko, Imię.
+
+2. Napisz program, który pyta o Twoje imię, a następnie:
+
+a) wyświetla je w cudzysłowie.
+
+b) wyświetla je w polu o szerokości 20 znaków; w cudzysłów powinno być ujęte całe
+pole.
+
+c) wyświetla je przy lewym brzegu pola o szerokości 20 znaków; w cudzysłowach powinno
+być ujęte całe pole.
+
+d) wyświetla je w polu o trzy znaki dłuższym niż imię.
+
+3. Napisz program, który pobiera liczbę zmiennoprzecinkową, a następnie wyświetla ją
+w postaci ułamka dziesiętnego i w zapisie wykładniczym. Niech wyświetlany tekst 
+wygląda następująco:
+
+a) Wpisano liczbę 21.3 lub 2.1e+001.
+
+b) Wpisano liczbę +21.290 lub 2.129E+001.
+
+4. Napisz program, który pobiera Twój wzrost w centymetrach oraz Twoje imię, 
+a następnie wyświetla te dane w następującej postaci:
+
+    Robert, masz 1.82 metra wzrostu.
+
+Użyj typu float, a dzielenie wykonaj za pomocą operatora /.
+
+5. Napisz program, który pobiera imię i naziwsko użytkownika, po czym wyświetla:
+w pierwszym wierszu imię i nazwisko, a w drugim liczbę liter w imieniu i nazwisku.
+Każda z liczb powinna znajdować się pod ostatnią literą odpowiadającego jej wyrazu
+tak, jak poniżej:
+
+    Anne Kleine-Nachtmusik
+       4                17
+
+6. Napisz program, który przypisuje zmiennej typu double wartość 1.0/3.0, a typu 
+float - 1.0/3.0. Każdy wynik ma być wyświetlany trzykrotnie - raz przedstawiając
+cztery od prawej, drugi raz 12 cyfr od prawej, trzeci - 16 cyfr od prawej. Niech
+program załącza plik nagłówkowy float.h i wyświetla wartości FLT_DIG i DBL_DIG.
+Czy wyświetlone wartości 1.0/3.0 są spójne z tymi wartościami?
+
+7. Napisz program pytający użytkownika o liczbę przebytych mil i ilość zużytych
+galonów paliwa. Następnie niech program oblicza i wyświetli poziom zużycia w postaci
+wskaźnika mile/galon, z jednym miejscem po przecinku. Następnie - korzystając z faktu,
+że jeden galon to 3,785 litrów, a jedna mila ok. 1,609 kilometrów - skonwertuj
+wskaźnik mile/galon na litry/100 km, w jakim zwykle opisuje się zużycie paliwa 
+w Europie. Wynik ma być wyświetlony z jednym miejscem po przecinku (zauważ, że
+w Stanach Zjednoczonych podaje się ilość paliwa potrzebną do przycia określonej
+odległości, podczas gdy w Europie odwrotnie). Zastosuj stałe (const lub #define)
+dla obu składników konwersji.
+
+*/
+
 #include <stdio.h>
 #include <string.h>
 #include <float.h>

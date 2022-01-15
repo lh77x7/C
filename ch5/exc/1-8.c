@@ -2,6 +2,79 @@
     rozwiazanie 1-8 z rozdziału 5
 */
 
+/*
+
+1. Użyj pętli while do przeliczania czasu w minutach na godziny i minuty. Utwórz
+stałą symboliczną dla liczb 60 przy pomocy #define lub const i pamiętaj o zapewnieniu
+sposobu zakończenia pętli.
+
+2. Napisz program, który prosi o podanie liczby całkowitej, a następnie wyświetla 
+wszystkie liczby całkowite od tej wartości do wartości większej od 10 (włącznie).
+(Jeśli zatem wpisano liczbę 5, program wyświetla liczby od 5 do 15).
+
+3. Napisz program, który prosi użytkownika o wprowadzenie liczby dni, a następnie
+zamienia je na tygodnie i dni. Dla przykadu, program zamieni 18 dni na 2 tygodnie 
+i 4 dni. Wyświetl wynik w następujące postaci:
+
+    18 dni to 2 tygodnie, 4 dni.
+
+W programie wykorzystaj pętlę while, aby użytkownik mógł wielokrotnie wprowadzać
+liczbę dni. Koniec programu nastąpi po wprowadzeniu wartości 0 lub -20.
+
+4. Napisz program, który prosi użytkownika o wprowadzenie wzrostu w centymetrach,
+a następnie wyświetla tę wartość w centymetrach, w stopach i calach (dopuszczając
+ułamkowe wartości centymetrów i cali). Użytkownik powinien móc podawać wzrost 
+w pętli, dopóki nie wprowadzi wartości niedodatniej. Przykład działania programu
+przedstawiono poniżej:
+
+    Podaj wzrost w centymerach: 182
+    182.0 cm = 5 stop, 11.7 cali
+    Podaj wzrost w centymetrach (<=0 - koniec): 168
+    168.0 cm = 5 stop, 6.1 cali
+    Podaj wzrost w centymetrach (<= 0 - koniec): 0
+    Do widzenia!
+
+5. Zmień program addemup.c (listing 5.13), który oblicza sumę pierwszych 20 liczb
+całkowitych (jeżeli wolisz, możesz traktować go jak program, który oblicza ile
+pieniędzy otrzymasz za 20 dni, jeżli zarobisz 1$ za pierwszy dzień, 2$ za drugi,
+3$ dolary za trzeci itd.). Zmodyfikuj program tak, by pozwalał użytkownikowi określić
+zakres przeprowadzanych obliczeń. Oznacza to, że należy zamienić stałą 20 na zmienną
+podawaną przez użytkownika.
+
+6. Teraz zmodyfikuj powyższy program tak, by obliczał sumę kwadratów liczb całkowitych.
+(Jeżeli wolisz, możesz traktować go jak program, który oblicza ile pieniędzy otrzymasz,
+jeśli zarobisz 1$ za pierwszy dzień, 4$ za drugi, 9$ za trzeci itd. Wygląda to na
+lepszy interes!). Język C nie zawiera funkcji obliczających kwadrat, skorzystaj więc
+z innego wzoru - kwadrat liczb n, to n*n.
+
+7. Napisz program, który pobiera liczbę typu float i wyświetla jej wartość podniesioną
+do trzeciej potęgi. Wykorzystaj w tym celu zaprojektowaną przez siebie funkcję, 
+która podniesie pobraną wartość do sześcianu i wyświetli ją. Funkcja main() 
+powinna przekazywać pobraną wartość (jako argument) do Twojej funkcji.
+
+8. Napisz program, który pobiera wartość temperatury w Fahrenheitach. Program powinien
+pobierać wartości typu double i przekazywać (jako argument) własnej funkcji
+użytkownika o nazwie Temperatura(). Funkcja ta powinna obliczyć odpowiednią wartość
+w skalach Celsjusza i Kelwina, a następnie wyświetlić wszystkie trzy wartości, 
+z zachowaniem precyzji dwóch miejsc po przecinku. Funkcja powinna zwracać każdą 
+wartość w skali. Oto formuła zamieniająca stopnie w skali Fahrenheita na Celsjusza:
+
+    Celsjusz = 1.8 * Fahrenheit + 32.0
+
+Skala Kelwina, powszechnie używana w nauce, jest skalą, w której 0 odpowiada zeru 
+absolutnemu, czyli dolnej granicy temperatur. Oto formuła zamieniająca wartości
+w skali Celsjusza na Kelwina:
+
+    Kelwin = Celsjusz + 273.16
+
+Funkcja Temperatura() powinna używać słowa kluczowego const dla symboli 
+reprezentujących stałe występujące w powyższych formułach. Natomiast main()
+powinna stosować pętle, aby umożliwić użytkownikowi wielokrotne zastosowanie
+funkcji konwertującej. Pętla kończy swój cykl, gdy użytkownik wprowadzi - 
+zamiast temperatury - literę k (koniec) lub inną wartość nie będącą liczbą.
+
+*/
+
 #include <stdio.h>
 #include <ctype.h>
 float potegaTrzecia(float x);
