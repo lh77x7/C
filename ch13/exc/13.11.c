@@ -3,28 +3,31 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define ROZMIAR 100
+#define ROZMIAR 256
+const char *errmesg[] = {"Uzycie: %s lancuch plik\n", 
+                        "Nie moge otworzyc pliku %s\n"};
 
 int main(int argc, char *argv[]){
+    
     FILE *we;
-    char tablica[ROZMIAR];
-    char ch, wynik;
-    int licznik = 0;
-    if(argc < 3){
-        printf("Sposob uzycia: %s plik lancuch", argv[0]);
+    char wiersz[ROZMIAR];
+
+    if(argc != 3){
+        fprintf(stderr, errmesg[0], argv[0]);
         exit(1);
     }
     
-    if((we = fopen(argv[1], "r")) == NULL)
+    if((we = fopen(argv[2], "r")) == NULL)
     {
-        fprintf(stderr, "Blad otwarcia pliku.\n");
-
+        fprintf(stderr, errmesg[1], argv[2]);
+        exit(1);
     }
     // przeszukuj wczytany plik, wykorzystaj funkcje strstr()
-    while((ch = getc(we)) != EOF){
-        
+    while(fgets(wiersz, ROZMIAR, we) != NULL)
+    {
+        if(strstr(wiersz, argv[1]) != NULL)
+            fputs(wiersz, stdout);
     }
-    
 
     return 0;
 }

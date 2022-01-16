@@ -88,8 +88,8 @@ int main(void){
 7 -     DONE
 8 -     DONE
 9 -     DONE
-10 -    NOT DONE!
-11 -    NOT DONE!
+10 -    DONE
+11 -    DONE
 12 -    NOT DONE!
 13 -    NOT DONE!
 
@@ -218,40 +218,39 @@ void zad9(){
 }
 
 void zad10(){
-    FILE *we;
     char nazwa[40];
     char ch;
-    char wiersz[40];
-    long poz;
-    int pozycja;
+    FILE *we;
+    long pozycja;
     getchar();
     printf("Podaj nazwe pliku do otwarcia: ");
-    gets(nazwa);
+    scanf("%40s", nazwa);
     // otwieram plik
     if((we = fopen(nazwa, "r")) == NULL)
     {
         fprintf(stderr, "Nie mogę otworzyć pliku %s.\n", nazwa);
         exit(1);
     }
-    printf("Podaj pozycje w pliku: ");
+    puts("Podaj pozycje w pliku (numer ujemny lub nie numeryczny - koniec): ");
     scanf("%d", &pozycja);
-    while(pozycja > 0 && pozycja < 100)
+    while(scanf("%ld", &pozycja) == 1 && pozycja >= 0)
     {
-        while((ch = getc(we)) != EOF || ch != '\n')
+        fseek(we, pozycja, SEEK_SET);
+        ch = (char)getc(we);
+        while(ch != EOF && ch != '\n')
         {
-            poz = (long) pozycja * sizeof(char); // oblicza offset
-            fseek(we, poz, SEEK_SET); // przejscie w odpowiednie miejsce
-            fread(&ch, sizeof(char), 1, we);
-            fputc(ch, stdout);
+            putc(ch, stdout);
+            ch = (char)getc(we);
         }
-        scanf("%d", &pozycja);
+        putchar('\n');
+        puts("Podaj pozycje w pliku (numer ujemny lub nie numeryczny - koniec): ");
     }
     // zamykam plik
     fclose(we);
 }
 
 void zad11(){
-
+    printf("Patrz rozwiazanie 13.11.c\n");
 }
 
 void zad12(){
