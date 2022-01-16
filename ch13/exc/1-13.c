@@ -1,5 +1,139 @@
 // 1-13.c - rozwiazania do cwiczen 1-13 rozdzial 13
 
+/*
+
+1. Napisz program kopiujący plik, który pobiera nazwę pliku źródłowego i decelowego
+z wiersza poleceń. Skorzystaj ze standardowego wejścia/wyjścia i trybu binarnego.
+
+2. Napisz program, który wyświetla kolejno na ekranie wszystkie pliki, których
+nazwy podano w wierszu poleceń. Użyj pętli sterowanej zmienną argc.
+
+3. Napisz program kopiujący pliki, który pyta użytkownika o podanie nazwy pliku
+tekstowego, stanowiącego plik źródłowy oraz nazwę pliku wyjściowego. Program ma
+zamienić wszystkie znaki na odpowiadające im wielkie litery. W tym celu
+użyj funkcji toupper() z biblioteki ctype.h. Wynik wypisz na standardowe wyjście,
+korzystając z trybu tekstowego.
+
+4. Napisz program, który wyświetla na ektranie sekwencyjnie zawartość wszystkich
+plików podanych w wierszu poleceń. W pętli skorzystaj z argumentu funkcji
+main() - argc, oznaczającego liczbę argumentów.
+
+5. Zmodyfikuj program z listingu 13.6 tak, aby wykorzystywał on interfejs oparty
+na wierszu poleceń, a nie interfejs interaktywny.
+
+6. Wadą programów korzystających z argumentów wiersza poleceń jest to, że 
+wymagają one od użytkownika znajomości zasad ich prawidłowego użycia.
+Zmień program z listingu 13.2 tak, aby zamiast przyjmować argumenty, umożliwiał 
+on wpisanie potrzebnych informacji w sposób interaktywny.
+
+7. Napisz program, któru otwiera dwa pliki o nazwach podanych w wierszu poleceń.
+
+a) Program powinien wyświetlić 1. wiersz pierwszego pliku, 1. wiersz drugiego
+pliku, 2. wiersz pierwszego pliku, 2. wiersz drugiego pliku, i tak dalej,
+aż do momentu wyświetlenia ostatniego wiersza pliku zawierającego większą ilość
+wierszy.
+
+b) Zmodyfikuj program z punku a. tak, aby wiersze o tym samym numerze były wyświetlane
+w tym samym wierszu.
+
+8. Napisz program, który przyjmuje jako argumenty wiersza poleceń jeden znak
+oraz zero lub więcej nazw plików. Jeśli po znaku nie następują żadne argumenty,
+program powinien pobierać dane z wejścia standardowego. W przeciwnym wypadku,
+program powinien otwierać każdy kolejny plik i podawać liczbę razy, jaką występuje
+w nim zadany znak. Obok liczby wystąpień na ekranie powinna widnieć nazwa pliku
+oraz poszukiwany znak. Pamiętaj o wykrywaniu błędów: sprawdzeniu, czy
+liczba argumentów jest prawidłowa, oraz czy plik może zostać otwarty.
+Jeśli otwarcie pliku jest niemożliwe, program powinien zgłaszać ten fakt, po czym
+przejść do następnego pliku.
+
+9. Zmodyfikuj program z listingu 13.3 tak, aby słowa były ponumerowane według 
+kolejności dodawania ich do listy, poczynając od numeru 1. Dopilnuj, aby przy
+drugim uruchomieniu programu numeracja rozpoczynała się od miejsca, w którym
+została przerwana.
+
+10. Napisz program, który otwiera plik tekstowy o nazwie uzyskanej w sposób
+interaktywny, Utwórz pętlę, umożliwiającą użytkownikowi podanie położenia w pliku.
+Program powinien wyświetlić część pliku zawartą pomiędzy podanym miejscem 
+a najbliższym znakiem nowej linii. Sygnałem kończącym program powinno być
+podanie przez użytkownika danych nienumerycznych.
+
+11. Napisz program, który przyjmuje dwa argumenty wiersza poleceń. Pierwszy z nich
+jest łańcuchem, drugi - nazwą pliku. Program powinien następnie przeszukać plik
+i wyświetlić wszystkie wiersze zawierające podany łańcuch. (Ponieważ zadanie to 
+wymaga przetwarzania łańcuchów, a nie znaków, użyj funkcji fgets() zamiast 
+getc(). Przeszukiwanie wiersza zrealizuj za pomocą standardowej funkcji strstr(),
+opisanej krótko w rodziale 11).
+
+12. Utwórz plik tekstowy składający się z 20 rzedów i 30 liczb całkowitych
+rozdzielonych odstępami. Liczby powinny należeć do przedziału 0-9. Niech plik
+ten będzie cyfrową reprezentacją rysunku, a wartości od 0 do 9 oznaczają coraz 
+większe poziomy zaczernienia. Napisz program, który wczytuje zawartość pliku
+do tablicy 20x30 wartości typu int. Aby zamienić ten zbiór liczb na rysunek,
+program powinien użyć wartości z tej tablicy do zainicjalizowania kolejnej tablicy,
+tym razem złożonej z 20 na 31 wartości typu char. Liczbe 0 powinien odpowiadać
+odstęp, liczbie 1 - kropka, i tak dalej, tak, aby większym liczbom odpowiadały
+znaki, które zajmują więcej miejsca. Liczbę 9 może na przykład symbolizować znak #.
+Ostatni(31.) znak w każdym rzędzie powinien być znakiem zerowym tak, aby utworzyć
+tablicę 20 łańcuchów. Program powinien wyświetlać rysunek (czyli kolejne łańcuchy)
+na ekranie oraz zapisać go w pliku tekstowym. Na przykład, załóżmy, że plik 
+wejściowy zawiera następujące dane (znajdziesz je w pliku dane.we dostępnym 
+razem z programami przykładowymi w Internecie):
+
+    0 0 9 0 0 0 0 0 0 0 0 0 5 8 9 9 8 5 2 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 9 0 0 0 0 0 0 0 5 8 9 9 8 5 5 2 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 5 8 1 9 8 5 4 5 2 0 0 0 0 0 0 0 0 0
+    0 0 0 0 9 0 0 0 0 0 0 0 5 8 9 9 8 5 0 4 5 2 0 0 0 0 0 0 0 0
+    0 0 9 0 0 0 0 0 0 0 0 0 5 8 9 9 8 5 0 0 4 5 2 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 5 8 9 1 8 5 0 0 0 4 5 2 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 5 8 9 9 8 5 0 0 0 0 4 5 2 0 0 0 0 0
+    5 5 5 5 5 5 5 5 5 5 5 5 5 8 9 9 8 5 5 5 5 5 5 5 5 5 5 5 5 5
+    8 8 8 8 8 8 8 8 8 8 8 8 5 8 9 9 8 5 8 8 8 8 8 8 8 8 8 8 8 8
+    9 9 9 9 0 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    8 8 8 8 8 8 8 8 8 8 8 8 5 8 9 9 8 5 8 8 8 8 8 8 8 8 8 8 8 8
+    5 5 5 5 5 5 5 5 5 5 5 5 5 8 9 9 8 5 5 5 5 5 5 5 5 5 5 5 5 5
+    0 0 0 0 0 0 0 0 0 0 0 0 5 8 9 9 8 5 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 5 8 9 9 8 5 0 0 0 0 6 6 0 0 0 0 0 0
+    0 0 0 0 2 2 0 0 0 0 0 0 5 8 9 9 8 5 0 0 5 6 0 0 6 5 0 0 0 0
+    0 0 0 0 3 3 0 0 0 0 0 0 5 8 9 9 8 5 0 5 6 1 1 1 1 6 5 0 0 0
+    0 0 0 0 4 4 0 0 0 0 0 0 5 8 9 9 8 5 0 0 5 6 0 0 6 5 0 0 0 0
+    0 0 0 0 5 5 0 0 0 0 0 0 5 8 9 9 8 5 0 0 0 0 6 6 0 0 0 0 0 0 
+    0 0 0 0 0 0 0 0 0 0 0 0 5 8 9 9 8 5 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 5 8 9 9 8 5 0 0 0 0 0 0 0 0 0 0 0 0
+
+Dane wyjściowe mogłyby wyglądać następująco (są one zawarte w dane.wy):
+
+    @         *%@@%*'
+      @       *%@@%**'
+              *%.@%*~*'
+      @       *%@@%* ~*'        
+    @         *%@@%*  ~*'       
+              *%@.%*   ~*'      
+              *%@@%*    ~*'     
+  *************%@@%*************
+  %%%%%%%%%%%%*%@@%*%%%%%%%%%%%%
+  @@@@ @@@@@@@@@@@@@@@@@@@@@@@@@
+  %%%%%%%%%%%%*%@@%*%%%%%%%%%%%%
+  *************%@@%*************
+              *%@@%*
+              *%@@%*    ==
+      ''      *%@@%*  *=  =*
+      ::      *%@@%* *=....=*   
+      ~~      *%@@%*  *=  =*
+      **      *%@@%*    ==
+              *%@@%*
+              *%@@%*
+
+13. Obrazy cyfrowe, szczególnie te przesyłane drogą radiową z pojazdów kosmicznych,
+mogą zawierać usterki. Uzupełnij program z ćwiczenia 11 o funkcję poprawiającą
+jakość obrazu. Powinna ona porównywać każdą wartość z jej "sąsiadami" z lewej,
+prawej, góry i dołu. Jeżeli wartość różni się o więcej niż 1 od każdego z sąsiadów,
+funkcja powinna zastąpić ją średnią arytmetyczną wartości sąsiadujących. Średnia
+powinna zostać zaokrąglona do najbliższej liczby całkowitej. Zauważ, że znaki
+na granicach rysunku posiadają mniej niż czterech sąsiadów, wymagają więc
+specjalnego traktowania.
+
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h> //strcpy(), strcat()
