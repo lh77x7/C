@@ -1,5 +1,156 @@
 // 1-11.c - rozwiazania do cwiczen 1-11 rozdzial 14
 
+/*
+
+1. Ponownie wykonaj funkcję z pytania nr 3, ale tym razem niech jej argument będzie
+nazwą, a nie numerem miesiąca. (Pamiętaj o funkcji strcmp()).
+
+2. Napisz program, który prosi użytkownika o podanie dnia, miesiąca oraz roku.
+Miesiąc może zostać wskazany za pomocą numeru (np. "9"), nazwy ("wrzesien")
+lub nazwy skróconej ("wrz"). Program powinien wyswietlic całkowitą liczbę
+dni w roku od podania dnia włącznie.
+
+3. Zmodyfikuj program z listingu 14.2 tak, aby wyświetlał on opisy książek
+w porządku alfabetycznym (wg tytułu) oraz całkowitą wartość książek.
+
+4. Napisz program, który tworzy szablon struktury o dwóch składnikach zgodnie z 
+poniższymi kryteriami:
+
+a) Pierwszym składnikiem jest numer PESEL, a drugim - struktura o trzech składnikach.
+Jej pierwszy składnik zawiera imię, drugi - drugie imię, a trzeci - nazwisko.
+Utwórz i zainicjuj tablicę złożoną z trzech takich strukutr. 
+Program powinien wyświetlać dane w następującej formie:
+
+Jordan, Michael J. -- 65092301159
+
+b) Wyświetlana jest tylko pierwsza litera drugiego imienia wraz z kropką. 
+W przypadku, jeśli składnik zawiera drugie imię jest pusty, program nie powinien
+wyświetlać ani inicjału (co oczywiste), ani kropki. Algorytm wyświetlania zaimplementuj
+w postaci oddzielnej funkcji, probierającej tablicę struktur jako argument.
+
+c) Zmodyfikuj program opisany w punkcie a. tak, aby funkcja wyświetlająca przyjmowała
+strukturę, a nie adres tablicy struktur.
+
+5. Napisz program, realizujący następujący przepis:
+
+a) Zdefiniuj zewnętrznie szablon struktur o nazwie daneos, zawierający dwa 
+składniki: łańcuch przechowujący imię i łańcuch przechowujący nazwisko.
+
+b) Zdefiniuj zewnętrznie szablon struktur o nazwie student, zawierający trzy 
+składniki: strukturę typu daneos, tablicę oceny przechowującą liczby zmiennoprzecinkowe
+oraz zmienną przechowującą średnią ocen.
+
+c) W funkcji main() zadeklaruj tablicę złożoną z ROZMIAR (gdzie ROZMIAR = 4) 
+struktur typu student i zainicjalizuj składniki typu daneos przy pomocy
+dowolnie wybranych imion i nazwisk. Użyj funkcji do wykonywania zadań opisanych
+w punktach d, e, f i g.
+
+d) Poproś użytkownika o podanie ocen kolejnych studentów i umieść je w składniku
+oceny odpowiednich struktur. Potrzebna do tego celu pętla może znajdować się - zgodnie
+z Twoimi preferencjami - w funkcji main() lub w funkcji pobierającej dane.
+
+e) Oblicz średnią ocen dla każdej struktury i przepisz ją odpowiedniemu składnikowi.
+
+f) Wyświetl informacje zawarte w każdej ze struktur.
+
+g) Wyświetl średnią ocen wszystkich studentów.
+
+6. Plik tekstowy zawiera informacje o drużynie koszykarskiej. Każdy z jego 
+wierszy ma następujący układ:
+    10 Maciej Zielinski 14 10 8 5
+
+Pierwszą pozycją jest numer gracza, należący do przedziału 0-18, drugą
+- imię gracza, a trzecią - nazwisko. Zarówno imię, jak i nazwisko składają się 
+z jednego słowa. Kolejnymi wartościami są: liczba oddanych rzutów za 2 punkty,
+liczba trafień za 2 punkty, liczba asyst oraz liczba fauli.
+Plik może zawierać dane z więcej niż jednego meczu, a więc statystyki jednego 
+gracza mogą przeplatać się ze statystykami innych graczy. Napisz program, który
+pobiera dane z pliku (aż do jego końca) i wczytuje je do tablicy struktur.
+Każda struktura powinna opisywać jednego gracza i zawierać składniki przeznaczone
+do przechowywania jego imienia, nazwiska, ilości rzutów za 2 punkty, ilości
+rzutów trafionych, ilości asyst, ilości fauli (chodzi o całkowite ilości ze wszystkich
+meczów) oraz skuteczności (która zostanie obliczona później). Numer gracza może
+zostać użyty jako indeks tablicy.
+
+Najprostszym sposobem, aby to osiągnąć, jest przypisanie wszystkich składnikom 
+struktury wartości 0, wczytywanie danych liczbowych z pliku do zmiennych
+tymczasowych i dodawanie ich do składników odpowiedniej struktury. Po zakończeniu
+odczytywania pliku program powinien obliczyć skuteczność każdego gracza 
+i zapisać ją w odpowiednim składniku każdej struktury. Skuteczność otrzymujemy
+przez podzielenie całkowitej liczby rzutów trafionych przez całkowitą liczbę rzutów
+oddanych; powinna być ona wartością zmiennoprzecinkową. Program powinien
+wyświetlać zbiorcze statystyki dla każdego gracza oraz dla całej drużyny.
+
+7. Zmodyfikuj listing 14.14 tak, aby w miarę odczytywania kolejnych rekordów
+i wyświetlania ich na ekranie, możliwe było usunięcie lub zmiana zawartości 
+każdego rekordu. W przypadku usunięcia rekordu w zwolnionym miejscu tablicy powinien
+zostać umieszczony następny odczytany rekord. Aby umożliwić zmianę zawartości
+pliku, będziesz musiał użyć trybu "r+b" zamiast "a+b". Będziesz również
+musiał poświęcić więcej uwagi wskaźnikowi położenia tak, aby dodawane rekordy
+nie zamazywały rekordów istniejących. Najrostszym wyjściem jest 
+przygotowanie danych w pamięci komputera, a następnie zapisanie ich ostatecznej 
+wersji w pliku.
+
+8. Flota linii lotniczych Colossus składa się z jednego samolotu o 12 miejscach.
+Samolot ten odbywa jeden rejs dziennie. Napisz program do rezerwacji miejsc
+spełniający następujące warunki:
+
+a) Program wykorzystuje tablicę 12 struktur. Każda z nich powinna przechowywać
+numer identyfikujący miejsca, znacznik określający, czy miejsce jest wolne,
+oraz imię i nazwisko osoby, która dokonała rezerwacji.
+
+b) Program wyświetla poniższe menu:
+
+    Aby wybrac opcje, wpisz jej oznaczenie literowe:
+    a) Pokaz liczbe pustych miejsc
+    b) Pokaz liste pustych miejsc
+    c) Pokaz alfabetyczna liczbe miejsc
+    d) Zarezerwuj miejsce dla klienta
+    e) Usun rezerwacje miejsca
+    f) Koniec
+
+c) Program wykonuje czynnosci zapowiedziane w menu. Opcje d) i e) wymagają podania 
+dodatkowych danych: każda z nich powinna umożliwić przerwanie wpisywania.
+
+d) Po wykonaniu jednej z funkcji program powinien ponownie wyświetlić menu 
+(nie dotyczy opcji f).
+
+e) Informacje o rezerwacjach są przechowywane w pliku.
+
+9. Linie lotnicze Colossus nabyły drugi samolot (o tej samej liczbie miejsc) 
+i rozszerzyły swoje usługi do czterech rejsów dziennie (rejsy 102, 311, 444 i 519).
+Zmodyfikuj program z poprzedniego ćwiczenia tak, aby obsługiwał on cztery
+rejsy. Dodaj nadrzędne menu, pozwalające wybrać jeden z lotów lub zakończyć
+program. Po wybraniu rejsu na ekranie powinno pojawić się menu podobne do tego 
+z ćwiczenia nr 8. Powinno ono jednak zawierać dodatkową opcję: potwierdzenie
+rezerwacji miejsca. Podanto, opcja "koniec" powinna zostać zastąpiona opcją
+"powrót do menu głównego". Przez cały czas na ekranie powinien być widoczny
+numer lotu, który jest aktualnie modyfikowany. Oprócz tego, lista alfabetyczna
+(opcja c) powinna zawierać informację o powtwierdzeniu rezerwacji dla każdego z miejsc.
+
+10. Napisz program, który realizuje menu za pomocą tablicy wskaźników do funkcji.
+Na przykład, wybrane opcji a powodowałoby uruchomienie funkcji wskazanej 
+przez pierwszy element tablicy.
+
+11. Napisz funkcje przeksztalc(), która pobiera cztery argumenty: nazwę tablicy
+źródłowej zawierającej dane typu double, nazwę docelowej tablicy typu double, 
+zmienną typu int określającą liczbę elementów tablicy oraz nazwę funkcji (albo
+odpowiednio wskaźnik do funkcji). Funkcja przeksztalc() powinna zastosować
+podobną funkcję do każdego elementu w tablicy źródłowej, umieszczając rezultaty
+w docelowej tablicy. Dla przykładu wywołanie:
+
+    przeksztalc(zrodlo, cel, 100, sin);
+
+powinno wstawić do cel[0] wartość zwróconą przez funkcję sin(zrodlo[0]),
+itd. Sprawdź jak zachowuje się ta funkcja w prawdziwym programie wywołującym
+funkcję przeksztalc() czterokrotnie, stosując dwie funkcje z biblioteki math.h 
+oraz dwie funkcje Twojego autorstwa jako argumenty kolejnych wywołań funkcji
+przeksztalc().
+
+
+
+*/
+
 #include <stdio.h>
 #include <string.h>
 
@@ -91,61 +242,6 @@ void zad1(){
 
 void zad2(){
     printf("Patrz rozwiazanie zadania 14.2.c\n");
-    /*struct dni {
-        int dzien;
-        char miesiac[20];
-        int rok;
-    };
-    int suma = 0;
-    struct dni podajdzien;
-    printf("Podaj dzien: "); scanf("%d", &podajdzien.dzien);
-    printf("Podaj miesiac: "); scanf("%s", podajdzien.miesiac);
-    printf("Podaj rok: ");  scanf("%d", &podajdzien.rok);
-    printf("Podales:\n");
-    printf("%d, %s, %d\n", podajdzien.dzien, podajdzien.miesiac, podajdzien.rok);
-    // sprawdz ktory miesiac roku (ogranicz sie do 3 pierwszych liter zgodnie z zadaniem)
-    // styczen - 1 , luty - 2, marzec - 3, kwiecien - 4, maj - 5, czerwiec - 6,
-    // lipiec - 7, sierpien - 8, wrzesien - 9, pazdziernik - 10, listopad - 11,
-    // grudzien - 12
-    // ile dni od poczatku roku?
-    if((podajdzien.miesiac[0] == 's' && podajdzien.miesiac[1] == 't') || (podajdzien.miesiac[0] == '1' && podajdzien.miesiac[1] == '\0')){
-        suma = podajdzien.dzien;
-    }
-    if((podajdzien.miesiac[0] == 'l' && podajdzien.miesiac[1] == 'u') || podajdzien.miesiac[0] == '2'){
-        suma = 31 + podajdzien.dzien;
-    }
-    if((podajdzien.miesiac[0] == 'm' && podajdzien.miesiac[2] == 'r') || podajdzien.miesiac[0] == '3'){
-        suma = 59 + podajdzien.dzien;
-    }
-    if(podajdzien.miesiac[0] == 'k' || podajdzien.miesiac[0] == '4'){
-        suma = 90 + podajdzien.dzien;
-    }
-    if((podajdzien.miesiac[0] == 'm' && podajdzien.miesiac[2] == 'j')  || podajdzien.miesiac[0] == '5'){
-        suma = 120 + podajdzien.dzien;
-    }
-    if((podajdzien.miesiac[0] == 'c' && podajdzien.miesiac[1] == 'z') || podajdzien.miesiac[0] == '6'){
-        suma = 151 + podajdzien.dzien;
-    }
-    if((podajdzien.miesiac[0] == 'l' && podajdzien.miesiac[2] == 'p') || podajdzien.miesiac[0] == '7'){
-        suma = 181 + podajdzien.dzien;
-    }
-    if((podajdzien.miesiac[0] == 's' && podajdzien.miesiac[1] == 'i') || podajdzien.miesiac[0] == '8'){
-        suma = 212 + podajdzien.dzien;
-    }
-    if(podajdzien.miesiac[0] == 'w' || podajdzien.miesiac[0] == '9'){
-        suma = 243 + podajdzien.dzien;
-    }
-    if(podajdzien.miesiac[0] == 'p' || (podajdzien.miesiac[0] == '1' && podajdzien.miesiac[1] == '0')){
-        suma = 273 + podajdzien.dzien;
-    }
-    if((podajdzien.miesiac[0] == 'l' && podajdzien.miesiac[2] == 's') || (podajdzien.miesiac[0] == '1' && podajdzien.miesiac[1] == '1')){
-        suma = 304 + podajdzien.dzien;
-    }
-    if(podajdzien.miesiac[0] == 'g' || (podajdzien.miesiac[0] == '1' && podajdzien.miesiac[1] == '2')){
-        suma = 334 + podajdzien.dzien;
-    }
-    printf("Od poczatku roku minelo: %d dni\n", suma);
-    */
 }
 
 void zad3(){
