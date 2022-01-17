@@ -79,7 +79,6 @@ ale tym razem zastosuj zmienne typu unsigned int do przechowywania informacji
 o czcionkach. Wykorzystaj do przetwarzania informacji operatory binarne 
 zamiast składników bitowych.
 
-
 */
 
 #include <stdio.h>
@@ -91,6 +90,7 @@ void zad4();
 void zad5();
 void zad6();
 void zad7();
+int binToDec(char *);
 
 int main(void){
     int choice;
@@ -133,8 +133,8 @@ int main(void){
 
 /*
 
-1 -     NOT DONE!
-2 -     NOT DONE!
+1 -     DONE
+2 -     DONE
 3 -     NOT DONE!
 4 -     NOT DONE!
 5 -     NOT DONE!
@@ -147,11 +147,11 @@ int main(void){
 
 
 void zad1(){
-
+    printf("%d\n", binToDec("01001001"));
 }    
 
 void zad2(){
-
+    printf("Patrz rozwiazanie zadania 15.2.c\n");
 }
 
 void zad3(){
@@ -172,4 +172,13 @@ void zad6(){
 
 void zad7(){
 
+}
+
+int binToDec(char *wbin){
+    int liczba = 0;
+    while(*wbin != '\0')
+    {
+        liczba = 2 * liczba + (*wbin++ - '0');
+    }
+    return liczba;
 }
