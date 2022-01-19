@@ -91,6 +91,8 @@ void zad5();
 void zad6();
 void zad7();
 int binToDec(char *);
+int iloscBitow(int n);
+
 
 int main(void){
     int choice;
@@ -135,7 +137,7 @@ int main(void){
 
 1 -     DONE
 2 -     DONE
-3 -     NOT DONE!
+3 -     DONE
 4 -     NOT DONE!
 5 -     NOT DONE!
 6 -     NOT DONE!
@@ -155,7 +157,12 @@ void zad2(){
 }
 
 void zad3(){
+    int n;
+    printf("Wprowadz liczbe: ");
+    scanf("%d", &n);
+    printf("%d\n", n);
 
+    printf("Liczba wlaczonych bitow w liczbie %d wynosi %d\n", n, iloscBitow(n));
 }
 
 void zad4(){
@@ -181,4 +188,19 @@ int binToDec(char *wbin){
         liczba = 2 * liczba + (*wbin++ - '0');
     }
     return liczba;
+}
+
+int iloscBitow(int n){
+    int liczbaBitow = 0;
+    int i = 0;
+    while(i < 32)
+    {
+        if((01&n) == 1)
+        {
+            liczbaBitow++;
+        }
+        n >>= 1;
+        i++;        
+    }
+    return liczbaBitow;
 }
