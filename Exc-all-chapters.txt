@@ -1,5 +1,5 @@
 
-Wykonano: 133/156(85.25 %)
+Wykonano: 134/156(85.89 %)
 
 CHAPTER 1
 -
@@ -184,7 +184,7 @@ CHAPTER 15
 3 - DONE
 4 - DONE
 5 - DONE
-6 - NOT DONE
+6 - DONE
 7 - NOT DONE
 
 CHAPTER 16

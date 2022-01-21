@@ -143,7 +143,7 @@ int main(void){
 3 -     DONE
 4 -     DONE
 5 -     DONE
-6 -     NOT DONE!
+6 -     DONE
 7 -     NOT DONE!
 
 */

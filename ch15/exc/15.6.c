@@ -58,16 +58,17 @@ void usunEnter(){
 // jakie masz opcje?
 void wyswietlOpcje(){
     printf("a) zmiana czcionki  b) zmiana rozmiaru  c) zmiana wyrownania\n");
-    printf("d) zmiena przetluszczenia   e) zmiana kurywy\n");
+    printf("d) zmiena przetluszczenia   e) zmiana kursywy\n");
     printf("f) zmiana podkreslenia  k) koniec\n");
 }
 
 // jakie są poprawne odpowiedzi
 void poprawnaOdpowiedz(char odp){
+
     while(strchr("abcdefk", odp) == 0){
-        printf("Nieprawidlowa odpowiedz. Podaj ponownie litere: ");
+        printf("Nieprawidlowa odpowiedz. Podaj ponownie litere.\n");
         wyswietlOpcje();
-        scanf("%d", &odp);
+        scanf("%c", &odp);
         usunEnter();
     }
 }
@@ -96,7 +97,7 @@ void wyborFunkcji(struct wl_czcionki *czcionka, char odp){
 void wyswietlanieMenu(struct wl_czcionki *czcionka){
 
     char wyrownanie[10];
-    char odpowiedz;
+    char odp;
 
     switch(czcionka->wyr) {
         case SRODEK:    strcpy(wyrownanie, "srodek"); break;
@@ -105,27 +106,29 @@ void wyswietlanieMenu(struct wl_czcionki *czcionka){
     }
 
     printf("Typ   Rozmiar     Wyrownanie    Wytl.   Kurs.    Podkr.\n");
-    printf("%d    %d          %s          %s      %s       %s\n", czcionka->typ, czcionka->rozmiar, wyrownanie, czcionka->wytl? "wl":"wyl",czcionka->kursywa? "wl":"wyl", czcionka->podkreslenie? "wl":"wyl");
+    printf("%d     %d          %s          %s     %s      %s\n", czcionka->typ, czcionka->rozmiar, wyrownanie, czcionka->wytl? "wl":"wyl",czcionka->kursywa? "wl":"wyl", czcionka->podkreslenie? "wl":"wyl");
     wyswietlOpcje();
 
-    scanf("%d", &odpowiedz);
+    scanf("%c", &odp);
     usunEnter();
-    poprawnaOdpowiedz(odpowiedz);
     
-    while (odpowiedz != 'k')
+    
+    poprawnaOdpowiedz(odp);
+    
+    while (odp != 'k')
     {
-        wyborFunkcji(czcionka, odpowiedz);
+        wyborFunkcji(czcionka, odp);
         switch (czcionka->wyr) {
             case SRODEK: strcpy(wyrownanie, "srodek"); break;
             case LEWA: strcpy(wyrownanie, "lewa"); break;
             case PRAWA: strcpy(wyrownanie, "prawa"); break;
         }
         printf("Typ   Rozmiar     Wyrownanie    Wytl.   Kurs.    Podkr.\n");
-        printf("%d    %d          %s          %s      %s       %s\n", czcionka->typ, czcionka->rozmiar, wyrownanie, czcionka->wytl? "wl":"wyl",czcionka->kursywa? "wl":"wyl", czcionka->podkreslenie? "wl":"wyl");
+        printf("%d     %d          %s          %s     %s        %s\n", czcionka->typ, czcionka->rozmiar, wyrownanie, czcionka->wytl? "wl":"wyl",czcionka->kursywa? "wl":"wyl", czcionka->podkreslenie? "wl":"wyl");
         wyswietlOpcje();
-        scanf("%c", &odpowiedz);
+        scanf("%c", &odp);
         usunEnter();
-        poprawnaOdpowiedz(odpowiedz);
+        poprawnaOdpowiedz(odp);
     }
     
 }
@@ -174,13 +177,13 @@ void zmianaWyrownania(struct wl_czcionki *czcionka){
 
     printf("Wybierz wyrownanie:\n");
     printf("l) lewo s) srodek   p) prawo\n");
-    scanf("%d", &zmianaWyrownania);
+    scanf("%c", &zmianaWyrownania);
     usunEnter();
 
     while(strchr("lsp", zmianaWyrownania) == 0){
         printf("Nieprawidlowa odpowiedz\n");
         printf("l) lewo s) srodek   p) prawo\n");
-        scanf("%d", &zmianaWyrownania);
+        scanf("%c", &zmianaWyrownania);
         usunEnter();
     }
 
