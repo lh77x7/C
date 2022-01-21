@@ -1,0 +1,1 @@
+// rozwiazanie zadania 7 z rodziały 15

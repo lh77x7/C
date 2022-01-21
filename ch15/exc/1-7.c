@@ -196,11 +196,11 @@ void zad5(){
 }
 
 void zad6(){
-
+    printf("Patrz rozwiazanie zadania 15.6.c\n");
 }
 
 void zad7(){
-
+    printf("Patrz rozwiazanie zadania 15.7.c\n");
 }
 
 int binToDec(char *wbin){
