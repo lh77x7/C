@@ -87,6 +87,7 @@ dodając funkcję pokaz_tablica() i nowa_tablica().
 */
 
 #include <stdio.h>
+#include "makro.h"
 
 void zad1();
 void zad2();
@@ -137,8 +138,8 @@ int main(void){
 
 /*
 
-1 -     NOT DONE!
-2 -     NOT DONE!
+1 -     DONE
+2 -     DONE
 3 -     NOT DONE!
 4 -     NOT DONE!
 5 -     NOT DONE!
@@ -151,11 +152,11 @@ int main(void){
 
 
 void zad1(){
-
+    printf("Przygotowanie pliku makr makro.h\n");
 }    
 
 void zad2(){
-
+    printf("Srednia harmoniczna: z 1 i 5: %.2f\n", SREDNIAHARMONICZNA(1,5));
 }
 
 void zad3(){
