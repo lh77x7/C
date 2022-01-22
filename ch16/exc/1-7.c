@@ -140,7 +140,7 @@ int main(void){
 
 1 -     DONE
 2 -     DONE
-3 -     NOT DONE!
+3 -     DONE
 4 -     NOT DONE!
 5 -     NOT DONE!
 6 -     NOT DONE!
@@ -160,7 +160,21 @@ void zad2(){
 }
 
 void zad3(){
+    double x, y;
+    double r, alfa;
+    puts("Wprowadz dlugosc wektora: ");
+    scanf("%lf", &r);
 
+    puts("Podaj kat nachylenia (w stopniach): ");
+    scanf("%lf", &alfa);
+    alfa = STOPNIENARADIANY * alfa;
+
+    x = r * cos(alfa);
+    y = r * sin(alfa);
+
+    printf("Wyniki:\n");
+    printf("x = %.2lf\n", x);
+    printf("y = %.2lf\n", y);
 }
 
 void zad4(){
