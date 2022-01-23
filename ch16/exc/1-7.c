@@ -87,7 +87,10 @@ dodając funkcję pokaz_tablica() i nowa_tablica().
 */
 
 #include <stdio.h>
+#include <time.h>
 #include "makro.h"
+clock_t clock(void);
+void funkcja(double);
 
 void zad1();
 void zad2();
@@ -141,7 +144,7 @@ int main(void){
 1 -     DONE
 2 -     DONE
 3 -     DONE
-4 -     NOT DONE!
+4 -     DONE
 5 -     NOT DONE!
 6 -     NOT DONE!
 7 -     NOT DONE!
@@ -160,8 +163,10 @@ void zad2(){
 }
 
 void zad3(){
+    
     double x, y;
     double r, alfa;
+    
     puts("Wprowadz dlugosc wektora: ");
     scanf("%lf", &r);
 
@@ -178,6 +183,13 @@ void zad3(){
 }
 
 void zad4(){
+    
+    double czas;
+
+    printf("Podaj czas:\n");
+    scanf("%lf", &czas);
+
+    funkcja(czas);
 
 }
 
@@ -190,5 +202,22 @@ void zad6(){
 }
 
 void zad7(){
+
+}
+
+void funkcja(double czas){
+
+    int i = 0;
+
+    double x = (double)clock();
+    double y = (double)clock();
+
+    while((y - x)/CLOCKS_PER_SEC < czas)
+    {
+        i++;
+        y = (double)clock();
+    }
+    printf("%f\n", y/CLOCKS_PER_SEC);
+    printf("%d\n", i);
 
 }
