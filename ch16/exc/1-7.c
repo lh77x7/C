@@ -53,7 +53,7 @@ i opracowywanie programu") lub podobną, użyj zwróconej przez nią wartości d
 zainicjalizowania generatora liczb losowych (za pomocą funkcji srand()).
 Napisz prosty program testujący funkcję.
 
-6. Zmodyfikuj listing 16.13 tak, aby przyporządkował tablice typu struct osoba 
+6. Zmodyfikuj listing 16.15 tak, aby przyporządkował tablice typu struct osoba 
 (zdefiniowaną w tekście po listingu) zamiast tablicy typu double. Użyj mniejszej
 liczby elementów i zainicjalizuj je własnoręcznie.
 
@@ -87,10 +87,21 @@ dodając funkcję pokaz_tablica() i nowa_tablica().
 */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <time.h>
 #include "makro.h"
+#define DL_LAN 30
+void wprowadzenie();
+void pokaz_strukture();
 clock_t clock(void);
 void funkcja(double);
+int porownaj(const void * w1, const void * w2);
+struct osoba {
+    char imie[DL_LAN];
+    char nazwisko[DL_LAN];
+};
+struct osoba personel[3];
 
 void zad1();
 void zad2();
@@ -146,7 +157,7 @@ int main(void){
 3 -     DONE
 4 -     DONE
 5 -     NOT DONE!
-6 -     NOT DONE!
+6 -     DONE
 7 -     NOT DONE!
 
 */
@@ -198,6 +209,10 @@ void zad5(){
 }
 
 void zad6(){
+    
+    wprowadzenie();
+    qsort(personel, 3, sizeof(struct osoba), porownaj);
+    pokaz_strukture();
 
 }
 
@@ -220,4 +235,35 @@ void funkcja(double czas){
     printf("%f\n", y/CLOCKS_PER_SEC);
     printf("%d\n", i);
 
+}
+
+//porzadkuje w kolejnosci rosnacej
+int porownaj(const void * w1, const void *w2)
+{
+    const struct osoba *ws1 = w1;
+    const struct osoba *ws2 = w2;
+    int wyn;
+    wyn = strcmp(ws1->nazwisko, ws2->nazwisko);
+    if(wyn!=0)
+        return wyn;
+    else
+        return strcmp(ws1->imie, ws2->imie);
+}
+
+void wprowadzenie(){
+
+    for(int i = 0; i < 3; i++){
+        printf("Imie %d: ", i+1);
+        scanf("%s", personel[i].imie);
+        printf("Nazwisko %d: ", i+1);
+        scanf("%s", personel[i].nazwisko);
+    }
+    printf("Koniec wprowadzania\n");
+
+}
+
+void pokaz_strukture(){
+    for(int i = 0; i < 3; i++){
+        printf("%s %s\n", personel[i].imie, personel[i].nazwisko);
+    }       
 }
