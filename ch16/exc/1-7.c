@@ -99,7 +99,7 @@ void pokaz_strukture();
 clock_t clock(void);
 void funkcja(double);
 void generujtablice(int tab[], int n);
-void funkcja(int tab[], int n, int liczba_poz);
+void funkcja_tablicy(int tab[], int n, int liczba_poz);
 void pokaztab(int tab[], int n);
 int porownaj(const void * w1, const void * w2);
 void pokaz_tablice(const double tab[], int n);
@@ -212,6 +212,16 @@ void zad4(){
 
 void zad5(){
 
+    srand((unsigned) time(NULL));
+    int tab[ROZMIAR];
+    int liczba_poz;
+    
+    generujtablice(tab, ROZMIAR);
+    pokaztab(tab, ROZMIAR);
+    
+    liczba_poz = rand() % ROZMIAR;
+    
+    funkcja_tablicy(tab, ROZMIAR, liczba_poz);
 }
 
 void zad6(){
@@ -307,12 +317,35 @@ double * nowa_tablica(int n, ...) {
 
 void generujtablice(int tab[], int n){
 
+    for(int i = 0; i < n; i++){
+        tab[i] = rand() % 100;
+    }
 }
 
-void funkcja(int tab[], int n, int liczba_poz){
+void funkcja_tablicy(int tab[], int n, int liczba_poz){
 
+    int i = 0, j;
+    int ile = 0;
+    printf("Wybieram %d pozycji\n", liczba_poz);
+
+    while(i < liczba_poz){
+        
+        for(j = i + 1; j < liczba_poz; j++){
+            if(tab[i] == tab[j])
+                ile++;
+        }
+        if(ile == 0)
+            printf("%d ", tab[i]);
+        ile = 0;
+        i++;
+    }
+    putchar('\n');
 }
 
 void pokaztab(int tab[], int n){
 
+    for(int i = 0; i < n; i++){
+        printf("%d ", tab[i]);
+    }
+    putchar('\n');
 }
