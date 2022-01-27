@@ -87,16 +87,24 @@ dodając funkcję pokaz_tablica() i nowa_tablica().
 */
 
 #include <stdio.h>
+#include <stdarg.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
 #include "makro.h"
 #define DL_LAN 30
+#define ROZMIAR 30
 void wprowadzenie();
 void pokaz_strukture();
 clock_t clock(void);
 void funkcja(double);
+void generujtablice(int tab[], int n);
+void funkcja(int tab[], int n, int liczba_poz);
+void pokaztab(int tab[], int n);
 int porownaj(const void * w1, const void * w2);
+void pokaz_tablice(const double tab[], int n);
+double * nowa_tablica(int n, ...);
+
 struct osoba {
     char imie[DL_LAN];
     char nazwisko[DL_LAN];
@@ -156,13 +164,11 @@ int main(void){
 2 -     DONE
 3 -     DONE
 4 -     DONE
-5 -     NOT DONE!
+5 -     DONE
 6 -     DONE
-7 -     NOT DONE!
+7 -     DONE
 
 */
-
-
 
 
 void zad1(){
@@ -217,7 +223,14 @@ void zad6(){
 }
 
 void zad7(){
-
+    double *w1;
+    double *w2;
+    w1 = nowa_tablica(5, 1.2, 2.3, 3.4, 4.5, 5.6);
+    w2 = nowa_tablica(4, 100.0, 20.00, 8.08, -1890.0);
+    pokaz_tablice(w1, 5);
+    pokaz_tablice(w2, 4);
+    free(w1);
+    free(w2);
 }
 
 void funkcja(double czas){
@@ -266,4 +279,40 @@ void pokaz_strukture(){
     for(int i = 0; i < 3; i++){
         printf("%s %s\n", personel[i].imie, personel[i].nazwisko);
     }       
+}
+
+void pokaz_tablice(const double tab[], int n){
+    for(int i = 0; i < n; i++)
+    {
+        printf("%.2lf ", tab[i]);
+    }
+    putchar('\n');
+}
+
+double * nowa_tablica(int n, ...) {
+
+    double *tab = malloc ((n)*sizeof(double));
+
+    va_list ap;
+    int i;
+    va_start(ap, n);
+    // zainicjalizowanie ap lista argumentów
+    for(int i = 0; i < n; i++){ // dostęp do każdego elementu w liście argumentów
+        tab[i] = va_arg(ap, double);
+    }
+    va_end(ap); // czyszczenie
+
+    return tab;
+}
+
+void generujtablice(int tab[], int n){
+
+}
+
+void funkcja(int tab[], int n, int liczba_poz){
+
+}
+
+void pokaztab(int tab[], int n){
+
 }
