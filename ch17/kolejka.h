@@ -3,7 +3,12 @@
 #define _KOLEJKA_H_
 #include <stdbool.h>
 
-typedef int Pozycja;
+typedef struct pozycja
+{
+    long przybycie; // czas wejscia klienta do kolejki
+    int czaskons;   // liczba zadanych minut konsultacji
+} Pozycja;
+//typedef int Pozycja;
 #define MAXKOLEJKA 10
 typedef struct wezel
 {
