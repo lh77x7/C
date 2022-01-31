@@ -13,12 +13,12 @@ typedef struct pozycja
 typedef struct wezel
 {
     Pozycja pozycja;
-    struct *lewy;   // wskaznik po prawej galezi
-    struct *prawy;  // wskaznik po lewej galezi
+    struct wezel * lewy;   // wskaznik po prawej galezi
+    struct wezel * prawy;  // wskaznik po lewej galezi
 } Wezel;
 typedef struct drzewo
 {
-    Wezel *korzen;  // wskaznik do korzenia drzewa
+    Wezel * korzen;  // wskaznik do korzenia drzewa
     int rozmiar;    // liczba pozycji na drzewie
 } Drzewo;
 
@@ -31,7 +31,7 @@ war. wstepne:   wdrzewo wskazuje na drzewo
 war. koncowe:  drzewo zostalo zainicjalizowane
 
 */
-void InicjujDrzewo(Drzewo *wdzewo);
+void InicjujDrzewo(Drzewo * wdzewo);
 
 /*
 
@@ -42,7 +42,7 @@ war. koncowe: funkcja zwraca true, jesli drzewo jest puste,
 a w przeciwnym wypadku - false.
 
 */
-bool PusteDrzewo(const Drzewo *wdrzewo);
+bool PusteDrzewo(const Drzewo * wdrzewo);
 
 /*
 
@@ -53,7 +53,7 @@ war. koncowe:   funkcja zwraca true, jesli drzewo jest puste,
 a w przeciwnym wypadku - false.
 
 */
-bool PelneDrzewo(const Drzewo *wdrzewo);
+bool PelneDrzewo(const Drzewo * wdrzewo);
 
 /*
 
@@ -62,7 +62,7 @@ war. wstepne:   wdrzewo wskazuje na drzewo
 war. koncowe:   funkcja zwraca liczbe pozycji w drzewie
 
 */
-int LiczbaPozycji(const Drzewo *wdrzewo);
+int LiczbaPozycji(const Drzewo * wdrzewo);
 
 /*
 
@@ -75,7 +75,7 @@ pozycje do drzewa i zwraca true; w przeciwnym wypadku
 funkcja zwraca false.
 
 */
-bool DodajPozycje(const Pozycja *wp, Drzewo *wdrzewo);
+bool DodajPozycje(const Pozycja * wp, Drzewo * wdrzewo);
 
 /*
 
@@ -87,7 +87,7 @@ war. koncowe:   funkcja zwraca true, jesli pozycja
 znajduje sie sie w drzewie, a w przeciwnym wypadku - false.
 
 */
-bool WDrzewie(const Pozycja *wp, const Drzewo *wdrzewo);
+bool WDrzewie(const Pozycja * wp, const Drzewo * wdrzewo);
 
 /*
 
@@ -100,7 +100,7 @@ pozycje z drzewa i zwraca true;
 w przeciwnym wypadku funkcja zwraca false.
 
 */
-bool UsunPozycje(const Pozycja *wp, Drzewo *wdrzewo);
+bool UsunPozycje(const Pozycja * wp, Drzewo * wdrzewo);
 
 /*
 
@@ -112,7 +112,7 @@ war. koncowe:   funkcja wskazywana przez wfun zostaje
 zastosowana jeden raz dla kazdej pozycji w drzewie
 
 */
-void Przejdz(const Drzewo *wdrzewo, void (* wfun)(Pozycja pozycja));
+void Przejdz(const Drzewo * wdrzewo, void (* wfun)(Pozycja pozycja));
 
 /*
 
@@ -121,5 +121,5 @@ war. wstepne:   wdrzewo wskazuje na zainicjalizowane drzewo
 war. koncowe:   drzewo jest puste
 
 */
-void UsunWszystko(Drzewo *wdrzewo);
+void UsunWszystko(Drzewo * wdrzewo);
 #endif

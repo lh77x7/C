@@ -21,30 +21,30 @@ static void UsunWezel (Wezel ** wsk);
 static void UsunWszystkieWezly(Wezel * wsk);
 
 // definicje funkcji
-void InicjujDrzewo(Drzewo *wdzewo){
+void InicjujDrzewo(Drzewo * wdzewo){
     wdzewo->korzen = NULL;
     wdzewo->rozmiar = 0;
 }
 
-bool PusteDrzewo(const Drzewo *wdrzewo){
+bool PusteDrzewo(const Drzewo * wdrzewo){
     if(wdrzewo->korzen == NULL)
         return true;
     else 
         return false;
 }
 
-bool PelneDrzewo(const Drzewo *wdrzewo){
+bool PelneDrzewo(const Drzewo * wdrzewo){
     if(wdrzewo->rozmiar == MAXPOZ)
         return true;
     else
         return false;
 }
 
-int LiczbaPozycji(const Drzewo *wdrzewo){
+int LiczbaPozycji(const Drzewo * wdrzewo){
     return wdrzewo->rozmiar;
 }
 
-bool DodajPozycje(const Pozycja *wp, Drzewo *wdrzewo){
+bool DodajPozycje(const Pozycja * wp, Drzewo * wdrzewo){
     Wezel * nowy;
     if(PelneDrzewo(wdrzewo))
     {
@@ -72,11 +72,11 @@ bool DodajPozycje(const Pozycja *wp, Drzewo *wdrzewo){
 
 }
 
-bool WDrzewie(const Pozycja *wp, const Drzewo *wdrzewo){
+bool WDrzewie(const Pozycja * wp, const Drzewo * wdrzewo){
     return (SzukajPozycji(wp, wdrzewo).dziecko == NULL) ? false : true;
 }
 
-bool UsunPozycje(const Pozycja *wp, Drzewo *wdrzewo){
+bool UsunPozycje(const Pozycja * wp, Drzewo * wdrzewo){
     Para szuk;
     szuk = SzukajPozycji(wp, wdrzewo);
     if(szuk.dziecko == NULL)
@@ -91,12 +91,12 @@ bool UsunPozycje(const Pozycja *wp, Drzewo *wdrzewo){
     return true;
 }
 
-void Przejdz(const Drzewo *wdrzewo, void (* wfun)(Pozycja pozycja)){
+void Przejdz(const Drzewo * wdrzewo, void (* wfun)(Pozycja pozycja)){
     if(wdrzewo != NULL)
         PoKolei(wdrzewo->korzen, wfun);
 }
 
-void UsunWszystko(Drzewo *wdrzewo){
+void UsunWszystko(Drzewo * wdrzewo){
     if(wdrzewo != NULL)
         UsunWszystkieWezly(wdrzewo->korzen);
     wdrzewo->korzen = NULL;
@@ -231,5 +231,3 @@ static void UsunWezel (Wezel ** wsk){
         free(tymcz);
     }
 }
-
-
