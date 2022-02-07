@@ -147,8 +147,6 @@ funkcję przeksztalc() czterokrotnie, stosując dwie funkcje z biblioteki math.h
 oraz dwie funkcje Twojego autorstwa jako argumenty kolejnych wywołań funkcji
 przeksztalc().
 
-
-
 */
 
 #include <stdio.h>
