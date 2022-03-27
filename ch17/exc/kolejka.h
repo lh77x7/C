@@ -91,4 +91,15 @@ zwraca false.
 
 */
 bool Odlacz(Pozycja *wpozycja, Kolejka *wk);
+
+
+/*
+
+działanie: opróżnij kolejkę
+war. wstepny: wskaźnik wk do poprzednio zainicjalizowanej kolejki
+
+war. koncowy: kolejka jest pusta
+
+*/
+void OproznijKolejke(Kolejka *wk);
 #endif

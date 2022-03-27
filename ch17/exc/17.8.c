@@ -1,0 +1,1 @@
+// rozwiązanie zadania 8 rozdział 17
