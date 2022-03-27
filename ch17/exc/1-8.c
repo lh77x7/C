@@ -118,7 +118,7 @@ int main(void){
 5 -     DONE
 6 -     DONE
 7 -     DONE
-8 -     NOT DONE!
+8 -     DONE
 
 */
 
@@ -154,5 +154,5 @@ void zad7(){
 }
 
 void zad8(){
-
+    printf("Patrz rozwiazanie 17.8.c\n");
 }
