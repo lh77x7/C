@@ -1,0 +1,10 @@
+0 Carmelo Anthony 1000 380 222 30
+1 Trevor Ariza 1200 430 333 40
+2 D.J. Augustin 1320 555 444 40
+3 Kent Bazemore 1355 650 555 40
+4 Avery Bradley 1220 540 444 50
+5 Anthony Davis 560 260 333 50
+6 Wayne Ellington 780 333 222 50
+7 Talen Horton-Tucker 850 332 111 60
+8 Dwight Howard 930 422 200 60
+9 Lebron James 1120 777 444 40

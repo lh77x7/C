@@ -1,0 +1,1 @@
+// rozwiazanie zadania 10 z rodzialu 14

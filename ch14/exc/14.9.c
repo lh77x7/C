@@ -1,0 +1,1 @@
+// rozwiazanie zadania 9 z rodzialu 14

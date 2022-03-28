@@ -225,7 +225,7 @@ int main(void){
 3 -     DONE
 4 -     DONE
 5 -     DONE
-6 -     NOT DONE!
+6 -     DONE
 7 -     NOT DONE!
 8 -     NOT DONE!
 9 -     NOT DONE!
@@ -306,25 +306,25 @@ void zad5(){
 }
 
 void zad6(){
-
+    printf("Patrz rozwiazanie zadania 14.6.c\n");
 }
 
 void zad7(){
-
+    printf("Patrz rozwiazanie zadania 14.7.c\n");
 }
 
 void zad8(){
-
+    printf("Patrz rozwiazanie zadania 14.8.c\n");
 }
 
 void zad9(){
-
+    printf("Patrz rozwiazanie zadania 14.9.c\n");
 }
 
 void zad10(){
-
+    printf("Patrz rozwiazanie zadania 14.10.c\n");
 }
 
 void zad11(){
-
+    printf("Patrz rozwiazanie zadania 14.11.c\n");
 }

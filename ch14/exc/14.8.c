@@ -1,0 +1,1 @@
+// rozwiazanie zadania 8 z rodzialu 14
