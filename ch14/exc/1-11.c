@@ -227,7 +227,7 @@ int main(void){
 5 -     DONE
 6 -     DONE
 7 -     DONE
-8 -     NOT DONE!
+8 -     DONE
 9 -     NOT DONE!
 10 -    NOT DONE!
 11 -    NOT DONE!
